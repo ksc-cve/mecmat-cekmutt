@@ -9,9 +9,9 @@
 
 | สิ่งของ | Reaction ERP (ห้ามแตะ) | mecmat-cekmutt (ของเรา) |
 |---|---|---|
-| โฟลเดอร์โค้ดบน Mac | `VS_Code/Engineering_Management Platform` | `VS_Code/mecmat-cekmutt` |
+| โฟลเดอร์โค้ดบน Mac | `MyWebApp/ReactionERP/reaction-erp` | `MyWebApp/mecmat-cekmutt` |
 | GitHub | `ksc-cve/reaction-erp` | `ksc-cve/mecmat-cekmutt` |
-| ข้อมูลบน Mac | `~/emp-data`, `VS_Code/emp-data` | `~/mecmat-data` |
+| ข้อมูลบน Mac | `~/emp-data`, `MyWebApp/ReactionERP/` | `~/mecmat-data` |
 | พอร์ตบน Mac และเซิร์ฟเวอร์ | 5170 (และ 5171–5172 ใช้ทดสอบ) | **5180** |
 | โปรแกรมบนเซิร์ฟเวอร์ | `/opt/reaction-erp` | `/opt/mecmat-cekmutt` |
 | ข้อมูลบนเซิร์ฟเวอร์ | `/var/lib/reaction-erp` | `/var/lib/mecmat-cekmutt` |
