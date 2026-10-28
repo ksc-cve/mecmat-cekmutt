@@ -1,0 +1,14 @@
+# ข้อมูลจริงอยู่นอก repo เสมอ — ~/mecmat-data (Mac) และ /var/lib/mecmat-cekmutt (เซิร์ฟเวอร์)
+*.db
+*.db-*
+*.sqlite
+uploads/
+backups/
+*.key
+.env
+.env.*
+appsettings.Production.json
+node_modules/
+bin/
+obj/
+.DS_Store
