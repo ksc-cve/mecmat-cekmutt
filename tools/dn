@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Runs the .NET 10 SDK installed at ~/dev/dotnet10. The system `dotnet` is
+# Homebrew's dotnet@8, which Reaction ERP builds with; installing 10 through
+# brew would relink /opt/homebrew/bin/dotnet and change the ERP's toolchain.
+set -euo pipefail
+export DOTNET_ROOT="$HOME/dev/dotnet10"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_NOLOGO=1
+export PATH="$DOTNET_ROOT:$HOME/.dotnet/tools:$PATH"
+exec "$DOTNET_ROOT/dotnet" "$@"
