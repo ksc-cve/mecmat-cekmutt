@@ -19,7 +19,7 @@ public static class IdGen
     {
         var prefix = type.GetCustomAttribute<IdPrefixAttribute>()?.Prefix
                      ?? throw new InvalidOperationException($"{type.Name} has no [IdPrefix].");
-        var date = Clock.TodayBangkok().ToString("yyMMdd");
+        var date = Clock.TodayBangkok().ToString("yyMMdd", System.Globalization.CultureInfo.InvariantCulture);
         lock (Gate)
         {
             if (!Counters.TryGetValue((prefix, date), out var n))

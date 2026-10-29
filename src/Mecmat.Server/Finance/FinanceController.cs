@@ -229,6 +229,7 @@ public sealed class FinanceController(
         // at the same moment cannot both spend the last baht.
         await db.ExclusiveAsync(async () =>
         {
+            await using var tx = await db.Database.BeginTransactionAsync();
             var draw = await DrawAsync(r);
             if (draw > 0 && !await AllowNegativeAsync(r.AccountId) && await fin.AvailableAsync(r.AccountId, r.Id) < draw)
                 throw new AppException("finance.insufficient", 400, new { available = await fin.AvailableAsync(r.AccountId, r.Id) });
@@ -239,6 +240,7 @@ public sealed class FinanceController(
             r.Status = MoneyRequestStatus.InApproval;
             r.ApprovalInstanceId = inst.Id;
             await db.SaveChangesAsync();
+            await tx.CommitAsync();
         });
         return Ok(new { ok = true });
     }

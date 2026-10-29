@@ -6,6 +6,12 @@ using Mecmat.Data;
 using Mecmat.Finance;
 using Mecmat.Services;
 
+// Ids, reminder keys and logs must not depend on the machine's locale: on a Thai-locale Mac
+// "yyMMdd" formatted with the Buddhist calendar and produced PUB-691029-… for 2026-10-29.
+System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
+System.Globalization.CultureInfo.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+
 var builder = WebApplication.CreateBuilder(args);
 var isDev = builder.Environment.IsDevelopment();
 

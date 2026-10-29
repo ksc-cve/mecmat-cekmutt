@@ -83,6 +83,9 @@ public sealed class BookingsController(AppDbContext db, CurrentUser cu, Approval
         var created = new List<Booking>();
         await db.ExclusiveAsync(async () =>
         {
+            // All-or-nothing: a booking that fails its approval routing must not stay behind as
+            // a "pending" slot that nobody can ever approve.
+            await using var tx = await db.Database.BeginTransactionAsync();
             var group = weeks > 1 ? Tokens.NewToken(9) : null;
             for (var w = 0; w < weeks; w++)
             {
@@ -102,10 +105,21 @@ public sealed class BookingsController(AppDbContext db, CurrentUser cu, Approval
             if (res.RequiresApproval)
                 foreach (var bk in created)
                 {
-                    var inst = await approvals.SubmitAsync(new ApprovalRequest(nameof(Booking), bk.Id, bk.BookerPersonId, ResourceId: res.Id, ProjectId: bk.ProjectId));
-                    bk.ApprovalInstanceId = inst.Id;
+                    try
+                    {
+                        var inst = await approvals.SubmitAsync(new ApprovalRequest(nameof(Booking), bk.Id, bk.BookerPersonId, ResourceId: res.Id, ProjectId: bk.ProjectId));
+                        bk.ApprovalInstanceId = inst.Id;
+                    }
+                    catch (ApprovalException e) when (e.Key == "approval.noApprover")
+                    {
+                        // The only people who could approve are the booker themself (typically the
+                        // resource manager booking their own machine). Self-approval is never
+                        // recorded, but a manager using their own resource needs no one's leave.
+                        bk.Status = BookingStatus.Confirmed;
+                    }
                 }
             await db.SaveChangesAsync();
+            await tx.CommitAsync();
         });
         return Ok(new { ids = created.Select(c => c.Id), status = created[0].Status });
     }

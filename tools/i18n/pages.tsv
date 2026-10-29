@@ -1,0 +1,373 @@
+appr.intro	คำขอที่รอการตัดสินใจจากคุณ (รวมถึงที่ได้รับมอบอำนาจแทน) และคำขอที่คุณส่งไป	Requests waiting for your decision (including ones delegated to you) and requests you sent
+appr.mine	คำขอที่ฉันส่ง	Requests I sent
+appr.nothing	ไม่มีคำขอรออนุมัติจากคุณ	Nothing is waiting for you
+appr.onBehalf	แทน {name}	on behalf of {name}
+appr.rejectReason	เหตุผลที่ไม่อนุมัติ	Reason for rejecting
+appr.returnReason	สิ่งที่ต้องแก้ไข	What needs changing
+appr.route	เส้นทางการอนุมัติ	Approval route
+appr.subject.Booking	การจอง	Booking
+appr.subject.MoneyRequest	คำขอเงิน	Money request
+appr.waiting	รอการตัดสินใจจากคุณ	Waiting for you
+asset.accumulated	ค่าเสื่อมสะสม	Accumulated depreciation
+asset.add	เพิ่มครุภัณฑ์	Add asset
+asset.bookValue	มูลค่าสุทธิ	Net book value
+asset.capital	ครุภัณฑ์	Capital asset
+asset.class	ประเภททะเบียน	Register
+asset.control	ทะเบียนคุม	Control register
+asset.costHint	ราคาต่อหน่วยตั้งแต่ 10,000 บาทเป็นครุภัณฑ์ ต่ำกว่านั้นลงทะเบียนคุม	10,000 THB or more per unit is a capital asset; below that it goes on the control register
+asset.intro	ทะเบียนครุภัณฑ์และเครื่องมือของกลุ่ม ค่าเสื่อมราคาคำนวณแบบเส้นตรงทุกครั้งที่เปิดดู	The group's asset and equipment register. Straight-line depreciation is worked out each time you look.
+asset.isPublic	แสดงในหน้าเครื่องมือบนเว็บไซต์	Show on the website's facilities page
+asset.loans	การยืม-คืน	Loans
+asset.maintenance	สอบเทียบและซ่อมบำรุง	Calibration and maintenance
+asset.perYear	ค่าเสื่อมต่อปี	Depreciation per year
+asset.tab.assets	ครุภัณฑ์และเครื่องมือ	Assets and equipment
+audit.action.Create	สร้าง	Created
+audit.action.Decide	ตัดสินการอนุมัติ	Approval decision
+audit.action.Delete	ลบ	Deleted
+audit.action.Login	เข้าสู่ระบบ	Signed in
+audit.action.LoginFailed	เข้าสู่ระบบไม่สำเร็จ	Failed sign-in
+audit.action.Logout	ออกจากระบบ	Signed out
+audit.action.PasswordChanged	เปลี่ยนรหัสผ่าน	Password changed
+audit.action.PasswordReset	ผู้ดูแลตั้งรหัสผ่านชั่วคราว	Admin reset password
+audit.action.PasswordResetFromShell	ตั้งรหัสผ่านชั่วคราวจากเซิร์ฟเวอร์	Password reset on the server
+audit.action.Register	สมัครบัญชี	Signed up
+audit.action.Restore	กู้คืน	Restored
+audit.action.TotpEnabled	เปิดใช้ยืนยันสองขั้นตอน	Two-step verification on
+audit.action.TotpFailed	รหัสยืนยันผิด	Wrong verification code
+audit.action.TotpReset	รีเซ็ตยืนยันสองขั้นตอน	Two-step verification reset
+audit.action.Update	แก้ไข	Updated
+audit.change	การเปลี่ยนแปลง	Change
+audit.entityId	รหัสรายการ	Record id
+audit.entityType	ประเภทข้อมูล	Record type
+audit.intro	ทุกการเปลี่ยนแปลงในระบบถูกบันทึกพร้อมผู้ทำและเวลา ข้อมูลที่เข้ารหัสจะบันทึกเพียงว่า "มีการเปลี่ยน"	Every change is recorded with who and when. Encrypted fields are logged only as "changed".
+audit.system	ระบบ	System
+auth2.addPolicy	เพิ่มนโยบาย	Add policy
+auth2.addStep	เพิ่มขั้นการอนุมัติ	Add step
+auth2.delegations	การมอบอำนาจแทน	Delegations
+auth2.delegationsHint	ผู้รับมอบอำนาจอนุมัติแทนได้ในช่วงวันที่กำหนด ระบบบันทึกว่าอนุมัติแทนใคร	A delegate can decide on the delegating person's behalf between the dates; the record shows on whose behalf.
+auth2.holders	ผู้ดำรงตำแหน่ง	Position holders
+auth2.inactive	ปิดใช้	Inactive
+auth2.policies	นโยบายการอนุมัติ	Approval policies
+auth2.policiesHint	ระบบเลือกนโยบายที่เจาะจงที่สุดตามประเภทคำขอ วงเงิน บัญชี และโครงการ ผู้ขอไม่สามารถอนุมัติคำขอของตนเองได้ ขั้นที่มีแต่ผู้ขอจะถูกข้ามไป	The most specific policy wins by request type, amount, account and project. Nobody approves their own request; a step that only contains the requester is skipped.
+auth2.positions	ตำแหน่งในกลุ่ม	Group positions
+auth2.positionsHint	ตำแหน่งใช้กำหนดผู้อนุมัติในนโยบาย และแสดงในหน้าทีมงานบนเว็บไซต์	Positions name approvers in policies and appear on the website's team page.
+auth2.rankHint	เลขน้อย = อำนาจสูงกว่า (หัวหน้ากลุ่ม = 1)	Lower number = more authority (group head = 1)
+bk.addResource	เพิ่มทรัพยากรที่จองได้	Add bookable resource
+bk.blackouts	ช่วงปิดใช้งาน	Closed periods
+bk.busy	ไม่ว่าง	Busy
+bk.cancel	ยกเลิกการจอง	Cancel booking
+bk.cancelConfirm	ยกเลิกการจองนี้ใช่ไหม	Cancel this booking?
+bk.cancelReason	เหตุผลที่ยกเลิก (แจ้งผู้จอง)	Reason (sent to the booker)
+bk.cancelSeries	ยกเลิกครั้งนี้และครั้งถัดไปทั้งหมด	Cancel this and all later ones
+bk.closed	ปิดใช้งาน	Closed
+bk.confirmed	จองสำเร็จ	Booked
+bk.intro	ลากในช่องเวลาของปฏิทินเพื่อจอง หรือกดปุ่ม "จองใหม่" เวลาทั้งหมดเป็นเวลาประเทศไทย	Drag across the calendar to book, or use "New booking". All times are Thailand time.
+bk.legendClosed	ปิดใช้งาน	Closed
+bk.legendMine	การจองของฉัน	My booking
+bk.legendOther	คนอื่นจอง	Booked by others
+bk.legendPending	รออนุมัติ	Pending approval
+bk.new	จองใหม่	New booking
+bk.noResources	ยังไม่มีเครื่องมือหรือห้องที่เปิดให้จอง	No bookable equipment or rooms yet
+bk.repeat	ทำซ้ำทุกสัปดาห์ (จำนวนครั้ง)	Repeat weekly (times)
+bk.repeatHint	1 = ไม่ซ้ำ สูงสุด 26 ครั้ง	1 = once; at most 26
+bk.resourcesHint	กำหนดเวลาเปิด ช่วงเวลาจอง ผู้ดูแล และว่าต้องรออนุมัติหรือไม่ กดที่แถวเพื่อกำหนดช่วงปิดใช้งาน	Set opening hours, slot size, manager and whether bookings need approval. Click a row for closed periods.
+bk.sentForApproval	ส่งคำขอจองแล้ว รอผู้ดูแลอนุมัติ	Booking requested — waiting for the manager's approval
+bk.title	ใช้ทำอะไร	What for
+cal.day	วัน	Day
+cal.week	สัปดาห์	Week
+cal.month	เดือน	Month
+cal.kind.advance	คืนเงินยืม	Advance due
+cal.kind.milestone	หมุดหมาย	Milestone
+cal.kind.recruitment	ปิดรับสมัคร	Applications close
+cal.kind.report	ส่งรายงาน	Report due
+cal.kind.task	งานครบกำหนด	Task due
+cal.legendDue	กำหนดส่ง/ครบกำหนด	Due dates
+cal.legendEvents	ประชุม/การจอง	Meetings / bookings
+cal.next	ถัดไป	Next
+cal.prev	ก่อนหน้า	Previous
+dash.activeProjects	โครงการที่ดำเนินอยู่	Active projects
+dash.balance	ยอดเงินคงเหลือ	Balance
+dash.committed	ผูกพันแล้ว {v}	{v} committed
+dash.endingSoon	{n} โครงการจะสิ้นสุดใน 60 วัน	{n} ending within 60 days
+dash.finance	บัญชีหลัก	Main accounts
+dash.hello	สวัสดี {name}	Hello, {name}
+dash.myBookings	การจองของฉัน	My bookings
+dash.myMeetings	นัดหมายที่จะถึง	Upcoming meetings
+dash.myRequests	คำขอเงินที่ยังไม่ปิด	My open money requests
+dash.myTasks	งานของฉัน	My tasks
+dash.noBookings	ไม่มีการจองที่จะถึง	No upcoming bookings
+dash.noMeetings	ไม่มีนัดหมาย	No meetings scheduled
+dash.noRequests	ไม่มีคำขอค้าง	No open requests
+dash.noTasks	ไม่มีงานค้าง 🎉	No open tasks 🎉
+dash.outputs	ผลผลิตโครงการ (เป้า/ได้จริง)	Project outputs (target / actual)
+dash.people	บุคลากรภายในปัจจุบัน	Current members
+dash.pubs	ผลงานตีพิมพ์	Publications
+dash.pubsByYear	ผลงานตีพิมพ์รายปี	Publications per year
+dash.pubsThisYear	ปีนี้ {n} รายการ	{n} this year
+dash.q1q2	บทความ Q1–Q2	Q1–Q2 papers
+dash.scopeGroup	ตัวเลขของทั้งกลุ่มวิจัย	Figures for the whole group
+dash.scopeMine	ตัวเลขเฉพาะงานที่คุณเกี่ยวข้อง	Figures for your own work
+dash.totalBudget	งบประมาณโครงการรวม	Total project budget
+doc.downloadLatest	ดาวน์โหลดเวอร์ชันล่าสุด	Download latest
+doc.newFolder	โฟลเดอร์ใหม่	New folder
+doc.newVersion	อัปโหลดเวอร์ชันใหม่	Upload new version
+doc.root	เอกสารทั้งหมด	All documents
+doc.upload	เพิ่มเอกสาร	Add document
+doc.versionHint	เวอร์ชันเก่ายังเก็บไว้ทั้งหมด	Older versions are all kept
+doc.versions	เวอร์ชันทั้งหมด	All versions
+enum.Quartile.Q1	Q1	Q1
+enum.Quartile.Q2	Q2	Q2
+enum.Quartile.Q3	Q3	Q3
+enum.Quartile.Q4	Q4	Q4
+enum.SubjectType.Booking	การจอง	Booking
+enum.SubjectType.MoneyRequest	คำขอเงิน	Money request
+fin.addLine	เพิ่มรายการ	Add line
+fin.advanceDueHint	ว่างไว้ = 30 วันหลังจ่าย	Blank = 30 days after payout
+fin.advancesHint	เงินยืมที่จ่ายแล้วและยังไม่ได้ล้าง ผู้ยืมกด "ล้างเงินยืม" เพื่อรายงานยอดใช้จริง ส่วนต่างจะคืนเข้าบัญชีหรือเบิกเพิ่มอัตโนมัติ	Advances paid out and not yet cleared. The borrower clicks "Clear" to report actual spending; the difference is returned or paid automatically.
+fin.attach	แนบหลักฐาน	Attach evidence
+fin.attachHint	บันทึกร่างก่อน แล้วแนบใบเสร็จหรือหลักฐานได้ในหน้ารายละเอียดคำขอ	Save first; receipts and evidence can then be attached on the request page.
+fin.attachments	หลักฐานแนบ	Attachments
+fin.budget	งบประมาณ	Budget
+fin.budgetHint	เปรียบเทียบงบที่ตั้งไว้กับยอดใช้จริงในปีงบประมาณ (1 ต.ค. – 30 ก.ย.)	Budget against actual spending for the fiscal year (1 Oct – 30 Sep)
+fin.budgets	งบประมาณรายปี	Budget per fiscal year
+fin.cancelConfirm	ยกเลิกคำขอนี้ใช่ไหม	Cancel this request?
+fin.cancelRequest	ยกเลิกคำขอ	Cancel request
+fin.clear	ล้างเงินยืม	Clear
+fin.clearOf	ล้างเงินยืม:	Clearing:
+fin.draftSaved	บันทึกร่างแล้ว	Draft saved
+fin.editRequest	แก้ไขคำขอ	Edit request
+fin.fyHint	ปีงบประมาณ เช่น 2570 = 1 ต.ค. 2569 – 30 ก.ย. 2570	Fiscal year, e.g. 2027 = 1 Oct 2026 – 30 Sep 2027
+fin.intro	ระบบการเงินเป็นตัวเลขเท่านั้น: ติดตามยอดเงินแต่ละบัญชี คำขอเบิก/จ่าย/ยืมผ่านการอนุมัติ แล้วลงบัญชี ไม่มีการโอนเงินจริงหรือออกเอกสาร	Numbers only: track each account's money, route claims, payments and advances through approval, then book them. No real payments, no forms.
+fin.lineDescRequired	ทุกรายการต้องมีคำอธิบาย	Every line needs a description
+fin.newAccount	เพิ่มบัญชีหลัก	New top-level account
+fin.newRequest	ขอเบิก/จ่าย/ยืม	New money request
+fin.newSubAccount	เพิ่มบัญชีย่อย	Add sub-account
+fin.noAccounts	ยังไม่มีบัญชี	No accounts yet
+fin.noAdvances	ไม่มีเงินยืมค้าง	No outstanding advances
+fin.noRequestable	คุณยังไม่มีบัญชีที่ขอเบิกได้ (ต้องเป็นสมาชิกโครงการหรือผู้ดูแลบัญชี)	You have no account to request from (you must be a project member or account custodian)
+fin.noRequests	ไม่มีคำขอ	No requests
+fin.notSubmitted	ยังไม่ได้ส่งขออนุมัติ	Not submitted yet
+fin.outstanding	ค้างอยู่	Outstanding
+fin.overdue	เลยกำหนด	Overdue
+fin.recordIncome	บันทึกรับเงิน	Record income
+fin.remaining	คงเหลือจากงบ	Left in budget
+fin.reverse	กลับรายการ	Reverse
+fin.reverseReason	เหตุผลที่กลับรายการ	Reason for reversing
+fin.reversed	กลับรายการแล้ว	Reversed
+fin.saveDraft	บันทึกร่าง	Save draft
+fin.saveSubmit	บันทึกและส่งขออนุมัติ	Save and submit
+fin.settle	ลงบัญชี	Settle
+fin.settleHint	ลงบัญชีหลังจากจ่ายเงินจริงนอกระบบแล้ว ระบบจะตัดยอดตามประเภทคำขอ และแก้ไขภายหลังได้ด้วยการกลับรายการเท่านั้น	Settle after the money has actually moved outside the system. Corrections later are by reversal only.
+fin.settleRefHint	เช่น เลขที่ใบเสร็จ เลขที่โอน	e.g. receipt or transfer number
+fin.statement	รายการเคลื่อนไหว	Statement
+fin.subAccounts	บัญชีย่อย	Sub-accounts
+fin.submitted	ส่งขออนุมัติแล้ว	Submitted for approval
+fin.tab.accounts	บัญชีและยอดเงิน	Accounts
+fin.tab.advances	เงินยืมค้าง	Advances
+fin.tab.budget	งบเทียบใช้จริง	Budget vs actual
+fin.tab.requests	คำขอเงิน	Requests
+fin.treeHint	ยอดของบัญชีแม่ = ผลรวมของบัญชีย่อย · ผูกพันแล้ว = คำขอที่รออนุมัติหรืออนุมัติแล้วแต่ยังไม่ลงบัญชี · ใช้ได้ = คงเหลือ − ผูกพัน	Parent = sum of sub-accounts · Committed = requests pending or approved but not yet settled · Available = balance − committed
+inbox.applications	ใบสมัคร	Applications
+inbox.intro	ข้อความจากแบบฟอร์มติดต่อและใบสมัครจากหน้า "ร่วมงานกับเรา" บนเว็บไซต์	Messages from the contact form and applications from the website's "Join us" page
+inbox.messages	ข้อความติดต่อ	Contact messages
+inbox.update	ปรับสถานะ	Update status
+mat.add	เพิ่มวัสดุ	Add material
+mat.intro	ยอดคงคลังคำนวณจากรายการรับเข้า/เบิกออก	Stock is worked out from movements in and out
+mat.move	รับ/เบิก	In / out
+mat.movements	รายการรับ-เบิกล่าสุด	Recent movements
+mat.qtyHint	ปรับยอด: ใส่ค่าลบเพื่อลดได้	Adjustment: a negative number reduces stock
+mat.stock	คงเหลือ	In stock
+mod.approvals-config	โครงสร้างอำนาจ	Authority structure
+mod.approvals-config.hint	ตำแหน่ง นโยบายอนุมัติ การมอบอำนาจ	Positions, approval policies, delegation
+mod.assets	ครุภัณฑ์และวัสดุ	Assets & materials
+mod.assets.hint	ทะเบียนครุภัณฑ์ ยืม-คืน วัสดุ	Asset register, loans, materials
+mod.audit	บันทึกการใช้งาน	Audit log
+mod.audit.hint	ดูประวัติการเปลี่ยนแปลงทั้งหมด	Whole change history
+mod.bookings	การจอง	Bookings
+mod.bookings.hint	จองเครื่องมือและห้อง	Booking equipment and rooms
+mod.cms	เนื้อหาเว็บไซต์	Website content
+mod.cms.hint	ข่าว หน้าเว็บ สาขาวิจัย	News, pages, research areas
+mod.dashboard	ภาพรวมกลุ่ม	Group dashboard
+mod.dashboard.hint	ตัวเลขรวมของทั้งกลุ่ม	Group-wide figures
+mod.documents	เอกสาร	Documents
+mod.documents.hint	คลังเอกสารและไฟล์	Files and documents
+mod.finance	การเงิน	Finance
+mod.finance.hint	บัญชี คำขอเงิน ลงบัญชี	Accounts, requests, settlement
+mod.inbox	ข้อความเข้า	Inbox
+mod.inbox.hint	ข้อความติดต่อและใบสมัคร	Contact messages and applications
+mod.meetings	ประชุม/นัดหมาย	Meetings
+mod.meetings.hint	นัดหมายและบันทึกการประชุม	Appointments and minutes
+mod.organizations	องค์กรภายนอก	Organisations
+mod.organizations.hint	มหาวิทยาลัย บริษัท แหล่งทุน	Universities, companies, funders
+mod.people	บุคลากร	People
+mod.people.hint	ประวัติ การศึกษา การทำงาน	Profiles, education, work history
+mod.projects	โครงการวิจัย	Projects
+mod.projects.hint	โครงการ ทีม แผนงาน ผลผลิต	Projects, teams, plans, outputs
+mod.publications	ผลงานวิจัย	Publications
+mod.publications.hint	ผลงานตีพิมพ์และบทบาทผู้แต่ง	Publications and author roles
+mod.resources	ทรัพยากรที่จองได้	Bookable resources
+mod.resources.hint	ตั้งค่าเครื่องมือและห้องที่จองได้	Set up equipment and rooms for booking
+mod.sensitive	ข้อมูลอ่อนไหว	Sensitive data
+mod.sensitive.hint	เลขประจำตัวประชาชน บัญชีรับเงิน	National ID, payout accounts
+mod.tasks	งาน	Tasks
+mod.tasks.hint	บอร์ดงานและความเห็น	Task board and comments
+mod.users	บัญชีผู้ใช้	User accounts
+mod.users.hint	อนุมัติ รีเซ็ตรหัสผ่าน บทบาท	Approve, reset passwords, roles
+mtg.actions	สิ่งที่ต้องทำต่อ (Action items)	Action items
+mtg.addAction	เพิ่มสิ่งที่ต้องทำ	Add action item
+mtg.join	เข้าร่วมออนไลน์	Join online
+mtg.minutes	บันทึกการประชุม	Minutes
+mtg.new	นัดประชุมใหม่	New meeting
+mtg.recordedBy	บันทึกโดย {name}	Recorded by {name}
+mtg.saveMinutes	บันทึกรายงานการประชุม	Save minutes
+news.add	เขียนข่าว	Write news
+news.introAuthor	เขียนร่างข่าวได้ ผู้แก้ไขเว็บไซต์จะเป็นผู้เผยแพร่	You can draft news; a site editor publishes it.
+news.introEditor	ข่าวที่สถานะ "เผยแพร่แล้ว" จะแสดงบนเว็บไซต์ทันที	News marked Published appears on the website at once.
+news.slugHint	ว่างไว้เพื่อสร้างจากชื่อเรื่อง	Leave blank to build from the title
+org.intro	มหาวิทยาลัย บริษัท หน่วยงานรัฐ และแหล่งทุนที่ทำงานร่วมกับกลุ่ม	Universities, companies, agencies and funders the group works with
+org.isPublic	แสดงในหน้าพันธมิตรบนเว็บไซต์	Show on the website's partners page
+people.appointments	ตำแหน่งทางวิชาการ	Academic appointments
+people.employment	ประวัติการทำงาน	Work history
+people.kpoHint	ข้อมูลตามแบบ ก.พ.อ.03 ส่วนที่ 1 สำหรับการขอกำหนดตำแหน่งทางวิชาการ	Fields follow ก.พ.อ.03 part 1 for academic promotion
+people.licenseBody	หน่วยงานที่ออก	Issuing body
+people.licenses	ใบอนุญาตประกอบวิชาชีพ	Professional licences
+people.neverPublic	เลขประจำตัวประชาชน วันเกิด บัญชีรับเงิน เบอร์มือถือ และอีเมลส่วนตัว ไม่มีทางแสดงบนเว็บไซต์	National ID, birth date, payout accounts, mobile number and personal e-mail can never appear on the website.
+people.payoutHint	ใช้สำหรับการโอนเงินค่าตอบแทนนอกระบบ ข้อมูลถูกเข้ารหัสและการเปิดดูแต่ละครั้งถูกบันทึก	For paying you outside the system. Stored encrypted; every look is logged.
+people.privateHint	ไม่แสดงบนเว็บไซต์	Never shown on the website
+people.publicHint	เลือกว่าจะให้ข้อมูลใดของคุณแสดงบนหน้าบุคลากรของเว็บไซต์ (ชื่อและตำแหน่งแสดงเสมอ)	Choose what the website's people page shows about you (your name and position always show)
+people.publicPage	หน้าบนเว็บไซต์	Website page
+people.reveal	แสดงเต็ม	Reveal
+people.sec.academic	ข้อมูลวิชาการ	Academic
+people.sec.contact	การติดต่อ	Contact
+people.sec.identity	ข้อมูลบุคคล	Identity
+people.sec.private	ข้อมูลส่วนบุคคล (ไม่แสดงสาธารณะ)	Private (never public)
+people.sec.work	สังกัดและการศึกษา	Affiliation and study
+people.sensitiveHint	เข้ารหัสเก็บ แสดงแบบปิดบางหลัก	Stored encrypted, shown masked
+people.slugHint	เช่น kasan-chanto → /people/kasan-chanto	e.g. kasan-chanto → /people/kasan-chanto
+people.tab.academic	ก.พ.อ. / การสอน	Promotion / teaching
+people.tab.education	การศึกษา	Education
+people.tab.payout	ช่องทางรับเงิน	Payout
+people.tab.profile	ข้อมูลทั่วไป	Profile
+people.tab.public	การแสดงบนเว็บไซต์	On the website
+people.tab.work	การทำงาน/ใบอนุญาต	Work / licences
+people.teaching	ภาระงานสอน	Teaching load
+prj.add	เพิ่มโครงการ	Add project
+prj.addActivity	เพิ่มกิจกรรม	Add activity
+prj.gantt	แผนการดำเนินงาน (Gantt)	Work plan (Gantt)
+prj.ganttEmpty	เพิ่มกิจกรรมพร้อมวันเริ่ม-สิ้นสุดเพื่อดูแผนภูมิ	Add activities with start and end dates to see the chart
+prj.impacts	ผลกระทบ (Impact)	Impacts
+prj.makeAccounts	สร้างบัญชีโครงการพร้อมหมวดงบ NRIIS	Create project account with NRIIS budget lines
+prj.members	สมาชิกโครงการ	Team members
+prj.milestones	หมุดหมาย	Milestones
+prj.moneyHint	บัญชีเงินของโครงการและบัญชีย่อยตามหมวดงบ ดูรายละเอียดและยื่นคำขอได้ในหน้าการเงิน	The project's money account and its budget-line sub-accounts. Details and requests are on the Finance pages.
+prj.noAccount	โครงการนี้ยังไม่มีบัญชีเงิน	This project has no money account yet
+prj.noContent	ยังไม่มีรายละเอียดโครงการ	No project description yet
+prj.now	ปัจจุบัน	now
+prj.okr	OKR	OKR
+prj.outcomes	ผลลัพธ์ (Outcome)	Outcomes
+prj.outputs	ผลผลิต (Output) 10 ประเภทตาม สกสว.	Outputs (10 TSRI types)
+prj.partners	หน่วยงานร่วม	Partners
+prj.period	ระยะเวลา	Period
+prj.pubHint	ผลงานที่ผูกกับโครงการนี้ (เพิ่มได้จากหน้าผลงาน)	Publications linked to this project (link them from the publication page)
+prj.resultsHint	โครงสร้างตามแบบฟอร์มข้อเสนอโครงการ สกสว./NRIIS: Output → Outcome → Impact	Structured like the TSRI / NRIIS proposal: Output → Outcome → Impact
+prj.sec.basic	ข้อมูลหลัก	Basics
+prj.sec.content	รายละเอียดโครงการ	Project content
+prj.sec.funding	ทุนและระยะเวลา	Funding and timing
+prj.sec.public	การแสดงบนเว็บไซต์	On the website
+prj.sec.readiness	ระดับความพร้อม (TRL/SRL)	Readiness (TRL / SRL)
+prj.tab.money	การเงิน	Money
+prj.tab.overview	ภาพรวม	Overview
+prj.tab.plan	แผนงาน	Plan
+prj.tab.reports	รายงาน	Reports
+prj.tab.results	ผลผลิต/ผลลัพธ์	Results
+prj.tab.team	ทีมงาน	Team
+prj.tab.work	งาน/ประชุม/เอกสาร	Tasks / meetings / files
+profile.account	บัญชีผู้ใช้	Account
+profile.totpOn	เปิดใช้ยืนยันสองขั้นตอนแล้ว	Two-step verification is on
+profile.totpSetup	ตั้งค่ายืนยันสองขั้นตอน	Set up two-step verification
+pub.abstract	บทคัดย่อ	Abstract
+pub.add	เพิ่มผลงาน	Add publication
+pub.apaHint	ว่างไว้ได้ ระบบจะแสดงจากข้อมูลบทความ	Optional; built from the record if blank
+pub.authorPersonHint	เลือกถ้าเป็นบุคลากรในระบบ มิฉะนั้นกรอกชื่อภายนอก	Pick a member if they are in the system; otherwise type an external name
+pub.authors	ผู้แต่งและบทบาทตามเกณฑ์ ก.พ.อ.	Authors and ก.พ.อ. roles
+pub.doiExists	มีผลงานที่ใช้ DOI นี้อยู่แล้ว	A publication with this DOI already exists
+pub.doiPrompt	ใส่ DOI (เช่น 10.1016/j.istruc.2026.111895)	Enter a DOI (e.g. 10.1016/j.istruc.2026.111895)
+pub.importDoi	นำเข้าจาก DOI	Import from DOI
+pub.indexing	ฐานข้อมูลที่ตีพิมพ์ (Scopus/WoS/TCI)	Indexed in (Scopus / WoS / TCI)
+pub.kpoHint	เกณฑ์ ก.พ.อ. 2564: ผู้ขอต้องเป็นผู้ประพันธ์อันดับแรก ผู้ประพันธ์บรรณกิจ หรือผู้มีส่วนสำคัญทางปัญญา และมีแบบแสดงหลักฐานการมีส่วนร่วมที่ลงนามแล้ว (แก้ไขไม่ได้หลังลงนาม)	ก.พ.อ. 2564: the applicant must be first author, corresponding author or essential intellectual contributor, with a signed contribution form (locked once signed)
+pub.kpoRole	บทบาท ก.พ.อ.	ก.พ.อ. role
+pub.projects	โครงการที่เกี่ยวข้อง	Related projects
+pub.usage	การใช้ขอตำแหน่งทางวิชาการ	Used for academic promotion
+pubfield.academicRank	ตำแหน่งทางวิชาการ	Academic rank
+pubfield.awards	รางวัล	Awards
+pubfield.bio	ประวัติโดยย่อ	Biography
+pubfield.education	ประวัติการศึกษา	Education
+pubfield.employment	ประวัติการทำงาน	Work history
+pubfield.expertise	ความเชี่ยวชาญ	Expertise
+pubfield.licenses	ใบอนุญาตประกอบวิชาชีพ	Professional licences
+pubfield.lineId	LINE ID	LINE ID
+pubfield.officeRoom	ห้องทำงาน	Office
+pubfield.orcid	ORCID	ORCID
+pubfield.photo	รูปถ่าย	Photo
+pubfield.positionText	ตำแหน่งงาน	Job title
+pubfield.projects	โครงการ	Projects
+pubfield.publications	ผลงานตีพิมพ์	Publications
+pubfield.researchgate	ResearchGate	ResearchGate
+pubfield.scholar	Google Scholar	Google Scholar
+pubfield.scopus	Scopus	Scopus
+pubfield.website	เว็บไซต์ส่วนตัว	Personal website
+pubfield.workEmail	อีเมลที่ทำงาน	Work e-mail
+pubfield.workPhone	โทรศัพท์ที่ทำงาน	Work phone
+rec.add	เปิดรับสมัครตำแหน่งใหม่	Open a position
+rec.intro	ตำแหน่งที่สถานะ "เปิดรับ" และตั้งให้แสดงบนเว็บไซต์ จะปรากฏในหน้า "ร่วมงานกับเรา" พร้อมแบบฟอร์มสมัคร	Positions that are Open and set to show appear on the website's "Join us" page with an application form
+role.add	เพิ่มบทบาท	Add role
+role.admin	ผู้ดูแลระบบ	Administrator
+role.all	ทั้งหมด	All
+role.external	บุคคลภายนอก	External collaborator
+role.faculty	อาจารย์/หัวหน้าโครงการ	Faculty / PI
+role.finance	ผู้จัดการการเงิน	Finance manager
+role.group-head	หัวหน้ากลุ่มวิจัย	Group head
+role.intro	แต่ละช่องมีสองระดับ: "ที่เกี่ยวข้อง" (ข้อมูลของตัวเอง โครงการที่เป็นสมาชิก ฯลฯ) และ "ทั้งหมด" · V ดู · C สร้าง · E แก้ไข · M จัดการทั้งหมด (ลบ/กู้คืน)	Each cell has two levels: Related (your own records, your projects …) and All · V view · C create · E edit · M manage (delete / restore)
+role.keyHint	ภาษาอังกฤษตัวเล็ก เช่น visiting-scholar	Lowercase, e.g. visiting-scholar
+role.lab-manager	ผู้ดูแลห้องปฏิบัติการ	Lab manager
+role.related	ที่เกี่ยวข้อง	Related
+role.researcher	นักวิจัย/เจ้าหน้าที่	Researcher / staff
+role.student	นักศึกษา	Student
+role.transient	บุคลากรชั่วคราว	Short-term member
+site.hint.areas	สาขาวิจัยแสดงในหน้าแรกและหน้าสาขาวิจัย	Research areas appear on the home and research pages
+site.hint.pages	หน้าคงที่ของเว็บไซต์ (เกี่ยวกับเรา ติดต่อเรา นโยบายความเป็นส่วนตัว ร่วมงานกับเรา)	The site's fixed pages (about, contact, privacy, join us)
+site.hint.settings	ชื่อกลุ่ม ที่อยู่ เบอร์โทร และค่าที่ใช้ทั่วทั้งเว็บไซต์	Group name, address, phone and other site-wide values
+site.pages	หน้าเว็บ	Pages
+site.settings	การตั้งค่า	Settings
+task.comment	ส่งความเห็น	Comment
+task.commentPlaceholder	เขียนความเห็น…	Write a comment…
+task.comments	ความเห็น	Comments
+task.createdBy	สร้างโดย {name}	Created by {name}
+task.fromMeeting	มาจากการประชุม	From a meeting
+task.markDone	ทำเสร็จแล้ว	Mark done
+task.mine	งานของฉัน	My tasks
+task.new	งานใหม่	New task
+users.activate	เปิดใช้งาน	Reactivate
+users.approve	อนุมัติ	Approve
+users.create	สร้างบัญชีให้บุคลากร	Create account for a member
+users.dismiss	ไม่ดำเนินการ	Dismiss
+users.expiryHint	สำหรับบุคลากรชั่วคราว: ระบบปิดบัญชีอัตโนมัติหลังวันนี้	For short-term members: the account closes itself after this date
+users.intro	ผู้ดูแลไม่เห็นรหัสผ่านของใคร การรีเซ็ตจะสร้างรหัสใช้ครั้งเดียวที่แสดงเพียงครั้งเดียว ผู้ใช้ต้องตั้งรหัสใหม่เมื่อเข้าระบบ	Administrators never see passwords. A reset makes a one-time password shown once; the person must choose a new one at sign-in.
+users.linkHint	ถ้าผู้สมัครมีประวัติในระบบอยู่แล้ว เลือกเพื่อผูกบัญชีกับประวัตินั้น	If the person is already on file, pick their profile to link the account to it
+users.linkPerson	ผูกกับประวัติที่มีอยู่	Link to existing profile
+users.noSuchUser	ไม่พบผู้ใช้นี้	No such user
+users.otpHint	แจ้งรหัสนี้แก่เจ้าของบัญชีโดยตรง (พบตัวหรือโทร) ห้ามส่งทางช่องทางสาธารณะ	Give this directly to the account owner (in person or by phone), never over a public channel
+users.otpIntro	รหัสผ่านใช้ครั้งเดียวสำหรับ {user}:	One-time password for {user}:
+users.otpTitle	รหัสผ่านชั่วคราว	One-time password
+users.reject	ไม่อนุมัติ	Reject
+users.rejectConfirm	ไม่อนุมัติการสมัครนี้ใช่ไหม	Reject this sign-up?
+users.reset	ตั้งรหัสชั่วคราว	Reset password
+users.resetConfirm	สร้างรหัสผ่านใช้ครั้งเดียวให้ {user}? เซสชันเดิมจะถูกออกจากระบบ	Make a one-time password for {user}? Their sessions will end.
+users.resetRequests	คำขอรหัสผ่านใหม่	Password reset requests
+users.resetTotp	รีเซ็ต 2FA	Reset 2FA
+users.resetTotpConfirm	ปิดการยืนยันสองขั้นตอนของบัญชีนี้ (เช่น ทำโทรศัพท์หาย)?	Turn off two-step verification for this account (e.g. a lost phone)?
+users.resetVerify	ยืนยันตัวตนของ {user} แล้ว (พบตัวหรือโทร) และต้องการสร้างรหัสชั่วคราว?	Have you confirmed it is really {user} (in person or by phone)? Make a one-time password?
+users.suspend	ระงับ	Suspend
+users.suspendConfirm	ระงับบัญชีนี้ใช่ไหม	Suspend this account?
+fin.usedPct	ใช้ไป (%)	Used (%)
+users.twoFactor	2FA	2FA

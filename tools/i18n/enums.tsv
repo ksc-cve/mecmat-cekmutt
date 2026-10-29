@@ -1,0 +1,306 @@
+enum.RecordStatus.Active	ใช้งาน	Active
+enum.RecordStatus.Archived	เก็บถาวร	Archived
+enum.RecordStatus.Deleted	ลบแล้ว	Deleted
+enum.PersonKind.Internal	บุคลากรภายใน	Internal
+enum.PersonKind.External	บุคคลภายนอก	External
+enum.PersonCategory.Faculty	อาจารย์	Faculty
+enum.PersonCategory.Researcher	นักวิจัย	Researcher
+enum.PersonCategory.Postdoc	นักวิจัยหลังปริญญาเอก	Postdoctoral researcher
+enum.PersonCategory.ResearchAssistant	ผู้ช่วยวิจัย	Research assistant
+enum.PersonCategory.PhdStudent	นักศึกษาปริญญาเอก	PhD student
+enum.PersonCategory.MasterStudent	นักศึกษาปริญญาโท	Master's student
+enum.PersonCategory.BachelorStudent	นักศึกษาปริญญาตรี	Undergraduate student
+enum.PersonCategory.Intern	นักศึกษาฝึกงาน	Intern
+enum.PersonCategory.Staff	เจ้าหน้าที่	Staff
+enum.PersonCategory.Visiting	นักวิจัยรับเชิญ	Visiting researcher
+enum.PersonCategory.IndustryPartner	ภาคอุตสาหกรรม	Industry partner
+enum.PersonCategory.Collaborator	ผู้ร่วมวิจัยภายนอก	External collaborator
+enum.PersonCategory.Sponsor	ผู้สนับสนุน	Sponsor
+enum.AcademicRank.None	—	—
+enum.AcademicRank.AsstProf	ผู้ช่วยศาสตราจารย์	Assistant Professor
+enum.AcademicRank.AssocProf	รองศาสตราจารย์	Associate Professor
+enum.AcademicRank.Prof	ศาสตราจารย์	Professor
+enum.EducationLevel.Bachelor	ปริญญาตรี	Bachelor's
+enum.EducationLevel.Master	ปริญญาโท	Master's
+enum.EducationLevel.Doctoral	ปริญญาเอก	Doctorate
+enum.EducationLevel.Diploma	อนุปริญญา/ประกาศนียบัตร	Diploma
+enum.EducationLevel.Certificate	หลักสูตรระยะสั้น	Certificate
+enum.EducationLevel.Exchange	แลกเปลี่ยน/ดูงาน	Exchange programme
+enum.EducationLevel.Other	อื่น ๆ	Other
+enum.OrganizationKind.University	มหาวิทยาลัย	University
+enum.OrganizationKind.Faculty	คณะ	Faculty
+enum.OrganizationKind.Department	ภาควิชา	Department
+enum.OrganizationKind.Company	บริษัท	Company
+enum.OrganizationKind.Government	หน่วยงานรัฐ	Government agency
+enum.OrganizationKind.FundingAgency	แหล่งทุน	Funding agency
+enum.OrganizationKind.Ngo	องค์กรไม่แสวงหากำไร	Non-profit
+enum.OrganizationKind.Other	อื่น ๆ	Other
+enum.PayoutKind.BankAccount	บัญชีธนาคาร	Bank account
+enum.PayoutKind.PromptPay	พร้อมเพย์	PromptPay
+enum.AwardLevel.International	นานาชาติ	International
+enum.AwardLevel.National	ระดับชาติ	National
+enum.AwardLevel.Institutional	ระดับสถาบัน	Institutional
+enum.AwardLevel.Other	อื่น ๆ	Other
+enum.AccountStatus.PendingApproval	รออนุมัติ	Pending approval
+enum.AccountStatus.Active	ใช้งาน	Active
+enum.AccountStatus.Suspended	ระงับ	Suspended
+enum.AccountStatus.Expired	หมดอายุ	Expired
+enum.AccountStatus.Closed	ปิด	Closed
+enum.PermAction.None	ไม่มีสิทธิ์	None
+enum.PermAction.View	ดู	View
+enum.PermAction.Create	สร้าง	Create
+enum.PermAction.Edit	แก้ไข	Edit
+enum.PermAction.Manage	จัดการทั้งหมด	Manage
+enum.ResetRequestStatus.Open	รอดำเนินการ	Open
+enum.ResetRequestStatus.Done	ดำเนินการแล้ว	Done
+enum.ResetRequestStatus.Rejected	ไม่ดำเนินการ	Dismissed
+enum.ApproverKind.Position	ตำแหน่งในกลุ่ม	Group position
+enum.ApproverKind.Person	บุคคล	Person
+enum.ApproverKind.ProjectRole	บทบาทในโครงการ	Project role
+enum.ApproverKind.AccountCustodian	ผู้ดูแลบัญชี	Account custodian
+enum.ApproverKind.RequesterAdvisor	อาจารย์ที่ปรึกษาของผู้ขอ	Requester's advisor
+enum.ApproverKind.ResourceManager	ผู้ดูแลทรัพยากร	Resource manager
+enum.StepRule.Any	คนใดคนหนึ่งอนุมัติ	Any one approves
+enum.StepRule.All	ทุกคนต้องอนุมัติ	All must approve
+enum.ApprovalStatus.Pending	รออนุมัติ	Pending
+enum.ApprovalStatus.Approved	อนุมัติ	Approved
+enum.ApprovalStatus.Rejected	ไม่อนุมัติ	Rejected
+enum.ApprovalStatus.Returned	ส่งกลับแก้ไข	Returned
+enum.ApprovalStatus.Cancelled	ยกเลิก	Cancelled
+enum.ApprovalDecision.Approve	อนุมัติ	Approve
+enum.ApprovalDecision.Reject	ไม่อนุมัติ	Reject
+enum.ApprovalDecision.Return	ส่งกลับแก้ไข	Return for changes
+enum.ApprovalDecision.Comment	ความเห็น	Comment
+enum.PublicationType.JournalArticle	บทความวิจัยในวารสาร	Journal article
+enum.PublicationType.ConferencePaper	บทความในการประชุมวิชาการ	Conference paper
+enum.PublicationType.BookChapter	บทในหนังสือ	Book chapter
+enum.PublicationType.Book	หนังสือ	Book
+enum.PublicationType.Textbook	ตำรา	Textbook
+enum.PublicationType.AcademicArticle	บทความวิชาการ	Academic article
+enum.PublicationType.TeachingMaterial	เอกสารประกอบการสอน/คำสอน	Teaching material
+enum.PublicationType.ResearchReport	รายงานการวิจัย	Research report
+enum.PublicationType.SocialServiceWork	ผลงานรับใช้ท้องถิ่นและสังคม	Social service work
+enum.PublicationType.Patent	สิทธิบัตร	Patent
+enum.PublicationType.PettyPatent	อนุสิทธิบัตร	Petty patent
+enum.PublicationType.Software	ซอฟต์แวร์	Software
+enum.PublicationType.IndustryWork	ผลงานวิชาการเพื่ออุตสาหกรรม	Work for industry
+enum.PublicationType.CreativeWork	ผลงานสร้างสรรค์	Creative work
+enum.PublicationType.Thesis	วิทยานิพนธ์	Thesis
+enum.PublicationType.Other	อื่น ๆ	Other
+enum.PublicationStage.Idea	แนวคิด	Idea
+enum.PublicationStage.Drafting	กำลังเขียน	Drafting
+enum.PublicationStage.Submitted	ส่งแล้ว	Submitted
+enum.PublicationStage.UnderReview	อยู่ระหว่างพิจารณา	Under review
+enum.PublicationStage.Revision	แก้ไขตามผู้ทรงคุณวุฒิ	In revision
+enum.PublicationStage.Accepted	ตอบรับแล้ว	Accepted
+enum.PublicationStage.Published	ตีพิมพ์แล้ว	Published
+enum.PublicationStage.Rejected	ไม่ผ่าน	Rejected
+enum.PublicationStage.Withdrawn	ถอนแล้ว	Withdrawn
+enum.VenueKind.Journal	วารสาร	Journal
+enum.VenueKind.Conference	การประชุมวิชาการ	Conference
+enum.VenueKind.Publisher	สำนักพิมพ์	Publisher
+enum.VenueKind.Office	หน่วยงาน	Office
+enum.VenueKind.Other	อื่น ๆ	Other
+enum.IndexDatabase.Scopus	Scopus	Scopus
+enum.IndexDatabase.WoS	Web of Science	Web of Science
+enum.IndexDatabase.TCI1	TCI กลุ่ม 1	TCI Tier 1
+enum.IndexDatabase.TCI2	TCI กลุ่ม 2	TCI Tier 2
+enum.IndexDatabase.PubMed	PubMed	PubMed
+enum.IndexDatabase.ACI	ACI	ACI
+enum.IndexDatabase.Other	อื่น ๆ	Other
+enum.ProjectKind.Program	แผนงาน/ชุดโครงการ	Programme
+enum.ProjectKind.Project	โครงการเดี่ยว	Project
+enum.ProjectKind.SubProject	โครงการย่อย	Sub-project
+enum.ProjectKind.AcademicService	บริการวิชาการ	Academic service
+enum.ProjectKind.Consulting	งานที่ปรึกษา	Consulting
+enum.ProjectKind.Internal	ภายในกลุ่ม	Internal
+enum.ProjectStatus.Idea	แนวคิด	Idea
+enum.ProjectStatus.Drafting	กำลังเขียนข้อเสนอ	Drafting
+enum.ProjectStatus.Submitted	ส่งข้อเสนอแล้ว	Submitted
+enum.ProjectStatus.UnderReview	อยู่ระหว่างพิจารณา	Under review
+enum.ProjectStatus.Funded	ได้รับทุน	Funded
+enum.ProjectStatus.Active	กำลังดำเนินการ	Active
+enum.ProjectStatus.Extended	ขยายเวลา	Extended
+enum.ProjectStatus.Completed	เสร็จสิ้น	Completed
+enum.ProjectStatus.Closed	ปิดโครงการ	Closed
+enum.ProjectStatus.Rejected	ไม่ได้รับทุน	Not funded
+enum.ProjectStatus.Cancelled	ยกเลิก	Cancelled
+enum.ProjectRole.PI	หัวหน้าโครงการ	Principal investigator
+enum.ProjectRole.CoPI	ผู้ร่วมหัวหน้าโครงการ	Co-PI
+enum.ProjectRole.Researcher	นักวิจัย	Researcher
+enum.ProjectRole.ResearchAssistant	ผู้ช่วยวิจัย	Research assistant
+enum.ProjectRole.Student	นักศึกษา	Student
+enum.ProjectRole.Consultant	ที่ปรึกษา	Consultant
+enum.ProjectRole.IndustryPartner	ภาคอุตสาหกรรม	Industry partner
+enum.ProjectRole.Coordinator	ผู้ประสานงาน	Coordinator
+enum.ProjectRole.FinanceContact	ผู้ดูแลการเงินโครงการ	Finance contact
+enum.PartnerRole.Funder	แหล่งทุน	Funder
+enum.PartnerRole.CoFunder	ผู้ร่วมให้ทุน	Co-funder
+enum.PartnerRole.Industry	ภาคอุตสาหกรรม	Industry
+enum.PartnerRole.Collaborator	ผู้ร่วมวิจัย	Collaborator
+enum.PartnerRole.Beneficiary	ผู้รับประโยชน์	Beneficiary
+enum.MilestoneStatus.Pending	รอดำเนินการ	Pending
+enum.MilestoneStatus.Done	เสร็จแล้ว	Done
+enum.MilestoneStatus.Late	ล่าช้า	Late
+enum.MilestoneStatus.Waived	ยกเว้น	Waived
+enum.OutputType.Manpower	กำลังคน/หน่วยงานที่ได้รับการพัฒนา	People / organisations developed
+enum.OutputType.Manuscript	ต้นฉบับบทความวิจัย	Manuscript
+enum.OutputType.Book	หนังสือ	Book
+enum.OutputType.Prototype	ต้นแบบผลิตภัณฑ์/เทคโนโลยี/กระบวนการ	Prototype / technology / process
+enum.OutputType.IntellectualProperty	ทรัพย์สินทางปัญญา	Intellectual property
+enum.OutputType.Infrastructure	เครื่องมือและโครงสร้างพื้นฐาน	Facilities and infrastructure
+enum.OutputType.DatabaseSystem	ฐานข้อมูล/ระบบ/กลไก/มาตรฐาน	Database / system / standard
+enum.OutputType.Network	เครือข่าย	Network
+enum.OutputType.Investment	การลงทุนวิจัยและนวัตกรรม	R&I investment
+enum.OutputType.PolicyRecommendation	ข้อเสนอแนะเชิงนโยบาย	Policy recommendation
+enum.OutcomeType.Publication	การตีพิมพ์	Publication
+enum.OutcomeType.Citation	การอ้างอิง	Citations
+enum.OutcomeType.Tool	เครื่องมือ/วิธีการวิจัย	Research tools / methods
+enum.OutcomeType.Database	ฐานข้อมูล/แบบจำลอง	Database / model
+enum.OutcomeType.NextDestination	การไปต่อของกำลังคน	Next destination
+enum.OutcomeType.Award	รางวัล	Award
+enum.OutcomeType.FacilityUse	การใช้เครื่องมือ/โครงสร้างพื้นฐาน	Use of facilities
+enum.OutcomeType.IpLicensing	การอนุญาตใช้สิทธิ	IP licensing
+enum.OutcomeType.Other	อื่น ๆ	Other
+enum.ImpactDimension.Academic	วิชาการ	Academic
+enum.ImpactDimension.Social	สังคม	Social
+enum.ImpactDimension.Economic	เศรษฐกิจ	Economic
+enum.ImpactDimension.Environmental	สิ่งแวดล้อม	Environmental
+enum.ImpactDimension.Policy	นโยบาย	Policy
+enum.ReportKind.Progress	รายงานความก้าวหน้า	Progress report
+enum.ReportKind.Annual	รายงานประจำปี	Annual report
+enum.ReportKind.Final	รายงานฉบับสมบูรณ์	Final report
+enum.ReportKind.Financial	รายงานการเงิน	Financial report
+enum.ReportKind.Other	อื่น ๆ	Other
+enum.ReportStatus.Upcoming	ยังไม่ถึงกำหนด	Upcoming
+enum.ReportStatus.Due	ถึงกำหนดส่ง	Due
+enum.ReportStatus.Submitted	ส่งแล้ว	Submitted
+enum.ReportStatus.Accepted	ผ่านแล้ว	Accepted
+enum.ReportStatus.Revise	ต้องแก้ไข	Needs revision
+enum.RecruitPositionType.ResearchAssistant	ผู้ช่วยวิจัย	Research assistant
+enum.RecruitPositionType.MasterStudent	นักศึกษาปริญญาโท	Master's student
+enum.RecruitPositionType.PhdStudent	นักศึกษาปริญญาเอก	PhD student
+enum.RecruitPositionType.Postdoc	นักวิจัยหลังปริญญาเอก	Postdoc
+enum.RecruitPositionType.Intern	นักศึกษาฝึกงาน	Intern
+enum.RecruitPositionType.Engineer	วิศวกร	Engineer
+enum.RecruitPositionType.Other	อื่น ๆ	Other
+enum.RecruitmentStatus.Draft	ร่าง	Draft
+enum.RecruitmentStatus.Open	เปิดรับ	Open
+enum.RecruitmentStatus.Closed	ปิดรับ	Closed
+enum.RecruitmentStatus.Filled	ได้คนแล้ว	Filled
+enum.ApplicationStatus.New	ใหม่	New
+enum.ApplicationStatus.Shortlisted	ผ่านการคัดกรอง	Shortlisted
+enum.ApplicationStatus.Interview	นัดสัมภาษณ์	Interview
+enum.ApplicationStatus.Offered	เสนอตำแหน่ง	Offered
+enum.ApplicationStatus.Accepted	ตอบรับ	Accepted
+enum.ApplicationStatus.Rejected	ไม่ผ่าน	Not selected
+enum.ApplicationStatus.Withdrawn	ถอนตัว	Withdrawn
+enum.AccountKind.FundingSource	แหล่งเงิน	Funding source
+enum.AccountKind.Project	บัญชีโครงการ	Project account
+enum.AccountKind.BudgetCategory	หมวดงบ	Budget category
+enum.AccountKind.Wallet	กระเป๋าเงิน	Wallet
+enum.AccountKind.Other	อื่น ๆ	Other
+enum.BudgetCategory.Compensation	ค่าตอบแทน/ค่าจ้าง	Compensation / wages
+enum.BudgetCategory.Operating	ค่าใช้สอย	Operating expenses
+enum.BudgetCategory.Materials	ค่าวัสดุ	Materials
+enum.BudgetCategory.Equipment	ค่าครุภัณฑ์	Equipment
+enum.BudgetCategory.InstitutionFee	ค่าธรรมเนียมอุดหนุนสถาบัน	Institution fee
+enum.BudgetCategory.Other	อื่น ๆ	Other
+enum.LedgerKind.Income	รับเงิน	Income
+enum.LedgerKind.Transfer	โอนระหว่างบัญชี	Transfer
+enum.LedgerKind.Expense	จ่ายเงิน	Expense
+enum.LedgerKind.AdvanceOut	จ่ายเงินยืม	Advance paid out
+enum.LedgerKind.AdvanceReturn	รับคืนเงินยืม	Advance returned
+enum.LedgerKind.AdvanceClear	ล้างเงินยืม	Advance cleared
+enum.LedgerKind.Adjustment	ปรับปรุงยอด	Adjustment
+enum.LedgerKind.Reversal	กลับรายการ	Reversal
+enum.MoneyRequestKind.Reimbursement	ขอเบิก (คืนเงินที่สำรองจ่าย)	Reimbursement
+enum.MoneyRequestKind.Payment	ขอจ่าย	Payment
+enum.MoneyRequestKind.Advance	ขอยืมเงิน	Cash advance
+enum.MoneyRequestKind.AdvanceClearance	ล้างเงินยืม	Advance clearance
+enum.MoneyRequestKind.Transfer	ขอโอนระหว่างบัญชี	Transfer
+enum.MoneyRequestStatus.Draft	ร่าง	Draft
+enum.MoneyRequestStatus.Submitted	ส่งแล้ว	Submitted
+enum.MoneyRequestStatus.InApproval	รออนุมัติ	In approval
+enum.MoneyRequestStatus.Approved	อนุมัติแล้ว	Approved
+enum.MoneyRequestStatus.Rejected	ไม่อนุมัติ	Rejected
+enum.MoneyRequestStatus.Returned	ส่งกลับแก้ไข	Returned
+enum.MoneyRequestStatus.Cancelled	ยกเลิก	Cancelled
+enum.MoneyRequestStatus.Settled	ลงบัญชีแล้ว	Settled
+enum.AcquisitionMethod.Purchase	ซื้อ	Purchase
+enum.AcquisitionMethod.Donation	รับบริจาค	Donation
+enum.AcquisitionMethod.Transfer	รับโอน	Transfer
+enum.AcquisitionMethod.BuiltInHouse	สร้างเอง	Built in-house
+enum.AssetStatus.InUse	ใช้งาน	In use
+enum.AssetStatus.OnLoan	ถูกยืม	On loan
+enum.AssetStatus.UnderRepair	ส่งซ่อม	Under repair
+enum.AssetStatus.Broken	ชำรุด	Broken
+enum.AssetStatus.Disposed	จำหน่ายแล้ว	Disposed
+enum.AssetStatus.Lost	สูญหาย	Lost
+enum.MaintenanceKind.Calibration	สอบเทียบ	Calibration
+enum.MaintenanceKind.Repair	ซ่อม	Repair
+enum.MaintenanceKind.Preventive	บำรุงรักษา	Preventive maintenance
+enum.MaintenanceKind.Inspection	ตรวจสภาพ	Inspection
+enum.MovementKind.In	รับเข้า	In
+enum.MovementKind.Out	เบิกออก	Out
+enum.MovementKind.Adjust	ปรับยอด	Adjustment
+enum.ResourceKind.Equipment	เครื่องมือ	Equipment
+enum.ResourceKind.Room	ห้อง	Room
+enum.ResourceKind.Vehicle	ยานพาหนะ	Vehicle
+enum.ResourceKind.Other	อื่น ๆ	Other
+enum.BookingStatus.Pending	รออนุมัติ	Pending
+enum.BookingStatus.Confirmed	ยืนยันแล้ว	Confirmed
+enum.BookingStatus.Rejected	ไม่อนุมัติ	Rejected
+enum.BookingStatus.Cancelled	ยกเลิก	Cancelled
+enum.BookingStatus.Completed	ใช้งานแล้ว	Completed
+enum.BookingStatus.NoShow	ไม่มาใช้	No-show
+enum.TaskState.Todo	ต้องทำ	To do
+enum.TaskState.InProgress	กำลังทำ	In progress
+enum.TaskState.Review	รอตรวจ	In review
+enum.TaskState.Done	เสร็จ	Done
+enum.TaskState.Cancelled	ยกเลิก	Cancelled
+enum.Priority.Low	ต่ำ	Low
+enum.Priority.Normal	ปกติ	Normal
+enum.Priority.High	สูง	High
+enum.Priority.Urgent	ด่วน	Urgent
+enum.MeetingKind.Meeting	ประชุม	Meeting
+enum.MeetingKind.Appointment	นัดหมาย	Appointment
+enum.MeetingKind.Seminar	สัมมนา	Seminar
+enum.MeetingKind.ThesisDefense	สอบวิทยานิพนธ์	Thesis defence
+enum.MeetingKind.SiteVisit	ดูงาน/ลงพื้นที่	Site visit
+enum.MeetingKind.Other	อื่น ๆ	Other
+enum.MeetingStatus.Scheduled	นัดแล้ว	Scheduled
+enum.MeetingStatus.Done	ประชุมแล้ว	Held
+enum.MeetingStatus.Cancelled	ยกเลิก	Cancelled
+enum.MeetingVisibility.Attendees	เฉพาะผู้เข้าร่วม	Attendees only
+enum.MeetingVisibility.Group	ทุกคนในกลุ่ม	Whole group
+enum.AttendeeResponse.Pending	ยังไม่ตอบ	No reply
+enum.AttendeeResponse.Accepted	เข้าร่วม	Attending
+enum.AttendeeResponse.Declined	ไม่เข้าร่วม	Declined
+enum.AttendeeResponse.Tentative	ไม่แน่ใจ	Tentative
+enum.FolderVisibility.Private	ส่วนตัว	Private
+enum.FolderVisibility.Project	สมาชิกโครงการ	Project members
+enum.FolderVisibility.Group	ทุกคนในกลุ่ม	Whole group
+enum.DocumentKind.ManuscriptDraft	ร่างบทความ	Manuscript draft
+enum.DocumentKind.Report	รายงาน	Report
+enum.DocumentKind.Proposal	ข้อเสนอโครงการ	Proposal
+enum.DocumentKind.Image	รูปภาพ	Image
+enum.DocumentKind.Dataset	ข้อมูลการทดลอง	Dataset
+enum.DocumentKind.Presentation	งานนำเสนอ	Presentation
+enum.DocumentKind.Contract	สัญญา	Contract
+enum.DocumentKind.Minutes	บันทึกการประชุม	Minutes
+enum.DocumentKind.Other	อื่น ๆ	Other
+enum.NewsKind.News	ข่าว	News
+enum.NewsKind.Event	กิจกรรม	Event
+enum.NewsKind.Announcement	ประกาศ	Announcement
+enum.NewsKind.Award	รางวัล	Award
+enum.NewsKind.Seminar	สัมมนา	Seminar
+enum.PublishStatus.Draft	ร่าง	Draft
+enum.PublishStatus.InReview	รอตรวจ	In review
+enum.PublishStatus.Published	เผยแพร่แล้ว	Published
+enum.PublishStatus.Archived	เก็บถาวร	Archived
+enum.MessageStatus.New	ใหม่	New
+enum.MessageStatus.Read	อ่านแล้ว	Read
+enum.MessageStatus.Replied	ตอบแล้ว	Replied
+enum.MessageStatus.Spam	สแปม	Spam
+enum.MessageStatus.Closed	ปิดเรื่อง	Closed

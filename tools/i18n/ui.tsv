@@ -1,0 +1,253 @@
+app.name	MECMAT	MECMAT
+app.fullName	กลุ่มวิจัยกลศาสตร์และวัสดุ	Mechanics and Materials Research Group
+app.dept	ภาควิชาวิศวกรรมโยธา มจธ.	Civil Engineering, KMUTT
+app.backOffice	ระบบบริหารกลุ่มวิจัย	Research group management
+app.publicSite	เว็บไซต์สาธารณะ	Public website
+common.save	บันทึก	Save
+common.saved	บันทึกแล้ว	Saved
+common.cancel	ยกเลิก	Cancel
+common.close	ปิด	Close
+common.ok	ตกลง	OK
+common.confirm	ยืนยัน	Confirm
+common.add	เพิ่ม	Add
+common.edit	แก้ไข	Edit
+common.delete	ลบ	Delete
+common.deleted	ลบแล้ว	Deleted
+common.remove	เอาออก	Remove
+common.restore	กู้คืน	Restore
+common.search	ค้นหา	Search
+common.none	— ไม่ระบุ —	— none —
+common.empty	ยังไม่มีข้อมูล	Nothing here yet
+common.loading	กำลังโหลด…	Loading…
+common.actions	การดำเนินการ	Actions
+common.confirmDelete	ต้องการลบรายการนี้ใช่ไหม (กู้คืนได้ภายหลัง)	Delete this item? (It can be restored later.)
+common.chooseFile	เลือกไฟล์	Choose file
+common.noFile	ยังไม่มีไฟล์	No file
+common.addPerson	พิมพ์ชื่อเพื่อเพิ่ม	Type a name to add
+common.baht	บาท	THB
+common.yes	ใช่	Yes
+common.no	ไม่	No
+common.open	เปิด	Open
+common.back	กลับ	Back
+common.details	รายละเอียด	Details
+common.all	ทั้งหมด	All
+common.mine	ของฉัน	Mine
+common.today	วันนี้	Today
+common.download	ดาวน์โหลด	Download
+common.upload	อัปโหลด	Upload
+common.refresh	รีเฟรช	Refresh
+common.view	ดู	View
+common.history	ประวัติการแก้ไข	Change history
+common.copy	คัดลอก	Copy
+common.copied	คัดลอกแล้ว	Copied
+common.status	สถานะ	Status
+common.total	รวม	Total
+common.submit	ส่ง	Submit
+common.public	สาธารณะ	Public
+common.private	ส่วนตัว	Private
+common.new	ใหม่	New
+common.more	เพิ่มเติม	More
+common.notAllowed	คุณไม่มีสิทธิ์ใช้หน้านี้	You do not have access to this page
+common.notFound	ไม่พบหน้าที่ต้องการ	Page not found
+grid.showing	แสดง {from}–{to} จาก {total}	Showing {from}–{to} of {total}
+grid.count	{n} รายการ	{n} items
+form.required	จำเป็นต้องกรอก	Required
+time.justNow	เมื่อสักครู่	just now
+time.minutesAgo	{n} นาทีที่แล้ว	{n} min ago
+time.hoursAgo	{n} ชั่วโมงที่แล้ว	{n} h ago
+time.daysAgo	{n} วันที่แล้ว	{n} days ago
+dow.0	จันทร์	Monday
+dow.1	อังคาร	Tuesday
+dow.2	พุธ	Wednesday
+dow.3	พฤหัสบดี	Thursday
+dow.4	ศุกร์	Friday
+dow.5	เสาร์	Saturday
+dow.6	อาทิตย์	Sunday
+dows.0	จ.	Mon
+dows.1	อ.	Tue
+dows.2	พ.	Wed
+dows.3	พฤ.	Thu
+dows.4	ศ.	Fri
+dows.5	ส.	Sat
+dows.6	อา.	Sun
+nav.home	ภาพรวม	Overview
+nav.groupWork	งานของกลุ่ม	Work
+nav.people	บุคลากร	People
+nav.organizations	องค์กรภายนอก	Organisations
+nav.publications	ผลงานวิจัย	Publications
+nav.projects	โครงการวิจัย	Projects
+nav.finance	การเงิน	Finance
+nav.approvals	รออนุมัติ	Approvals
+nav.assets	ครุภัณฑ์และวัสดุ	Assets & materials
+nav.bookings	จองเครื่องมือ/ห้อง	Bookings
+nav.calendar	ปฏิทิน	Calendar
+nav.tasks	งาน	Tasks
+nav.meetings	ประชุม/นัดหมาย	Meetings
+nav.documents	เอกสาร	Documents
+nav.website	เว็บไซต์	Website
+nav.news	ข่าวสาร	News
+nav.recruitments	รับสมัคร	Recruitment
+nav.inbox	ข้อความเข้า	Inbox
+nav.siteContent	เนื้อหาเว็บไซต์	Site content
+nav.admin	ผู้ดูแลระบบ	Administration
+nav.users	บัญชีผู้ใช้	User accounts
+nav.roles	บทบาทและสิทธิ์	Roles & permissions
+nav.authority	โครงสร้างอำนาจ	Authority structure
+nav.audit	บันทึกการใช้งาน	Audit log
+nav.profile	โปรไฟล์ของฉัน	My profile
+nav.resources	ทรัพยากรที่จองได้	Bookable resources
+nav.materials	วัสดุ	Materials
+nav.notifications	การแจ้งเตือน	Notifications
+nav.uikit	ชุดคอมโพเนนต์	UI kit
+nav.viewSite	ดูเว็บไซต์	View website
+nav.signOut	ออกจากระบบ	Sign out
+nav.menu	เมนู	Menu
+nav.theme	สลับโหมดสว่าง/มืด	Toggle light / dark
+nav.language	English	ภาษาไทย
+auth.signIn	เข้าสู่ระบบ	Sign in
+auth.signInTitle	เข้าสู่ระบบบริหารกลุ่มวิจัย	Sign in to the group workspace
+auth.username	ชื่อผู้ใช้	Username
+auth.password	รหัสผ่าน	Password
+auth.forgot	ลืมรหัสผ่าน	Forgot password
+auth.register	สมัครบัญชี	Create an account
+auth.backToSignIn	กลับไปหน้าเข้าสู่ระบบ	Back to sign in
+auth.forgotIntro	ระบบไม่ส่งอีเมล — คำขอนี้จะแจ้งผู้ดูแลระบบ ซึ่งจะยืนยันตัวตนของคุณ (เช่น พบตัวหรือโทร) แล้วให้รหัสผ่านชั่วคราวแก่คุณโดยตรง	There is no e-mail: this request alerts an administrator, who will confirm it is you (in person or by phone) and give you a temporary password directly.
+auth.forgotSent	ส่งคำขอแล้ว กรุณาติดต่อผู้ดูแลระบบเพื่อรับรหัสผ่านชั่วคราว	Request sent. Contact an administrator to receive a temporary password.
+auth.forgotNote	ช่องทางที่สะดวกให้ติดต่อกลับ (ไม่บังคับ)	How to reach you (optional)
+auth.registerIntro	บัญชีใหม่ต้องได้รับอนุมัติจากผู้ดูแลระบบก่อนใช้งาน	New accounts need an administrator's approval before use.
+auth.registerSent	ส่งคำขอสมัครแล้ว ผู้ดูแลระบบจะตรวจสอบและเปิดใช้บัญชีให้	Sign-up sent. An administrator will review and activate your account.
+auth.confirmPassword	ยืนยันรหัสผ่าน	Confirm password
+auth.passwordsDiffer	รหัสผ่านทั้งสองช่องไม่ตรงกัน	The two passwords differ
+auth.passwordRules	อย่างน้อย 10 ตัวอักษร ไม่ใช้รหัสที่เดาง่าย และไม่มีชื่อผู้ใช้อยู่ในรหัส	At least 10 characters, not a common password, and not containing your username.
+auth.changeTitle	ตั้งรหัสผ่านใหม่	Set a new password
+auth.changeIntro	คุณเข้าระบบด้วยรหัสผ่านชั่วคราว กรุณาตั้งรหัสผ่านของคุณเอง ผู้ดูแลระบบจะไม่เห็นรหัสนี้	You signed in with a temporary password. Choose your own; administrators never see it.
+auth.currentPassword	รหัสผ่านปัจจุบัน	Current password
+auth.newPassword	รหัสผ่านใหม่	New password
+auth.changeButton	เปลี่ยนรหัสผ่าน	Change password
+auth.changed	เปลี่ยนรหัสผ่านแล้ว เซสชันอื่นถูกออกจากระบบ	Password changed. Other sessions were signed out.
+auth.totpTitle	ยืนยันตัวตนสองขั้นตอน	Two-step verification
+auth.totpIntro	กรอกรหัส 6 หลักจากแอป Authenticator หรือรหัสสำรอง 8 ตัว	Enter the 6-digit code from your authenticator app, or an 8-character recovery code.
+auth.totpCode	รหัสยืนยัน	Verification code
+auth.verify	ยืนยัน	Verify
+auth.setupTitle	ตั้งค่าการยืนยันตัวตนสองขั้นตอน	Set up two-step verification
+auth.setupIntro	บัญชีของคุณอนุมัติเงินหรือดูแลระบบ จึงต้องใช้แอป Authenticator (เช่น Google Authenticator, Microsoft Authenticator) ทุกครั้งที่เข้าระบบ	Your account approves money or administers the system, so it needs an authenticator app (e.g. Google or Microsoft Authenticator) at every sign-in.
+auth.setupStep1	1. ในแอป เลือก "เพิ่มบัญชี" → "ใส่คีย์ด้วยตนเอง" แล้วกรอกคีย์นี้ (ชื่อบัญชี: MECMAT)	1. In the app choose "Add account" → "Enter a setup key" and type this key (account name: MECMAT).
+auth.setupStep2	2. กรอกรหัส 6 หลักที่แอปแสดง	2. Enter the 6-digit code the app shows.
+auth.setupLink	หรือเปิดลิงก์นี้บนโทรศัพท์ที่ติดตั้งแอปไว้	Or open this link on the phone with the app
+auth.recoveryTitle	รหัสสำรอง — เก็บไว้ในที่ปลอดภัย	Recovery codes — keep them somewhere safe
+auth.recoveryIntro	ใช้รหัสเหล่านี้ได้รหัสละครั้งเมื่อไม่มีโทรศัพท์ หน้านี้จะแสดงเพียงครั้งเดียว	Each code works once if you lose your phone. This is the only time they are shown.
+auth.recoveryDone	บันทึกรหัสสำรองแล้ว	I have saved the codes
+auth.pendingNote	บัญชีรออนุมัติ	Account awaiting approval
+auth.invalid	ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง	Wrong username or password
+auth.pending	บัญชีนี้ยังรอการอนุมัติจากผู้ดูแลระบบ	This account is still waiting for approval
+auth.inactive	บัญชีนี้ถูกระงับหรือหมดอายุ กรุณาติดต่อผู้ดูแลระบบ	This account is suspended or expired. Contact an administrator.
+auth.tooManyAttempts	ลองผิดหลายครั้งเกินไป กรุณารอ 5 นาที	Too many attempts. Please wait 5 minutes.
+auth.required	กรุณาเข้าสู่ระบบ	Please sign in
+auth.mustChangePassword	กรุณาตั้งรหัสผ่านใหม่ก่อน	Please set a new password first
+auth.totpRequired	กรุณายืนยันรหัสจากแอป Authenticator	Please enter your authenticator code
+auth.mustSetupTotp	กรุณาตั้งค่าการยืนยันตัวตนสองขั้นตอนก่อน	Please set up two-step verification first
+auth.currentWrong	รหัสผ่านปัจจุบันไม่ถูกต้อง	Current password is wrong
+auth.password.tooShort	รหัสผ่านต้องยาวอย่างน้อย 10 ตัวอักษร	Password must be at least 10 characters
+auth.password.tooLong	รหัสผ่านยาวเกินไป	Password is too long
+auth.password.common	รหัสผ่านนี้เดาง่ายเกินไป	This password is too common
+auth.password.containsUsername	รหัสผ่านต้องไม่มีชื่อผู้ใช้อยู่ในนั้น	Password must not contain your username
+auth.password.tooSimple	รหัสผ่านง่ายเกินไป ใช้ตัวอักษรให้หลากหลายขึ้น	Password is too simple; use more varied characters
+auth.password.same	รหัสผ่านใหม่ต้องไม่ซ้ำกับรหัสเดิม	New password must differ from the current one
+auth.username.invalid	ชื่อผู้ใช้ใช้ได้เฉพาะ a–z 0–9 . _ - ยาว 3–40 ตัว	Username: a–z 0–9 . _ - only, 3–40 characters
+auth.username.taken	ชื่อผู้ใช้นี้มีคนใช้แล้ว	That username is taken
+auth.name.required	กรุณากรอกชื่อและนามสกุลภาษาไทย	Enter your Thai first and last name
+auth.totp.alreadyOn	เปิดใช้การยืนยันสองขั้นตอนอยู่แล้ว	Two-step verification is already on
+auth.totp.notSetUp	ยังไม่ได้เริ่มตั้งค่า	Set-up has not started
+auth.totp.wrong	รหัสไม่ถูกต้อง	Wrong code
+errors.server	เกิดข้อผิดพลาดในระบบ	Something went wrong on the server
+errors.reference	รหัสอ้างอิง	Reference
+errors.csrf	หมดเวลาการใช้งาน กรุณารีเฟรชหน้า	Your session token expired. Please reload the page.
+errors.forbidden	คุณไม่มีสิทธิ์ทำรายการนี้	You are not allowed to do this
+errors.notFound	ไม่พบข้อมูล	Not found
+errors.conflict	มีผู้อื่นแก้ไขรายการนี้ไปก่อนแล้ว กรุณาเปิดใหม่แล้วแก้อีกครั้ง	Someone else changed this first. Reopen it and edit again.
+errors.readOnly	รายการนี้แก้ไขโดยตรงไม่ได้	This list cannot be edited directly
+errors.invalidField	ค่าที่กรอกไม่ถูกต้อง	Invalid value
+errors.duplicate	มีรายการนี้อยู่แล้ว	This already exists
+errors.endBeforeStart	เวลาสิ้นสุดต้องอยู่หลังเวลาเริ่ม	End must be after start
+errors.loadFailed	โหลดข้อมูลไม่สำเร็จ	Could not load
+users.notPending	บัญชีนี้ไม่ได้อยู่ในสถานะรออนุมัติ	This account is not pending
+users.personHasAccount	บุคคลนี้มีบัญชีผู้ใช้อยู่แล้ว	This person already has an account
+users.cannotResetSelf	ตั้งรหัสใหม่ให้ตัวเองไม่ได้ ใช้เมนูเปลี่ยนรหัสผ่าน	You cannot reset your own password here; use Change password
+users.cannotSuspendSelf	ระงับบัญชีตัวเองไม่ได้	You cannot suspend yourself
+users.useApprove	ใช้ปุ่มอนุมัติสำหรับบัญชีที่รออนุมัติ	Use Approve for pending accounts
+users.unknownRole	ไม่พบบทบาทที่เลือก	Unknown role
+people.slugTaken	ชื่อหน้าเว็บนี้มีผู้ใช้แล้ว	That web address is taken
+people.fieldNotPublishable	ข้อมูลนี้แสดงบนเว็บไซต์ไม่ได้	This field can never be published
+publications.authorCertified	ผู้แต่งรายนี้ลงนามรับรองการมีส่วนร่วมแล้ว แก้ไขไม่ได้	This author's contribution form is signed and cannot be changed
+publications.doiInvalid	รูปแบบ DOI ไม่ถูกต้อง (ต้องขึ้นต้นด้วย 10.)	Invalid DOI (it starts with 10.)
+publications.doiNotFound	ไม่พบ DOI นี้ใน Crossref	DOI not found on Crossref
+applications.publicFormOnly	ใบสมัครส่งได้จากหน้าเว็บไซต์เท่านั้น	Applications come only through the website form
+contact.publicFormOnly	ข้อความติดต่อส่งได้จากหน้าเว็บไซต์เท่านั้น	Messages come only through the website form
+cms.publishNeedsEditor	ต้องให้ผู้แก้ไขเนื้อหาเว็บไซต์เป็นผู้เผยแพร่	Only a site editor can publish
+finance.codeRequired	กรุณาระบุรหัสบัญชี	Enter an account code
+finance.codeTaken	รหัสบัญชีนี้มีอยู่แล้ว	That account code exists
+finance.cycle	บัญชีแม่ทำให้เกิดวงวน	That parent would create a loop
+finance.parentHasEntries	บัญชีที่มีรายการเงินแล้วมีบัญชีย่อยไม่ได้ (เงินอยู่ที่บัญชีปลายสุดเท่านั้น)	An account with entries cannot have sub-accounts (money lives on leaf accounts only)
+finance.accountHasEntries	ลบบัญชีที่มีรายการเงินไม่ได้	An account with entries cannot be deleted
+finance.accountHasChildren	ลบบัญชีที่ยังมีบัญชีย่อยไม่ได้	Delete its sub-accounts first
+finance.notLeaf	เลือกบัญชีปลายสุด (บัญชีที่ไม่มีบัญชีย่อย)	Choose a leaf account (one without sub-accounts)
+finance.purposeRequired	กรุณาระบุวัตถุประสงค์	Enter a purpose
+finance.linesRequired	ต้องมีอย่างน้อยหนึ่งรายการ	Add at least one line
+finance.transferTarget	เลือกบัญชีปลายทางที่ไม่ใช่บัญชีเดียวกัน	Choose a different destination account
+finance.advanceRequired	เลือกเงินยืมที่จะล้าง	Choose the advance to clear
+finance.advanceInvalid	เงินยืมนี้ล้างไม่ได้	This advance cannot be cleared
+finance.advanceAlreadyCleared	เงินยืมนี้มีคำขอล้างอยู่แล้ว	This advance already has a clearance
+finance.amountPositive	จำนวนเงินต้องมากกว่า 0	Amount must be above zero
+finance.lineInvalid	รายการไม่ถูกต้อง (จำนวนต้องมากกว่า 0)	Invalid line (quantity must be above zero)
+finance.notEditable	คำขอนี้แก้ไขไม่ได้แล้ว	This request can no longer be edited
+finance.insufficient	ยอดที่ใช้ได้ไม่พอ (ใช้ได้ {available} สตางค์)	Not enough available money
+finance.notCancellable	คำขอนี้ยกเลิกไม่ได้	This request cannot be cancelled
+finance.notApproved	คำขอยังไม่ได้รับอนุมัติ	The request is not approved
+finance.adjustInvalid	ระบุจำนวนและเหตุผลการปรับยอด	Enter an amount and a reason
+finance.reasonRequired	กรุณาระบุเหตุผล	Enter a reason
+finance.cannotReverseReversal	กลับรายการของรายการกลับไม่ได้	A reversal cannot be reversed
+finance.alreadyReversed	รายการนี้ถูกกลับรายการแล้ว	Already reversed
+approval.noPolicy	ยังไม่มีนโยบายอนุมัติสำหรับคำขอนี้ กรุณาให้ผู้ดูแลระบบตั้งค่า	No approval policy covers this request. Ask an administrator to set one up.
+approval.noApprover	ไม่พบผู้อนุมัติ กรุณาให้ผู้ดูแลระบบตั้งค่าตำแหน่ง	No approver found. Ask an administrator to assign positions.
+approval.closed	คำขอนี้ปิดไปแล้ว	This approval is closed
+approval.notYourTurn	ยังไม่ถึงขั้นของคุณ หรือคุณไม่ใช่ผู้อนุมัติ	It is not your turn, or you are not an approver
+approval.commentRequired	กรุณาระบุเหตุผล	Please give a reason
+bookings.rangeInvalid	ช่วงวันที่ไม่ถูกต้อง	Invalid date range
+bookings.resourceInactive	ทรัพยากรนี้ปิดการจอง	This resource is not bookable
+bookings.titleRequired	กรุณาระบุชื่อการใช้งาน	Enter what it is for
+bookings.tooShort	จองสั้นเกินไป (อย่างน้อย {min} นาที)	Too short (at least {min} min)
+bookings.tooLong	จองนานเกินไป (ไม่เกิน {max} นาที)	Too long (at most {max} min)
+bookings.inPast	จองย้อนหลังไม่ได้	Cannot book in the past
+bookings.tooFarAhead	จองล่วงหน้าได้ไม่เกิน {days} วัน	Book at most {days} days ahead
+bookings.slotAlign	เวลาต้องลงตัวทุก {slot} นาที	Times must fall on {slot}-minute steps
+bookings.oneDay	การจองต้องอยู่ภายในวันเดียว	A booking must stay within one day
+bookings.closedDay	วันนี้ไม่เปิดให้จอง	Not bookable on this day
+bookings.outsideHours	อยู่นอกเวลาเปิด ({open}–{close})	Outside opening hours ({open}–{close})
+bookings.clash	ช่วงเวลานี้มีผู้จองแล้ว	That time is already booked
+bookings.blackout	ช่วงเวลานี้ปิดใช้งาน	The resource is closed then
+files.typeNotAllowed	ไม่รองรับไฟล์ชนิดนี้ ({ext})	File type not allowed ({ext})
+files.tooLarge	ไฟล์ใหญ่เกิน 100 MB	File is larger than 100 MB
+notify.signup	มีผู้สมัครบัญชีใหม่: {name} ({username})	New sign-up: {name} ({username})
+notify.resetRequest	ขอรหัสผ่านใหม่: {username}	Password reset requested: {username}
+notify.accountApproved	บัญชีของคุณได้รับอนุมัติแล้ว	Your account was approved
+notify.approval.pending	มีคำขอรออนุมัติจากคุณ	A request is waiting for your approval
+notify.approval.approved	คำขอของคุณได้รับอนุมัติ	Your request was approved
+notify.approval.rejected	คำขอของคุณไม่ได้รับอนุมัติ	Your request was rejected
+notify.approval.returned	คำขอของคุณถูกส่งกลับให้แก้ไข	Your request was returned for changes
+notify.approval.cancelled	คำขอถูกยกเลิก	A request was cancelled
+notify.finance.settled	คำขอเงินของคุณลงบัญชีแล้ว	Your money request was settled
+notify.finance.toSettle	มีคำขอที่อนุมัติแล้วรอลงบัญชี	Approved requests are waiting to be settled
+notify.booking.cancelled	การจอง "{title}" ถูกยกเลิก	Booking "{title}" was cancelled
+notify.reminder.advanceSoon	เงินยืม "{purpose}" ครบกำหนดคืนใน 3 วัน	Advance "{purpose}" is due in 3 days
+notify.reminder.advanceDue	เงินยืม "{purpose}" ครบกำหนดคืนวันนี้	Advance "{purpose}" is due today
+notify.reminder.advanceOverdue	เงินยืม "{purpose}" เลยกำหนด {days} วัน	Advance "{purpose}" is {days} days overdue
+notify.reminder.report	ใกล้ถึงกำหนดส่งรายงาน	A project report is coming due
+notify.reminder.meeting	ใกล้ถึงเวลาประชุม "{title}"	Meeting soon: "{title}"
+notify.reminder.booking	การจอง "{title}" จะเริ่มในอีกประมาณ 1 ชั่วโมง	Booking "{title}" starts in about an hour
+notify.reminder.task	งาน "{title}" ครบกำหนดพรุ่งนี้	Task "{title}" is due tomorrow
+notify.reminder.maintenance	ครุภัณฑ์ใกล้ถึงกำหนดสอบเทียบ/บำรุงรักษา	Equipment calibration / maintenance is due soon
+notify.reminder.accountExpiring	บัญชีของคุณจะหมดอายุ	Your account will expire soon
+notify.reminder.accountExpiringAdmin	บัญชี {username} จะหมดอายุ	Account {username} will expire soon
+notify.empty	ไม่มีการแจ้งเตือน	No notifications
+notify.markAll	อ่านทั้งหมดแล้ว	Mark all read
+notify.andMore	และอีก {n} รายการ	and {n} more

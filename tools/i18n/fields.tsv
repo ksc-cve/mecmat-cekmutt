@@ -1,0 +1,371 @@
+f.abstractEn	บทคัดย่อ (อังกฤษ)	Abstract (English)
+f.abstractTh	บทคัดย่อ (ไทย)	Abstract (Thai)
+f.academicRank	ตำแหน่งทางวิชาการ	Academic rank
+f.academicYear	ปีการศึกษา	Academic year
+f.accountId	บัญชี	Account
+f.accountName	ชื่อบัญชี	Account name
+f.accountNo	เลขที่บัญชี	Account number
+f.accountScopeId	ใช้กับบัญชี (รวมบัญชีย่อย)	Applies to account (and sub-accounts)
+f.achievedDate	วันที่บรรลุ	Achieved on
+f.acquiredDate	วันที่ได้มา	Acquired on
+f.acquisitionMethod	วิธีการได้มา	Acquisition method
+f.action	การกระทำ	Action
+f.activityId	กิจกรรม	Activity
+f.actorPersonId	ผู้ดำเนินการ	By
+f.actual	ผลจริง	Actual
+f.actualQty	จำนวนที่ได้จริง	Actual quantity
+f.address	ที่อยู่	Address
+f.advanceDueDate	กำหนดคืนเงินยืม	Advance due date
+f.advisorPersonId	อาจารย์ที่ปรึกษา	Advisor
+f.agenda	วาระการประชุม	Agenda
+f.allAction	สิทธิ์กับข้อมูลทั้งหมด	Access to all records
+f.allowNegative	อนุญาตให้ยอดติดลบ	Allow negative balance
+f.amount	จำนวนเงิน	Amount
+f.apaCitation	การอ้างอิงแบบ APA	APA citation
+f.appointedDate	วันที่ได้รับแต่งตั้ง	Appointed on
+f.approverKind	ผู้อนุมัติแบบ	Approver type
+f.approverRef	ผู้อนุมัติ	Approver
+f.articleNumber	เลขที่บทความ	Article number
+f.assetCode	รหัสครุภัณฑ์	Asset code
+f.assetId	ครุภัณฑ์	Asset
+f.at	เวลา	Time
+f.attended	เข้าร่วม	Attended
+f.authorPersonId	ผู้เขียน	Author
+f.balance	ยอดคงเหลือ	Balance
+f.bankName	ธนาคาร	Bank
+f.beneficiaryArea	พื้นที่ได้รับประโยชน์	Beneficiary area
+f.bioEn	ประวัติโดยย่อ (อังกฤษ)	Biography (English)
+f.bioTh	ประวัติโดยย่อ (ไทย)	Biography (Thai)
+f.body	เนื้อหา	Content
+f.bodyEn	เนื้อหา (อังกฤษ)	Content (English)
+f.bodyTh	เนื้อหา (ไทย)	Content (Thai)
+f.bookerPersonId	ผู้จอง	Booked by
+f.borrowerPersonId	ผู้ยืม	Borrower
+f.branch	สาขา	Branch
+f.brand	ยี่ห้อ	Brand
+f.budget	งบประมาณ	Budget
+f.budgetCategory	หมวดงบ	Budget category
+f.cancelledReason	เหตุผลที่ยกเลิก	Cancellation reason
+f.category	ประเภท	Category
+f.certificateFileId	ไฟล์ใบรับรอง	Certificate file
+f.certificationFileId	ไฟล์แบบแสดงหลักฐานการมีส่วนร่วม	Signed contribution form
+f.certifiedAt	วันที่ลงนามรับรองการมีส่วนร่วม	Contribution certified on
+f.changeNote	บันทึกการเปลี่ยนแปลง	Change note
+f.citationAsOf	นับการอ้างอิง ณ วันที่	Citations as of
+f.citationCount	จำนวนการอ้างอิง	Citations
+f.closeDate	วันปิดรับสมัคร	Closing date
+f.code	รหัส	Code
+f.color	สี	Colour
+f.comment	ความเห็น	Comment
+f.committed	ผูกพันแล้ว	Committed
+f.compensationText	ค่าตอบแทน	Compensation
+f.conditionIn	สภาพตอนคืน	Condition on return
+f.conditionOut	สภาพตอนยืม	Condition when lent
+f.conferenceDates	วันที่จัดประชุม	Conference dates
+f.conferenceLocation	สถานที่จัดประชุม	Conference location
+f.contractNo	เลขที่สัญญา	Contract number
+f.contributionDescription	คำอธิบายการมีส่วนร่วม	Contribution description
+f.contributionPct	สัดส่วนการมีส่วนร่วม (%)	Contribution (%)
+f.cost	ราคา	Cost
+f.counterpartyText	คู่รายการ	Counterparty
+f.country	ประเทศ	Country
+f.courseCode	รหัสวิชา	Course code
+f.courseName	ชื่อวิชา	Course name
+f.coverFileId	ภาพปก	Cover image
+f.createdAt	สร้างเมื่อ	Created
+f.credits	หน่วยกิต	Credits
+f.currentStep	ขั้นปัจจุบัน	Current step
+f.custodianPersonId	ผู้ดูแล	Custodian
+f.cvFileId	ไฟล์ประวัติ (CV)	CV file
+f.database	ฐานข้อมูล	Database
+f.date	วันที่	Date
+f.dateOfBirth	วันเกิด	Date of birth
+f.decision	การตัดสินใจ	Decision
+f.degreeNameEn	ชื่อปริญญา (อังกฤษ)	Degree (English)
+f.degreeNameTh	ชื่อปริญญา (ไทย)	Degree (Thai)
+f.deliverable	ผลผลิตที่ส่งมอบ	Deliverable
+f.dependsOnActivityId	ต่อจากกิจกรรม	Depends on
+f.description	รายละเอียด	Description
+f.descriptionEn	รายละเอียด (อังกฤษ)	Description (English)
+f.descriptionTh	รายละเอียด (ไทย)	Description (Thai)
+f.dimension	มิติ	Dimension
+f.displayOrder	ลำดับการแสดง	Display order
+f.disposalMethod	วิธีจำหน่าย	Disposal method
+f.disposedDate	วันที่จำหน่าย	Disposed on
+f.doi	DOI	DOI
+f.doneDate	วันที่เสร็จ	Done on
+f.dueDate	กำหนดเสร็จ	Due date
+f.edition	ครั้งที่พิมพ์	Edition
+f.effortPct	สัดส่วนเวลา (%)	Effort (%)
+f.email	อีเมล	E-mail
+f.endAt	สิ้นสุด	Ends
+f.endDate	วันสิ้นสุด	End date
+f.enrolledYear	ปีที่เข้าศึกษา	Year enrolled
+f.entryDate	วันที่ลงบัญชี	Entry date
+f.eventEndAt	กิจกรรมสิ้นสุด	Event ends
+f.eventLocation	สถานที่จัดกิจกรรม	Event location
+f.eventStartAt	กิจกรรมเริ่ม	Event starts
+f.evidence	หลักฐาน	Evidence
+f.expectedGraduation	ปีที่คาดว่าจะจบ	Expected graduation
+f.expertiseEn	ความเชี่ยวชาญ (อังกฤษ)	Expertise (English)
+f.expertiseTh	ความเชี่ยวชาญ (ไทย)	Expertise (Thai)
+f.expiresAt	วันหมดอายุบัญชี	Account expires
+f.expiryDate	วันหมดอายุ	Expiry date
+f.extendedEndDate	วันสิ้นสุด (ขยายเวลา)	Extended end date
+f.externalAffiliation	สังกัด (บุคคลภายนอก)	Affiliation (external)
+f.externalCode	รหัสแหล่งทุน / NRIIS	Funder / NRIIS code
+f.externalName	ชื่อ (บุคคลภายนอก)	Name (external)
+f.field	สาขา	Field
+f.fieldCode	รหัสสาขาวิชา (ก.พ.อ.)	Field code (ก.พ.อ.)
+f.fieldKey	ข้อมูล	Field
+f.fieldName	สาขาวิชา	Field of study
+f.fileBlobId	ไฟล์	File
+f.fileId	ไฟล์	File
+f.filedDate	วันที่ยื่นจด	Filed on
+f.firstNameEn	ชื่อ (อังกฤษ)	First name (English)
+f.firstNameTh	ชื่อ (ไทย)	First name (Thai)
+f.fiscalYear	ปีงบประมาณ	Fiscal year
+f.folderId	โฟลเดอร์	Folder
+f.forRank	ใช้ขอตำแหน่ง	Used for rank
+f.framework	กรอบแนวคิด	Framework
+f.fromAccountId	จากบัญชี	From account
+f.fromDate	ตั้งแต่	From
+f.fromPersonId	ผู้มอบอำนาจ	Delegating person
+f.fromThesisOfPersonId	มาจากวิทยานิพนธ์ของ	From the thesis of
+f.fullName	ชื่อ-นามสกุล	Full name
+f.funderOrganizationId	แหล่งทุน	Funder
+f.fundingAccountId	บัญชีที่ใช้ซื้อ	Funding account
+f.fundingProjectId	โครงการที่ใช้ซื้อ	Funding project
+f.fundingScheme	ประเภททุน	Funding scheme
+f.googleScholarId	Google Scholar ID	Google Scholar ID
+f.graduatedYear	ปีที่สำเร็จการศึกษา	Year graduated
+f.grantedDate	วันที่ได้รับ	Granted on
+f.hasDoctorate	มีวุฒิปริญญาเอก (ดร.)	Holds a doctorate (Dr.)
+f.honors	เกียรตินิยม	Honours
+f.hoursPerWeek	ชั่วโมง/สัปดาห์	Hours / week
+f.impactFactor	Impact Factor	Impact factor
+f.inCashAmount	สนับสนุนเป็นเงิน	In-cash support
+f.inKindAmount	สนับสนุนไม่ใช่ตัวเงิน (มูลค่า)	In-kind support (value)
+f.inKindDescription	รายละเอียดการสนับสนุนไม่ใช่ตัวเงิน	In-kind description
+f.indicator	ตัวชี้วัด	Indicator
+f.institution	สถาบัน	Institution
+f.institutionFeePct	ค่าธรรมเนียมอุดหนุนสถาบัน (%)	Institution fee (%)
+f.internalCode	รหัสภายใน	Internal code
+f.isActive	ใช้งานอยู่	Active
+f.isCorresponding	ผู้ประพันธ์บรรณกิจ	Corresponding author
+f.isEssentialContributor	ผู้มีส่วนสำคัญทางปัญญา	Essential intellectual contributor
+f.isFirstAuthor	ผู้ประพันธ์อันดับแรก	First author
+f.isPrimary	บัญชีหลัก	Primary
+f.isPublic	แสดงบนเว็บไซต์	Show on website
+f.isStudentAtTime	เป็นนักศึกษาขณะนั้น	Student at the time
+f.isbn	ISBN	ISBN
+f.issn	ISSN	ISSN
+f.issue	ฉบับที่	Issue
+f.issuedDate	วันที่ออก	Issued on
+f.issuer	ผู้มอบ	Issuer
+f.joinedDate	วันที่เข้าร่วมกลุ่ม	Joined on
+f.key	คีย์	Key
+f.keyResultText	ผลลัพธ์หลัก (Key result)	Key result
+f.keywords	คำสำคัญ	Keywords
+f.keywordsEn	คำสำคัญ (อังกฤษ)	Keywords (English)
+f.keywordsTh	คำสำคัญ (ไทย)	Keywords (Thai)
+f.kind	ประเภท	Type
+f.label	ป้ายชื่อ	Label
+f.lastLoginAt	เข้าระบบล่าสุด	Last sign-in
+f.lastNameEn	นามสกุล (อังกฤษ)	Last name (English)
+f.lastNameTh	นามสกุล (ไทย)	Last name (Thai)
+f.leftDate	วันที่ออกจากกลุ่ม	Left on
+f.level	ระดับ	Level
+f.licenseNo	เลขที่ใบอนุญาต	Licence number
+f.lineId	LINE ID	LINE ID
+f.linkedId	อ้างอิงถึง	Linked record
+f.linkedType	ประเภทหลักฐาน	Evidence type
+f.location	สถานที่	Location
+f.logoFileId	โลโก้	Logo
+f.managerPersonId	ผู้ดูแลทรัพยากร	Resource manager
+f.materialId	วัสดุ	Material
+f.maxAdvanceDays	จองล่วงหน้าได้ไม่เกิน (วัน)	Book at most (days ahead)
+f.maxAmount	วงเงินสูงสุด	Maximum amount
+f.maxDurationMinutes	นานสุด (นาที)	Longest booking (min)
+f.message	ข้อความ	Message
+f.method	วิธีที่	Method
+f.methodology	วิธีดำเนินการวิจัย	Methodology
+f.minAmount	วงเงินตั้งแต่	Minimum amount
+f.minDurationMinutes	สั้นสุด (นาที)	Shortest booking (min)
+f.minStock	จำนวนขั้นต่ำ	Minimum stock
+f.mobilePhone	โทรศัพท์มือถือ	Mobile phone
+f.model	รุ่น	Model
+f.modifiedAt	แก้ไขล่าสุด	Last modified
+f.module	โมดูล	Module
+f.name	ชื่อ	Name
+f.nameEn	ชื่อ (อังกฤษ)	Name (English)
+f.nameTh	ชื่อ (ไทย)	Name (Thai)
+f.nationalId	เลขประจำตัวประชาชน	National ID number
+f.neededBy	ต้องการภายใน	Needed by
+f.nextDueDate	ครบกำหนดครั้งถัดไป	Next due
+f.nickname	ชื่อเล่น	Nickname
+f.note	หมายเหตุ	Note
+f.notes	หมายเหตุ	Notes
+f.objective	วัตถุประสงค์ (Objective)	Objective
+f.objectives	วัตถุประสงค์	Objectives
+f.officeRoom	ห้องทำงาน	Office
+f.onlineUrl	ลิงก์ประชุมออนไลน์	Online meeting link
+f.openDate	วันเปิดรับสมัคร	Opening date
+f.openHoursJson	เวลาเปิดให้จอง	Bookable hours
+f.orcidId	ORCID	ORCID
+f.order	ลำดับ	Order
+f.organizationId	สังกัด / องค์กร	Organisation
+f.organizationText	องค์กร (ถ้าไม่มีในระบบ)	Organisation (if not listed)
+f.organizerPersonId	ผู้จัด	Organiser
+f.outcomeType	ประเภทผลลัพธ์	Outcome type
+f.outputType	ประเภทผลผลิต	Output type
+f.ownerPersonId	เจ้าของ	Owner
+f.pages	หน้า	Pages
+f.parentAccountId	บัญชีแม่	Parent account
+f.parentActivityId	กิจกรรมหลัก	Parent activity
+f.parentFolderId	โฟลเดอร์แม่	Parent folder
+f.parentOrganizationId	องค์กรแม่	Parent organisation
+f.parentProjectId	แผนงาน/โครงการหลัก	Parent programme / project
+f.parentTaskId	งานหลัก	Parent task
+f.patentApplicationNo	เลขที่คำขอ	Application number
+f.patentCountry	ประเทศที่จด	Country
+f.patentNo	เลขที่สิทธิบัตร	Patent number
+f.payeeOrganizationId	ผู้รับเงิน (องค์กร)	Payee (organisation)
+f.payeePersonId	ผู้รับเงิน (บุคคล)	Payee (person)
+f.payeeText	ผู้รับเงิน (อื่น ๆ)	Payee (other)
+f.period	ช่วงเวลา	Period
+f.periodFrom	งวดตั้งแต่	Period from
+f.periodNo	งวดที่	Period no.
+f.periodTo	งวดถึง	Period to
+f.personId	บุคคล	Person
+f.personalEmail	อีเมลส่วนตัว	Personal e-mail
+f.phone	โทรศัพท์	Phone
+f.photoFileId	รูปถ่าย	Photo
+f.pinned	ปักหมุด	Pinned
+f.policyId	นโยบาย	Policy
+f.position	ตำแหน่ง	Position
+f.positionId	ตำแหน่งในกลุ่ม	Group position
+f.positionText	ตำแหน่งงาน	Job title
+f.positionType	ประเภทตำแหน่ง	Position type
+f.priority	ลำดับความสำคัญ	Priority
+f.programName	หลักสูตร	Programme
+f.progressPct	ความก้าวหน้า (%)	Progress (%)
+f.projectId	โครงการ	Project
+f.projectScopeId	ใช้กับโครงการ	Applies to project
+f.promptPayId	พร้อมเพย์	PromptPay
+f.publicSlug	ชื่อหน้าเว็บ (URL)	Web address (URL)
+f.publicSummaryEn	สรุปสำหรับเว็บไซต์ (อังกฤษ)	Public summary (English)
+f.publicSummaryTh	สรุปสำหรับเว็บไซต์ (ไทย)	Public summary (Thai)
+f.publicationId	ผลงาน	Publication
+f.publishedAt	เผยแพร่เมื่อ	Published
+f.publishedDate	วันที่ตีพิมพ์	Publication date
+f.publisher	สำนักพิมพ์	Publisher
+f.purpose	วัตถุประสงค์การใช้เงิน	Purpose
+f.qty	จำนวน	Quantity
+f.qualifications	คุณสมบัติ	Qualifications
+f.qualityResult	ผลการประเมินคุณภาพ	Quality result
+f.quartile	ควอร์ไทล์	Quartile
+f.rank	ลำดับอำนาจ	Rank
+f.rationale	ความสำคัญและที่มา	Rationale
+f.reason	เหตุผล	Reason
+f.recordStatus	สถานะระเบียน	Record status
+f.referenceNo	เลขที่อ้างอิง (สัญญา/ใบส่งของ)	Reference (contract / delivery note)
+f.referenceText	เลขที่อ้างอิง	Reference
+f.relatedAction	สิทธิ์กับข้อมูลที่เกี่ยวข้อง	Access to related records
+f.relatedAdvanceId	เงินยืมที่ล้าง	Advance being cleared
+f.requesterPersonId	ผู้ขอ	Requested by
+f.requiresApproval	ต้องรออนุมัติ	Needs approval
+f.researchAreaId	สาขาวิจัย	Research area
+f.researchGateUrl	ResearchGate	ResearchGate
+f.researchSite	พื้นที่วิจัย	Research site
+f.researcherId	ResearcherID (WoS)	ResearcherID (WoS)
+f.resourceId	ทรัพยากร	Resource
+f.response	การตอบรับ	Response
+f.responsibilityPct	สัดส่วนรับผิดชอบ (%)	Responsibility (%)
+f.returnedDate	วันที่คืน	Returned on
+f.reviewerNotes	บันทึกผู้พิจารณา	Reviewer notes
+f.role	บทบาท	Role
+f.roleId	บทบาท	Role
+f.rule	เงื่อนไข	Rule
+f.salvageValue	มูลค่าซาก	Salvage value
+f.scopusAuthorId	Scopus Author ID	Scopus Author ID
+f.seats	จำนวนที่รับ	Openings
+f.semester	ภาคเรียน	Semester
+f.serialNo	หมายเลขเครื่อง (S/N)	Serial number
+f.shortName	ชื่อย่อ	Short name
+f.sizeBytes	ขนาด	Size
+f.sjrYear	ปีที่จัดอันดับ	Ranking year
+f.slotMinutes	ช่วงเวลาจอง (นาที)	Booking slot (min)
+f.slug	ชื่อหน้าเว็บ (URL)	Web address (URL)
+f.socialStageA	มีส่วนในขั้นวิเคราะห์สถานการณ์	Took part in situation analysis
+f.socialStageB	มีส่วนในขั้นออกแบบ/พัฒนา	Took part in design / development
+f.socialStageC	มีส่วนในขั้นประเมินผล	Took part in outcome evaluation
+f.specifications	คุณลักษณะเฉพาะ	Specifications
+f.spent	ใช้ไป	Spent
+f.srlCurrent	SRL ปัจจุบัน	Current SRL
+f.srlStart	SRL เริ่มต้น	SRL at start
+f.srlTarget	SRL เป้าหมาย	Target SRL
+f.stage	ขั้นตอน	Stage
+f.startAt	เริ่ม	Starts
+f.startDate	วันเริ่ม	Start date
+f.startYear	ปีที่เริ่ม	Year started
+f.status	สถานะ	Status
+f.stepOrder	ขั้นที่	Step
+f.studentId	รหัสนักศึกษา	Student ID
+f.subField	อนุสาขา	Sub-field
+f.subject	เรื่อง	Subject
+f.subjectType	ประเภทคำขอ	Request type
+f.submittedAt	ส่งเมื่อ	Submitted
+f.submittedDate	วันที่ส่ง	Submitted on
+f.summary	บทสรุป	Summary
+f.summaryEn	สรุป (อังกฤษ)	Summary (English)
+f.summaryTh	สรุป (ไทย)	Summary (Thai)
+f.tags	แท็ก	Tags
+f.target	เป้าหมาย	Target
+f.targetQty	จำนวนเป้าหมาย	Target quantity
+f.thesisTitle	ชื่อวิทยานิพนธ์	Thesis title
+f.title	หัวข้อ	Title
+f.titleEn	ชื่อเรื่อง (อังกฤษ)	Title (English)
+f.titleTh	ชื่อเรื่อง (ไทย)	Title (Thai)
+f.toAccountId	ไปยังบัญชี	To account
+f.toDate	ถึง	To
+f.toPersonId	ผู้รับมอบอำนาจ	Delegate
+f.totalAmount	ยอดรวม	Total
+f.totalBudget	งบประมาณทั้งโครงการ	Total budget
+f.trlCurrent	TRL ปัจจุบัน	Current TRL
+f.trlStart	TRL เริ่มต้น	TRL at start
+f.trlTarget	TRL เป้าหมาย	Target TRL
+f.type	ประเภท	Type
+f.unit	หน่วย	Unit
+f.unitCost	ราคาต่อหน่วย	Unit cost
+f.unitPrice	ราคาต่อหน่วย	Unit price
+f.url	ลิงก์	Link
+f.usefulLifeYears	อายุการใช้งาน (ปี)	Useful life (years)
+f.username	ชื่อผู้ใช้	Username
+f.value	ค่า	Value
+f.vendorOrganizationId	ผู้ขาย	Vendor
+f.venueKind	ประเภทแหล่งเผยแพร่	Venue type
+f.venueName	แหล่งเผยแพร่ (วารสาร/การประชุม)	Venue (journal / conference)
+f.versionNo	เวอร์ชัน	Version
+f.visibility	การมองเห็น	Visibility
+f.volume	ปีที่ (Volume)	Volume
+f.website	เว็บไซต์	Website
+f.websiteUrl	เว็บไซต์ส่วนตัว	Personal website
+f.weightPct	น้ำหนัก (%)	Weight (%)
+f.workEmail	อีเมลที่ทำงาน	Work e-mail
+f.workPhone	โทรศัพท์ที่ทำงาน	Work phone
+f.year	ปี	Year
+f.titleTh2	คำนำหน้า (ไทย)	Title (Thai)
+f.titleTh_person	คำนำหน้า (ไทย)	Honorific (Thai)
+f.titleEn_person	คำนำหน้า (อังกฤษ)	Honorific (English)
+f.available	ใช้ได้	Available
+f.delta	เคลื่อนไหว	Change
+f.income	รับเข้า	Income
+f.booker	ผู้จอง	Booked by
+f.outstanding	ยอดค้าง	Outstanding
+f.lines	รายการ	Lines
+f.roles	บทบาท	Roles
+f.password	รหัสผ่าน	Password
+f.attendees	ผู้เข้าร่วม	Attendees
+f.assignees	ผู้รับผิดชอบ	Assignees
+f.researchAreas	สาขาวิจัย	Research areas

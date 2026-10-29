@@ -1,0 +1,79 @@
+/* MECMAT design tokens — KMUTT CI 2022 (p.21, p.53, p.91) + ce.kmutt.ac.th navy.
+   Colours are referenced only through these variables, so a CI change is a one-file edit. */
+:root {
+  /* Brand */
+  --c-navy: #01176C;          /* department theme (ce.kmutt.ac.th) — MECMAT primary */
+  --c-navy-600: #0A2A8F;
+  --c-navy-50: #EEF1FB;
+  --c-orange: #F04E23;        /* Pantone 172 C — KMUTT */
+  --c-orange-700: #D4451F;    /* CI secondary; white text on it passes WCAG AA, plain orange does not */
+  --c-orange-50: #FFF1EC;
+  --c-yellow: #FFC233;        /* Pantone 123 C — KMUTT */
+  --c-yellow-50: #FFF8E5;
+  --c-maroon: #A72C32;        /* Pantone 704 C — Faculty of Engineering */
+  --c-maroon-50: #FBEDEE;
+  --c-grey: #919191;          /* Pantone 415 C */
+  --c-grey-dark: #4B4F54;     /* web CI header */
+  --c-grey-darker: #2F3235;   /* web CI menu bar */
+  --c-green: #1E7B4F;         /* status only: approved / done */
+  --c-green-50: #E8F5EE;
+
+  /* Surfaces & text */
+  --bg: #F7F7FA;
+  --surface: #FFFFFF;
+  --surface-2: #F1F2F6;
+  --surface-3: #E6E8EE;
+  --border: #D9DCE3;
+  --border-strong: #B9BEC9;
+  --text: #1E2126;
+  --text-2: #4B4F54;
+  --text-3: #6E737B;
+  --link: var(--c-navy);
+  --focus: #2F6BFF;
+
+  --primary: var(--c-orange-700);
+  --primary-hover: #B93B1A;
+  --primary-text: #FFFFFF;
+  --accent: var(--c-navy);
+  --danger: var(--c-maroon);
+  --warning-bg: var(--c-yellow-50);
+  --warning-text: #7A5300;
+
+  --sidebar-bg: var(--c-grey-darker);
+  --sidebar-text: #E9EAEC;
+  --sidebar-muted: #A9ADB3;
+  --sidebar-active: var(--c-orange);
+
+  /* Type */
+  --font-head: 'Prompt', 'Sarabun', system-ui, sans-serif;
+  --font-body: 'Sarabun', 'Prompt', system-ui, sans-serif;
+  --fs-xs: 12px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 18px; --fs-xl: 22px; --fs-2xl: 28px; --fs-3xl: 36px;
+
+  /* Shape */
+  --radius-sm: 6px; --radius: 10px; --radius-lg: 16px;
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .08);
+  --shadow-2: 0 8px 24px rgba(16, 24, 40, .12);
+  --gap: 16px;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #15171A; --surface: #1D2024; --surface-2: #24282D; --surface-3: #2E3338;
+  --border: #353A40; --border-strong: #4A5058;
+  --text: #ECEDEF; --text-2: #C3C6CB; --text-3: #959AA2;
+  --link: #8FA6FF; --c-navy-50: #1B2340; --c-orange-50: #3A2019; --c-yellow-50: #3A3018; --c-maroon-50: #3A1D20; --c-green-50: #16301F;
+  --warning-text: #FFD985;
+  --sidebar-bg: #111315;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --bg: #15171A; --surface: #1D2024; --surface-2: #24282D; --surface-3: #2E3338;
+    --border: #353A40; --border-strong: #4A5058;
+    --text: #ECEDEF; --text-2: #C3C6CB; --text-3: #959AA2;
+    --link: #8FA6FF; --c-navy-50: #1B2340; --c-orange-50: #3A2019; --c-yellow-50: #3A3018; --c-maroon-50: #3A1D20; --c-green-50: #16301F;
+    --warning-text: #FFD985;
+    --sidebar-bg: #111315;
+    color-scheme: dark;
+  }
+}
