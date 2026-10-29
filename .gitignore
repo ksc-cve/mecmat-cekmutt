@@ -12,3 +12,6 @@ node_modules/
 bin/
 obj/
 .DS_Store
+
+# Personal documents (CVs, certificates, promotion forms) — never commit
+references/
