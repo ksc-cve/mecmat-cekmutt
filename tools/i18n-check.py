@@ -22,10 +22,11 @@ for f in app.rglob("*.js"):
 # Dynamic families
 mods = ["people", "sensitive", "organizations", "users", "approvals-config", "publications", "projects", "finance", "assets", "resources", "bookings", "tasks", "meetings", "documents", "cms", "inbox", "dashboard", "audit"]
 used |= {f"mod.{m}" for m in mods} | {f"mod.{m}.hint" for m in mods}
-used |= {f"pubfield.{k}" for k in ["photo", "positionText", "academicRank", "workEmail", "workPhone", "officeRoom", "lineId", "expertise", "bio", "orcid", "scopus", "scholar", "researchgate", "website", "education", "employment", "licenses", "awards", "publications", "projects"]}
+used |= {f"pubfield.{k}" for k in ["photo", "positionText", "academicRank", "workEmail", "workPhone", "officeRoom", "lineId", "expertise", "bio", "orcid", "scopus", "scholar", "researchgate", "website", "education", "employment", "licenses", "awards", "publications", "projects", "timeline", "mentorship", "network"]}
 used |= {f"role.{k}" for k in ["admin", "group-head", "faculty", "researcher", "finance", "lab-manager", "student", "external", "transient"]}
 used |= {f"audit.action.{a}" for a in ["Create", "Update", "Delete", "Restore", "Login", "LoginFailed", "Logout", "Register", "PasswordChanged", "PasswordReset", "PasswordResetFromShell", "TotpEnabled", "TotpFailed", "TotpReset", "Decide"]}
 used |= {f"appr.subject.{s}" for s in ["MoneyRequest", "Booking"]}
+used |= {f"tl.kind.{k}" for k in ["education","position","rank","award","publication","project","supervision","news","visit","talk","collaboration","grant","milestone","other"]}
 used |= {f"cal.kind.{k}" for k in ["task", "milestone", "report", "advance", "recruitment"]}
 used |= {f"site.hint.{k}" for k in ["pages", "areas", "settings"]}
 used |= {f"enum.SubjectType.{k}" for k in ["MoneyRequest", "Booking"]} | {f"enum.Quartile.Q{i}" for i in range(1, 5)}

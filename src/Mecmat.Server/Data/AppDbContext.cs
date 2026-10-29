@@ -186,6 +186,12 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options, AuditCo
         Fk<DocumentVersion, FileBlob>(mb, x => x.FileBlobId);
         Fk<Attachment, FileBlob>(mb, x => x.FileBlobId);
 
+        Fk<PersonMentorship, Person>(mb, x => x.StudentPersonId);
+        Fk<PersonMentorship, Person>(mb, x => x.MentorPersonId);
+        Fk<PersonEvent, Person>(mb, x => x.PersonId);
+        Fk<PersonEvent, Organization>(mb, x => x.OrganizationId);
+        mb.Entity<PersonEvent>().HasIndex(x => new { x.PersonId, x.Date });
+
         Fk<NewsLink, NewsPost>(mb, x => x.NewsPostId);
         Fk<Application, ConsentRecord>(mb, x => x.ConsentRecordId);
         Fk<ContactMessage, ConsentRecord>(mb, x => x.ConsentRecordId);

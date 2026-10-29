@@ -129,8 +129,32 @@ public static class Seeder
         db.Add(new Account { Code = "MECMAT", NameTh = "กองทุนกลางกลุ่ม MECMAT", NameEn = "MECMAT central fund", Kind = AccountKind.FundingSource });
         await db.SaveChangesAsync();
 
-        var (otp, person) = await SeedAdminAsync(db, roles["admin"], areaRows);
-        db.Add(new PositionAssignment { PositionId = head.Id, PersonId = person.Id, FromDate = Services.Clock.TodayBangkok() });
+        var positions = new Dictionary<string, string>
+        {
+            [head.NameTh] = head.Id, [deputy.NameTh] = deputy.Id, [financeMgr.NameTh] = financeMgr.Id,
+            [secretary.NameTh] = secretary.Id, [labMgr.NameTh] = labMgr.Id,
+        };
+        var people = await GroupSeed.ImportAsync(db, GroupSeed.Load(), positions);
+        // Without the JSON (e.g. a stripped build) the admin still gets a minimal profile to sign in with.
+        if (!people.TryGetValue("kasan", out var adminPersonId))
+        {
+            var p = new Person { Kind = PersonKind.Internal, Category = PersonCategory.Faculty, HasDoctorate = true, FirstNameTh = "กสาน", LastNameTh = "จันทร์โต", FirstNameEn = "Kasan", LastNameEn = "Chanto", PublicSlug = "kasan-chanto" };
+            db.Add(p);
+            await db.SaveChangesAsync();
+            adminPersonId = p.Id;
+        }
+        foreach (var a in areaRows.Take(3))
+            db.Add(new ResearchAreaLink { ResearchAreaId = a.Id, TargetType = nameof(Person), TargetId = adminPersonId });
+
+        var otp = PasswordHasher.GenerateOneTime();
+        var user = new UserAccount
+        {
+            PersonId = adminPersonId, Username = "kasan.cha", PasswordHash = PasswordHasher.Hash(otp), PasswordChangedAt = DateTime.UtcNow,
+            MustChangePassword = true, Status = AccountStatus.Active, IsAdmin = true,
+        };
+        db.Add(user);
+        await db.SaveChangesAsync();
+        db.Add(new UserRole { UserId = user.Id, RoleId = roles["admin"].Id });
         await db.SaveChangesAsync();
         // The password itself is printed once by Program on the console, never written to the log.
         log.LogWarning("First admin created: username kasan.cha (one-time password shown on the console)");
@@ -145,119 +169,6 @@ public static class Seeder
         await db.SaveChangesAsync();
         for (var i = 0; i < steps.Length; i++)
             db.Add(new ApprovalPolicyStep { PolicyId = p.Id, StepOrder = i + 1, ApproverKind = steps[i].Kind, ApproverRef = steps[i].Ref });
-    }
-
-    /// <summary>Dr. Kasan Chanto, from public sources (KMUTT CE staff page, ORCID 0000-0003-2312-4201,
-    /// Google Scholar). The owner asked to skip his review for now; every field is editable in the app.</summary>
-    private static async Task<(string Otp, Person Person)> SeedAdminAsync(AppDbContext db, Role adminRole, List<ResearchArea> areas)
-    {
-        var kmutt = new Organization { NameTh = "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี", NameEn = "King Mongkut's University of Technology Thonburi", ShortName = "KMUTT", Kind = OrganizationKind.University, Country = "Thailand", Website = "https://www.kmutt.ac.th" };
-        var tohoku = new Organization { NameTh = "มหาวิทยาลัยโทโฮคุ", NameEn = "Tohoku University", Kind = OrganizationKind.University, Country = "Japan" };
-        db.AddRange(kmutt, tohoku);
-        await db.SaveChangesAsync();
-        var ce = new Organization { NameTh = "ภาควิชาวิศวกรรมโยธา คณะวิศวกรรมศาสตร์", NameEn = "Department of Civil Engineering, Faculty of Engineering", Kind = OrganizationKind.Department, ParentOrganizationId = kmutt.Id, Country = "Thailand", Website = "https://ce.kmutt.ac.th" };
-        db.Add(ce);
-        await db.SaveChangesAsync();
-
-        var p = new Person
-        {
-            Kind = PersonKind.Internal, Category = PersonCategory.Faculty, TitleTh = "นาย", TitleEn = "Mr.", HasDoctorate = true,
-            FirstNameTh = "กสาน", LastNameTh = "จันทร์โต", FirstNameEn = "Kasan", LastNameEn = "Chanto",
-            WorkEmail = "kasan.cha@kmutt.ac.th", WorkPhone = "02 470 9313", OrganizationId = ce.Id,
-            PositionText = "อาจารย์ ภาควิชาวิศวกรรมโยธา (กลุ่มวิศวกรรมโครงสร้าง)",
-            ExpertiseTh = "วิศวกรรมโครงสร้าง, โครงสร้างไม้, กลศาสตร์โครงสร้าง, การออกแบบโครงสร้าง",
-            ExpertiseEn = "Structural engineering, Timber structures, Structural mechanics, Structural design",
-            OrcidId = "0000-0003-2312-4201", ScopusAuthorId = "57216418823", GoogleScholarId = "N2BcDtYAAAAJ",
-            ResearchGateUrl = "https://www.researchgate.net/profile/Kasan-Chanto-2",
-            PublicSlug = "kasan-chanto", DisplayOrder = 1,
-        };
-        db.Add(p);
-        await db.SaveChangesAsync();
-
-        db.AddRange(
-            new PersonEducation { PersonId = p.Id, Level = EducationLevel.Doctoral, DegreeNameTh = "ปร.ด.", DegreeNameEn = "Ph.D.", Field = "Civil Engineering", Institution = "King Mongkut's University of Technology Thonburi", Country = "Thailand", StartYear = 2018, GraduatedYear = 2024 },
-            new PersonEducation { PersonId = p.Id, Level = EducationLevel.Master, DegreeNameTh = "วศ.ม.", DegreeNameEn = "M.Eng.", Field = "Civil Engineering", Institution = "King Mongkut's University of Technology Thonburi", Country = "Thailand" },
-            new PersonEducation { PersonId = p.Id, Level = EducationLevel.Bachelor, DegreeNameTh = "วศ.บ.", DegreeNameEn = "B.Eng.", Field = "Civil Engineering", Institution = "King Mongkut's University of Technology Thonburi", Country = "Thailand", Honors = "First Class Honours" },
-            new PersonEducation { PersonId = p.Id, Level = EducationLevel.Exchange, DegreeNameEn = "JYPE Program", Field = "Civil and Environmental Engineering", Institution = "Tohoku University", Country = "Japan", StartYear = 2014, GraduatedYear = 2015 },
-            new PersonEmployment { PersonId = p.Id, OrganizationId = ce.Id, Position = "อาจารย์ (Lecturer)" },
-            new PersonEmployment { PersonId = p.Id, OrganizationId = ce.Id, Position = "เลขานุการภาควิชาวิศวกรรมโยธา (Department Secretary)" },
-            new PersonEmployment { PersonId = p.Id, OrganizationId = kmutt.Id, OrganizationText = "School of Architecture and Design, KMUTT", Position = "อาจารย์พิเศษ (Adjunct Lecturer)" });
-
-        foreach (var key in new[] { "photo", "positionText", "academicRank", "workEmail", "workPhone", "expertise", "bio", "orcid", "scopus", "scholar", "researchgate", "education", "employment", "awards", "publications", "projects" })
-            db.Add(new PublicFieldVisibility { PersonId = p.Id, FieldKey = key, IsPublic = true });
-
-        foreach (var a in areas.Take(3))
-            db.Add(new ResearchAreaLink { ResearchAreaId = a.Id, TargetType = nameof(Person), TargetId = p.Id });
-
-        // Journal articles with DOIs found on Google Scholar / ORCID. Author lists are as listed
-        // there; ก.พ.อ. roles beyond first author are left for the owner to confirm.
-        (string Title, string Venue, int Year, string? Vol, string? Pages, string? Doi, string[] Authors)[] pubs =
-        [
-            ("Static and cyclic flexural behavior of hybrid hollow core slabs with thermally modified rubberwood-WPVC composites: Experimental, analytical, and numerical studies",
-                "Structures", 2026, "88", "111895", "10.1016/j.istruc.2026.111895", ["T. Udtaranakron", "K. Chanto", "T. Pulngern", "Y. Yamazaki", "V. Rosarpitak"]),
-            ("Experimental, analytical, and numerical studies of steel-strengthened glulam wood–PVC composite hollow members under four-point bending",
-                "Journal of Reinforced Plastics and Composites", 2026, "45(9-10)", "2051–2076", null, ["P. Aunyingcharoen", "T. Pulngern", "K. Chanto", "V. Rosarpitak"]),
-            ("Behavior of sandwich glued laminated bamboo structures with a core formed by bioplastic fiber using 3D printing technology",
-                "Journal of Renewable Materials", 2025, "13(12)", "2453–2478", "10.32604/jrm.2025.02025-0137", ["N. Mahasuwanchai", "T. Udtaranakron", "K. Chanto", "T. Pulngern"]),
-            ("Analytical solution and buckling of hemi-ellipsoidal shell structures of revolution under uniformly distributed load",
-                "International Journal of Structural Stability and Dynamics", 2024, "24(03)", "2450026", "10.1142/S0219455424500263", ["K. Chanto", "T. Pulngern", "C. Tangbanjongkij", "W. Jiammeepreecha", "S. Chucheepsakul"]),
-            ("Effect of bending rigidity and nonlinear strains on free vibration of hemi-ellipsoidal shells",
-                "Journal of Vibration and Acoustics", 2023, "145(5)", "051004", "10.1115/1.4063114", ["K. Chanto", "T. Pulngern", "C. Tangbanjongkij", "W. Jiammeepreecha"]),
-            ("Physical and mechanical behaviors of thermally modified rubberwood glulam beam under sustained and cyclic loading",
-                "Wood and Fiber Science", 2020, "52(3)", "298–312", "10.22382/wfs-2020-028", ["T. Pulngern", "T. Udtaranakron", "K. Chanto"]),
-            ("Effect of lamina thickness on flexural performance and creep behavior of Douglas fir glued laminated timber beam",
-                "Wood Research", 2020, "65(5)", "715–725", "10.37763/wr.1336-4561/65.5.715726", ["T. Pulngern", "K. Chanto", "W. Pansuwan", "W. Pattaraumpornsak"]),
-            ("Solar Decathlon Europe 2019: The Resilient Nest as a solar powered and energy efficiency rooftop house for urban density",
-                "IOP Conference Series: Earth and Environmental Science", 2020, "463", "012033", "10.1088/1755-1315/463/1/012033", ["K. Chanto", "P. Mahasuwanchai", "W. Eakintumas", "C. Lairat", "N. Thavornsettawat"]),
-            ("Embodied energy and life-cycle greenhouse gas of conventional and the resilient nest house",
-                "IOP Conference Series: Earth and Environmental Science", 2020, "463", "012034", "10.1088/1755-1315/463/1/012034", ["K. Tanthanawiwat", "K. Chanto"]),
-        ];
-        foreach (var (title, venue, year, vol, pages, doi, authors) in pubs)
-        {
-            var conf = venue.StartsWith("IOP", StringComparison.Ordinal);
-            var pub = new Publication
-            {
-                Type = conf ? PublicationType.ConferencePaper : PublicationType.JournalArticle,
-                VenueKind = conf ? VenueKind.Conference : VenueKind.Journal,
-                Stage = PublicationStage.Published, TitleEn = title, VenueName = venue, Year = year, Volume = vol, Pages = pages,
-                Doi = doi, Url = doi == null ? null : "https://doi.org/" + doi,
-            };
-            db.Add(pub);
-            await db.SaveChangesAsync();
-            for (var i = 0; i < authors.Length; i++)
-            {
-                var me = authors[i] == "K. Chanto";
-                db.Add(new PublicationAuthor
-                {
-                    PublicationId = pub.Id, Order = i + 1, PersonId = me ? p.Id : null, ExternalName = me ? null : authors[i],
-                    IsFirstAuthor = i == 0,
-                });
-            }
-            if (!conf) db.Add(new PublicationIndexing { PublicationId = pub.Id, Database = IndexDatabase.Scopus });
-        }
-
-        var sde = new Award
-        {
-            TitleTh = "4 รางวัลจาก Solar Decathlon Europe 2019 (ทีม The Resilient Nest)",
-            TitleEn = "Four awards at Solar Decathlon Europe 2019 (team The Resilient Nest)",
-            Issuer = "Solar Decathlon Europe 2019, Hungary", Date = new DateOnly(2019, 9, 1), Level = AwardLevel.International,
-            Description = "People's Choice Award; 2nd place Comfort Conditions; 3rd place Neighbourhood Integration & Impact; 3rd place Innovation & Viability. Project Manager and team leader.",
-        };
-        db.Add(sde);
-        await db.SaveChangesAsync();
-        db.Add(new AwardRecipient { AwardId = sde.Id, PersonId = p.Id });
-
-        var otp = PasswordHasher.GenerateOneTime();
-        var user = new UserAccount
-        {
-            PersonId = p.Id, Username = "kasan.cha", PasswordHash = PasswordHasher.Hash(otp), PasswordChangedAt = DateTime.UtcNow,
-            MustChangePassword = true, Status = AccountStatus.Active, IsAdmin = true,
-        };
-        db.Add(user);
-        await db.SaveChangesAsync();
-        db.Add(new UserRole { UserId = user.Id, RoleId = adminRole.Id });
-        await db.SaveChangesAsync();
-        return (otp, p);
     }
 
     /// <summary>`Mecmat.Server reset-admin &lt;username&gt;` — the way back in if the only admin forgets the

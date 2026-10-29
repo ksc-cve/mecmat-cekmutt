@@ -10,6 +10,7 @@ import { page, pageHead, initials } from '../shell.js';
 import { setQuery } from '../router.js';
 import { editRecord, childGrid, detailList, historyButton, backLink } from './common.js';
 import { year } from '../fmt.js';
+import { timelineView, networkPanel } from '../ui/timeline.js';
 
 function avatar(p, lg) {
   return h('span', { class: `ui-avatar ${lg ? 'lg' : ''}` }, p.photoFileId ? h('img', { src: `/api/files/${p.photoFileId}?inline=1`, alt: '' }) : initials(p));
@@ -39,6 +40,7 @@ export function peoplePage(_, query) {
 }
 
 const TABS = [
+  { key: 'career', label: 'people.tab.career' },
   { key: 'profile', label: 'people.tab.profile' },
   { key: 'education', label: 'people.tab.education' },
   { key: 'work', label: 'people.tab.work' },
@@ -55,7 +57,7 @@ export async function personPage({ id }, query, { asProfile = false } = {}) {
   try { p = await r('people').get(id); } catch (e) { toastError(e); el.append(empty(t('errors.notFound'))); return; }
   const mine = p.id === store.me.person.id;
   const canEdit = p._can.edit;
-  const tab = query.tab || 'profile';
+  const tab = query.tab || 'career';
 
   el.append(h('div', { class: 'detail-head' },
     avatar(p, true),
@@ -90,12 +92,34 @@ export async function personPage({ id }, query, { asProfile = false } = {}) {
         childGrid('teaching-records', 'personId', p.id, { canAdd: childAdd, title: 'people.teaching' }));
       case 'publications': return personPublications(p);
       case 'projects': return personProjects(p);
+      case 'career': return careerTab(p, canEdit);
       case 'payout': return payoutTab(p, mine);
       case 'public': return publicTab(p);
       default: return profileTab(p);
     }
   }
-  clear(body).append(renderTab(visibleTabs.some((x) => x.key === tab) ? tab : 'profile'));
+  clear(body).append(renderTab(visibleTabs.some((x) => x.key === tab) ? tab : 'career'));
+}
+
+/** LinkedIn-style: everything dated about the person, newest first, with their network beside it. */
+function careerTab(p, canEdit) {
+  const box = h('div', null, h('p', { class: 'muted' }, t('common.loading')));
+  const draw = async () => {
+    const view = await api.get(`/api/people/${p.id}/career`);
+    const editItem = (i) => {
+      const key = { PersonEvent: 'person-events', PersonMentorship: 'person-mentorships', PersonEducation: 'person-education', PersonEmployment: 'person-employment' }[i.sourceType];
+      r(key).get(i.sourceId).then((row) => editRecord(key, row, { onSaved: draw })).catch(toastError);
+    };
+    clear(box).append(
+      h('div', { class: 'ui-toolbar' }, h('span', { class: 'grow small muted' }, t('tl.intro')),
+        canEdit ? h('button', { class: 'ui-btn', type: 'button', onclick: () => editRecord('person-events', null, { defaults: { personId: p.id, kind: 'News', isPublic: true }, onSaved: draw }) }, icon('plus'), t('tl.addEvent')) : null,
+        canEdit ? h('button', { class: 'ui-btn', type: 'button', onclick: () => editRecord('person-mentorships', null, { defaults: { studentPersonId: p.id, role: 'MainAdvisor', degree: 'Doctoral', isPublic: true }, onSaved: draw }) }, icon('users'), t('tl.addMentor')) : null),
+      h('div', { class: 'career-grid' },
+        h('section', { class: 'ui-card' }, h('div', { class: 'body' }, timelineView(view.items, { onItem: canEdit ? editItem : null }))),
+        networkPanel(view, { personHref: (x) => `#/people/${x.id}` })));
+  };
+  draw().catch(toastError);
+  return box;
 }
 
 function profileTab(p) {

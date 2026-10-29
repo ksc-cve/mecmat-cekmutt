@@ -36,6 +36,36 @@ public abstract class SitePageModel(PublicQueryService q) : PageModel
     }
     public string Date(DateTime? t) => t == null ? "" : Date(DateOnly.FromDateTime(TimeZoneInfo.ConvertTimeFromUtc(t.Value, Clock.Bangkok)));
     public string Time(DateTime? t) => t == null ? "" : TimeZoneInfo.ConvertTimeFromUtc(t.Value, Clock.Bangkok).ToString("HH:mm");
+    /// <summary>Server-encoded timeline words ("rank:AssocProf", "role:PI", "mentor:MainAdvisor|Doctoral") as labels.</summary>
+    public string TlLabel(string? text)
+    {
+        if (string.IsNullOrEmpty(text)) return "";
+        if (text.StartsWith("rank:")) return EnumLabels.Get("AcademicRank", text[5..], En);
+        if (text.StartsWith("role:")) return EnumLabels.Get("ProjectRole", text[5..], En);
+        if (text.StartsWith("mentor:"))
+        {
+            var parts = text[7..].Split('|');
+            return EnumLabels.Get("MentorRole", parts[0], En) + (parts.Length > 1 ? " · " + EnumLabels.Get("EducationLevel", parts[1], En) : "");
+        }
+        return text;
+    }
+
+    public string TlWhen(Mecmat.Services.TimelineItem i)
+    {
+        string F(string? s, bool yearOnly)
+        {
+            if (s == null || s.StartsWith("0000")) return "";
+            var d = DateOnly.ParseExact(s, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            if (yearOnly) return Year(d.Year);
+            string[] th = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
+            string[] en = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            return d.Day is 1 or 30 or 31 ? $"{(En ? en : th)[d.Month - 1]} {Year(d.Year)}" : Date(d);
+        }
+        var a = F(i.Date, i.YearOnly);
+        if (i.EndDate == null) return i.Kind is "position" or "project" ? $"{a} – {L("tl.present")}" : a;
+        return $"{a} – {F(i.EndDate, i.YearOnly)}";
+    }
+
     public static string Img(string? fileId) => fileId == null ? "" : $"/api/files/{fileId}?inline=1";
 
     public override async Task OnPageHandlerExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.PageHandlerExecutingContext context,

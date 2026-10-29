@@ -1,0 +1,123 @@
+{
+  // Compiled from public sources (KMUTT CE staff pages, ORCID, Google Scholar, news) and from
+  // Dr. Kasan Chanto's description of the group (2026-10-29). Imported once on a fresh database;
+  // afterwards everything is edited in the app. People are referenced by "key"; publication
+  // authors that are members are written "@key".
+  "organizations": [
+    { "key": "kmutt", "nameTh": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี", "nameEn": "King Mongkut's University of Technology Thonburi", "shortName": "KMUTT", "kind": "University", "country": "Thailand", "website": "https://www.kmutt.ac.th", "isPublic": true },
+    { "key": "kmutt-eng", "nameTh": "คณะวิศวกรรมศาสตร์ มจธ.", "nameEn": "Faculty of Engineering, KMUTT", "kind": "Faculty", "country": "Thailand", "website": "https://eng.kmutt.ac.th", "parent": "kmutt" },
+    { "key": "kmutt-ce", "nameTh": "ภาควิชาวิศวกรรมโยธา คณะวิศวกรรมศาสตร์ มจธ.", "nameEn": "Department of Civil Engineering, KMUTT", "kind": "Department", "country": "Thailand", "website": "https://ce.kmutt.ac.th", "parent": "kmutt-eng" },
+    { "key": "kmutt-soad", "nameTh": "คณะสถาปัตยกรรมศาสตร์และการออกแบบ มจธ.", "nameEn": "School of Architecture and Design, KMUTT", "kind": "Faculty", "country": "Thailand", "parent": "kmutt" },
+    { "key": "tohoku", "nameTh": "มหาวิทยาลัยโทโฮคุ", "nameEn": "Tohoku University", "kind": "University", "country": "Japan", "website": "https://www.tohoku.ac.jp", "isPublic": true },
+    { "key": "sde", "nameTh": "Solar Decathlon Europe 2019", "nameEn": "Solar Decathlon Europe 2019", "kind": "Other", "country": "Hungary" }
+  ],
+  "people": [
+    {
+      "key": "somchai", "category": "Faculty", "rank": "Prof", "dr": true,
+      "firstNameTh": "สมชาย", "lastNameTh": "ชูชีพสกุล", "firstNameEn": "Somchai", "lastNameEn": "Chucheepsakul",
+      "positionText": "ศาสตราจารย์ ภาควิชาวิศวกรรมโยธา · ผู้ก่อตั้งและหัวหน้ากลุ่มวิจัย", "org": "kmutt-ce",
+      "slug": "somchai-chucheepsakul", "order": 1,
+      "positions": [ { "position": "หัวหน้ากลุ่มวิจัย" } ],
+      "public": ["photo", "positionText", "academicRank", "expertise", "bio", "education", "employment", "awards", "publications", "projects", "timeline", "mentorship", "network"]
+    },
+    {
+      "key": "tawich", "category": "Faculty", "rank": "AssocProf", "dr": true,
+      "firstNameTh": "ทวิช", "lastNameTh": "พูลเงิน", "firstNameEn": "Tawich", "lastNameEn": "Pulngern",
+      "positionText": "คณบดีคณะวิศวกรรมศาสตร์ มจธ.", "org": "kmutt-ce", "slug": "tawich-pulngern", "order": 2,
+      "public": ["photo", "positionText", "academicRank", "expertise", "bio", "education", "employment", "awards", "publications", "projects", "timeline", "mentorship", "network"]
+    },
+    {
+      "key": "chainarong", "category": "Faculty", "rank": "AssocProf", "dr": true,
+      "firstNameTh": "ชัยณรงค์", "lastNameTh": "อธิสกุล", "firstNameEn": "Chainarong", "lastNameEn": "Athisakul",
+      "positionText": "รองหัวหน้าภาควิชาวิศวกรรมโยธา", "org": "kmutt-ce", "slug": "chainarong-athisakul", "order": 3,
+      "public": ["photo", "positionText", "academicRank", "expertise", "bio", "education", "employment", "awards", "publications", "projects", "timeline", "mentorship", "network"]
+    },
+    {
+      "key": "boonme", "category": "Faculty", "rank": "AsstProf", "dr": true,
+      "firstNameTh": "บุญมี", "lastNameTh": "ชินนาบุญ", "firstNameEn": "Boonme", "lastNameEn": "Chinnaboon",
+      "positionText": "หัวหน้าสาขาวิศวกรรมโครงสร้าง ภาควิชาวิศวกรรมโยธา", "org": "kmutt-ce", "slug": "boonme-chinnaboon", "order": 4,
+      "public": ["photo", "positionText", "academicRank", "expertise", "bio", "education", "employment", "awards", "publications", "projects", "timeline", "mentorship", "network"]
+    },
+    {
+      "key": "kasan", "category": "Faculty", "titleTh": "นาย", "titleEn": "Mr.", "dr": true,
+      "firstNameTh": "กสาน", "lastNameTh": "จันทร์โต", "firstNameEn": "Kasan", "lastNameEn": "Chanto",
+      "positionText": "อาจารย์ · เลขานุการภาควิชาวิศวกรรมโยธา", "org": "kmutt-ce",
+      "workEmail": "kasan.cha@kmutt.ac.th", "workPhone": "02 470 9313",
+      "expertiseTh": "วิศวกรรมโครงสร้าง, โครงสร้างไม้, กลศาสตร์โครงสร้าง, การออกแบบโครงสร้าง",
+      "expertiseEn": "Structural engineering, Timber structures, Structural mechanics, Structural design",
+      "orcid": "0000-0003-2312-4201", "scopus": "57216418823", "scholar": "N2BcDtYAAAAJ", "researchGate": "https://www.researchgate.net/profile/Kasan-Chanto-2",
+      "slug": "kasan-chanto", "order": 5,
+      "education": [
+        { "level": "Doctoral", "degreeTh": "ปร.ด.", "degreeEn": "Ph.D.", "field": "Civil Engineering", "institution": "King Mongkut's University of Technology Thonburi", "country": "Thailand", "startYear": 2018, "year": 2024 },
+        { "level": "Master", "degreeTh": "วศ.ม.", "degreeEn": "M.Eng.", "field": "Civil Engineering", "institution": "King Mongkut's University of Technology Thonburi", "country": "Thailand" },
+        { "level": "Bachelor", "degreeTh": "วศ.บ.", "degreeEn": "B.Eng.", "field": "Civil Engineering", "institution": "King Mongkut's University of Technology Thonburi", "country": "Thailand", "honors": "First Class Honours" },
+        { "level": "Exchange", "degreeEn": "JYPE Program", "field": "Civil and Environmental Engineering", "institution": "Tohoku University", "country": "Japan", "startYear": 2014, "year": 2015 }
+      ],
+      "employment": [
+        { "position": "อาจารย์ (Lecturer)", "org": "kmutt-ce" },
+        { "position": "เลขานุการภาควิชาวิศวกรรมโยธา (Department Secretary)", "org": "kmutt-ce" },
+        { "position": "อาจารย์พิเศษ (Adjunct Lecturer)", "org": "kmutt-soad" }
+      ],
+      "awards": [
+        { "title": "4 รางวัลจาก Solar Decathlon Europe 2019 (ทีม The Resilient Nest)", "titleEn": "Four awards at Solar Decathlon Europe 2019 (team The Resilient Nest)", "issuer": "Solar Decathlon Europe 2019, Hungary", "date": "2019-09-01", "level": "International",
+          "description": "People's Choice Award; 2nd Comfort Conditions; 3rd Neighbourhood Integration & Impact; 3rd Innovation & Viability.", "with": ["peerasit", "warawit"] }
+      ],
+      "events": [
+        { "kind": "Visit", "date": "2014-09-01", "end": "2015-08-31", "approx": true, "titleTh": "นักศึกษาแลกเปลี่ยน JYPE มหาวิทยาลัยโทโฮคุ", "titleEn": "JYPE exchange student, Tohoku University", "org": "tohoku", "country": "Japan" },
+        { "kind": "Milestone", "date": "2019-06-14", "end": "2019-06-30", "approx": true, "titleTh": "ผู้จัดการโครงการ ทีม The Resilient Nest แข่งขัน Solar Decathlon Europe 2019 ที่ประเทศฮังการี", "titleEn": "Project manager, team The Resilient Nest, Solar Decathlon Europe 2019 in Hungary", "org": "sde", "country": "Hungary",
+          "url": "https://soad.kmutt.ac.th/kmutt-represents-thailand-for-solar-decathlon-europe-2019-in-hungary-resilient-nest-receives-4-awards-in-international-competition" }
+      ],
+      "public": ["photo", "positionText", "academicRank", "workEmail", "workPhone", "expertise", "bio", "orcid", "scopus", "scholar", "researchgate", "education", "employment", "awards", "publications", "projects", "timeline", "mentorship", "network"]
+    },
+    {
+      "key": "peerasit", "category": "Faculty", "dr": true,
+      "firstNameTh": "พีรสิทธิ์", "lastNameTh": "มหาสุวรรณชัย", "firstNameEn": "Peerasit", "lastNameEn": "Mahasuwanchai",
+      "positionText": "อาจารย์ประจำภาควิชาวิศวกรรมโยธา", "org": "kmutt-ce", "slug": "peerasit-mahasuwanchai", "order": 6,
+      "public": ["photo", "positionText", "expertise", "bio", "education", "employment", "awards", "publications", "projects", "timeline", "mentorship", "network"]
+    },
+    {
+      "key": "thippakorn", "category": "Postdoc", "dr": true,
+      "firstNameTh": "ฐิปกรณ์", "lastNameTh": "อุตรนคร", "firstNameEn": "Thippakorn", "lastNameEn": "Udtaranakron",
+      "positionText": "นักวิจัยหลังปริญญาเอก ภาควิชาวิศวกรรมโยธา", "org": "kmutt-ce", "slug": "thippakorn-udtaranakron", "order": 7,
+      "public": ["photo", "positionText", "expertise", "bio", "education", "employment", "awards", "publications", "projects", "timeline", "mentorship", "network"]
+    },
+    {
+      "key": "nattawat", "category": "PhdStudent",
+      "firstNameTh": "ณัฐวัฒน์", "lastNameTh": "มหาสุวรรณชัย", "firstNameEn": "Nattawat", "lastNameEn": "Mahasuwanchai",
+      "positionText": "นักศึกษาปริญญาเอก", "org": "kmutt-ce", "slug": "nattawat-mahasuwanchai", "order": 20,
+      "public": ["photo", "positionText", "expertise", "education", "publications", "projects", "timeline", "mentorship", "network"]
+    },
+    {
+      "key": "warawit", "kind": "External", "category": "Collaborator", "dr": true,
+      "firstNameTh": "วราวิทย์", "lastNameTh": "เอกอินทุมาศ", "firstNameEn": "Warawit", "lastNameEn": "Eakintumas",
+      "positionText": "ศิษย์เก่ากลุ่มวิจัย (ปร.ด.)", "order": 50
+    },
+    {
+      "key": "phutawan", "kind": "External", "category": "Staff",
+      "firstNameTh": "ภูตะวัน", "lastNameTh": "ยวนานนท์",
+      "positionText": "นายช่างเทคนิค · ศิษย์เก่ากลุ่มวิจัย (วศ.ม.)", "order": 51
+    }
+  ],
+  "mentorships": [
+    { "student": "tawich", "mentor": "somchai", "role": "MainAdvisor", "degree": "Doctoral" },
+    { "student": "chainarong", "mentor": "somchai", "role": "MainAdvisor", "degree": "Doctoral" },
+    { "student": "boonme", "mentor": "somchai", "role": "MainAdvisor", "degree": "Doctoral" },
+    { "student": "kasan", "mentor": "tawich", "role": "MainAdvisor", "degree": "Doctoral", "from": 2018, "to": 2024 },
+    { "student": "peerasit", "mentor": "chainarong", "role": "MainAdvisor", "degree": "Doctoral" },
+    { "student": "thippakorn", "mentor": "tawich", "role": "MainAdvisor", "degree": "Doctoral" },
+    { "student": "nattawat", "mentor": "kasan", "role": "MainAdvisor", "degree": "Doctoral" },
+    { "student": "nattawat", "mentor": "tawich", "role": "CoAdvisor", "degree": "Doctoral" },
+    { "student": "phutawan", "mentor": "kasan", "role": "MainAdvisor", "degree": "Master" }
+  ],
+  "publications": [
+    { "title": "Static and cyclic flexural behavior of hybrid hollow core slabs with thermally modified rubberwood-WPVC composites: Experimental, analytical, and numerical studies", "year": 2026, "venue": "Structures", "volume": "88", "pages": "111895", "doi": "10.1016/j.istruc.2026.111895", "authors": ["@thippakorn", "@kasan", "@tawich", "Y. Yamazaki", "V. Rosarpitak"], "index": "Scopus" },
+    { "title": "Experimental, analytical, and numerical studies of steel-strengthened glulam wood–PVC composite hollow members under four-point bending", "year": 2026, "venue": "Journal of Reinforced Plastics and Composites", "volume": "45(9-10)", "pages": "2051–2076", "authors": ["P. Aunyingcharoen", "@tawich", "@kasan", "V. Rosarpitak"], "index": "Scopus" },
+    { "title": "Behavior of sandwich glued laminated bamboo structures with a core formed by bioplastic fiber using 3D printing technology", "year": 2025, "venue": "Journal of Renewable Materials", "volume": "13(12)", "pages": "2453–2478", "doi": "10.32604/jrm.2025.02025-0137", "authors": ["@nattawat", "@thippakorn", "@kasan", "@tawich"], "index": "Scopus" },
+    { "title": "Analytical solution and buckling of hemi-ellipsoidal shell structures of revolution under uniformly distributed load", "year": 2024, "venue": "International Journal of Structural Stability and Dynamics", "volume": "24(03)", "pages": "2450026", "doi": "10.1142/S0219455424500263", "authors": ["@kasan", "@tawich", "C. Tangbanjongkij", "W. Jiammeepreecha", "@somchai"], "index": "Scopus" },
+    { "title": "Effect of bending rigidity and nonlinear strains on free vibration of hemi-ellipsoidal shells", "year": 2023, "venue": "Journal of Vibration and Acoustics", "volume": "145(5)", "pages": "051004", "doi": "10.1115/1.4063114", "authors": ["@kasan", "@tawich", "C. Tangbanjongkij", "W. Jiammeepreecha", "@somchai"], "index": "Scopus" },
+    { "title": "Physical and mechanical behaviors of thermally modified rubberwood glulam beam under sustained and cyclic loading", "year": 2020, "venue": "Wood and Fiber Science", "volume": "52(3)", "pages": "298–312", "doi": "10.22382/wfs-2020-028", "authors": ["@tawich", "@thippakorn", "@kasan"], "index": "Scopus" },
+    { "title": "Effect of lamina thickness on flexural performance and creep behavior of Douglas fir glued laminated timber beam", "year": 2020, "venue": "Wood Research", "volume": "65(5)", "pages": "715–725", "doi": "10.37763/wr.1336-4561/65.5.715726", "authors": ["@tawich", "@kasan", "W. Pansuwan", "W. Pattaraumpornsak"], "index": "Scopus" },
+    { "title": "Solar Decathlon Europe 2019: The Resilient Nest as a solar powered and energy efficiency rooftop house for urban density", "year": 2020, "venue": "IOP Conference Series: Earth and Environmental Science", "volume": "463", "pages": "012033", "doi": "10.1088/1755-1315/463/1/012033", "type": "ConferencePaper", "authors": ["@kasan", "@peerasit", "@warawit", "C. Lairat", "N. Thavornsettawat"] },
+    { "title": "Embodied energy and life-cycle greenhouse gas of conventional and the resilient nest house", "year": 2020, "venue": "IOP Conference Series: Earth and Environmental Science", "volume": "463", "pages": "012034", "doi": "10.1088/1755-1315/463/1/012034", "type": "ConferencePaper", "authors": ["K. Tanthanawiwat", "@kasan"] }
+  ]
+}

@@ -931,6 +931,88 @@ namespace Mecmat.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PersonEvent",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
+                    PersonId = table.Column<string>(type: "TEXT", nullable: false),
+                    Kind = table.Column<string>(type: "TEXT", maxLength: 40, nullable: false),
+                    Date = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    EndDate = table.Column<DateOnly>(type: "TEXT", nullable: true),
+                    DateIsApproximate = table.Column<bool>(type: "INTEGER", nullable: false),
+                    TitleTh = table.Column<string>(type: "TEXT", nullable: false),
+                    TitleEn = table.Column<string>(type: "TEXT", nullable: true),
+                    DescriptionTh = table.Column<string>(type: "TEXT", nullable: true),
+                    DescriptionEn = table.Column<string>(type: "TEXT", nullable: true),
+                    OrganizationId = table.Column<string>(type: "TEXT", nullable: true),
+                    OrganizationText = table.Column<string>(type: "TEXT", nullable: true),
+                    Country = table.Column<string>(type: "TEXT", nullable: true),
+                    Url = table.Column<string>(type: "TEXT", nullable: true),
+                    SourceUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    IsPublic = table.Column<bool>(type: "INTEGER", nullable: false),
+                    RecordStatus = table.Column<string>(type: "TEXT", maxLength: 40, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CreatedBy = table.Column<string>(type: "TEXT", nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "TEXT", nullable: true),
+                    SyncStamp = table.Column<long>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PersonEvent", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PersonEvent_Organization_OrganizationId",
+                        column: x => x.OrganizationId,
+                        principalTable: "Organization",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PersonEvent_Person_PersonId",
+                        column: x => x.PersonId,
+                        principalTable: "Person",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PersonMentorship",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
+                    StudentPersonId = table.Column<string>(type: "TEXT", nullable: false),
+                    MentorPersonId = table.Column<string>(type: "TEXT", nullable: false),
+                    Role = table.Column<string>(type: "TEXT", maxLength: 40, nullable: false),
+                    Degree = table.Column<string>(type: "TEXT", maxLength: 40, nullable: true),
+                    FromYear = table.Column<int>(type: "INTEGER", nullable: true),
+                    ToYear = table.Column<int>(type: "INTEGER", nullable: true),
+                    ThesisTitle = table.Column<string>(type: "TEXT", nullable: true),
+                    Note = table.Column<string>(type: "TEXT", nullable: true),
+                    IsPublic = table.Column<bool>(type: "INTEGER", nullable: false),
+                    RecordStatus = table.Column<string>(type: "TEXT", maxLength: 40, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CreatedBy = table.Column<string>(type: "TEXT", nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "TEXT", nullable: true),
+                    SyncStamp = table.Column<long>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PersonMentorship", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PersonMentorship_Person_MentorPersonId",
+                        column: x => x.MentorPersonId,
+                        principalTable: "Person",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PersonMentorship_Person_StudentPersonId",
+                        column: x => x.StudentPersonId,
+                        principalTable: "Person",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PositionAssignment",
                 columns: table => new
                 {
@@ -3292,6 +3374,36 @@ namespace Mecmat.Data.Migrations
                 column: "RecordStatus");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PersonEvent_OrganizationId",
+                table: "PersonEvent",
+                column: "OrganizationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonEvent_PersonId_Date",
+                table: "PersonEvent",
+                columns: new[] { "PersonId", "Date" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonEvent_RecordStatus",
+                table: "PersonEvent",
+                column: "RecordStatus");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonMentorship_MentorPersonId",
+                table: "PersonMentorship",
+                column: "MentorPersonId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonMentorship_RecordStatus",
+                table: "PersonMentorship",
+                column: "RecordStatus");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonMentorship_StudentPersonId",
+                table: "PersonMentorship",
+                column: "StudentPersonId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PositionAssignment_PersonId",
                 table: "PositionAssignment",
                 column: "PersonId");
@@ -3784,6 +3896,12 @@ namespace Mecmat.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "PersonEmployment");
+
+            migrationBuilder.DropTable(
+                name: "PersonEvent");
+
+            migrationBuilder.DropTable(
+                name: "PersonMentorship");
 
             migrationBuilder.DropTable(
                 name: "PositionAssignment");

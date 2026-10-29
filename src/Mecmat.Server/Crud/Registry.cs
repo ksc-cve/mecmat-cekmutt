@@ -16,7 +16,7 @@ public static class Registry
     [
         "photo", "positionText", "academicRank", "workEmail", "workPhone", "officeRoom", "lineId", "expertise", "bio",
         "orcid", "scopus", "scholar", "researchgate", "website", "education", "employment", "licenses", "awards",
-        "publications", "projects",
+        "publications", "projects", "timeline", "mentorship", "network",
     ];
 
     public static readonly ResourceDef[] All =
@@ -54,6 +54,13 @@ public static class Registry
                     throw new AppException("errors.duplicate");
             },
         },
+        new ResourceDef<PersonMentorship>
+        {
+            Key = "person-mentorships", Module = M.People, DeleteNeeds = Child, OrderBy = nameof(PersonMentorship.FromYear),
+            Related = s => x => s.RelatedPersonIds.Contains(x.StudentPersonId) || x.MentorPersonId == s.PersonId,
+            BeforeSave = (_, x, _) => x.StudentPersonId == x.MentorPersonId ? throw new AppException("people.selfMentor") : Task.CompletedTask,
+        },
+        new ResourceDef<PersonEvent> { Key = "person-events", Module = M.People, DeleteNeeds = Child, OrderBy = nameof(PersonEvent.Date), Related = s => x => s.RelatedPersonIds.Contains(x.PersonId) },
         new ResourceDef<Organization> { Key = "organizations", Module = M.Organizations, SearchFields = ["NameTh", "NameEn", "ShortName"], OrderBy = nameof(Organization.NameTh), OrderDescending = false, Related = s => x => x.CreatedBy == s.UserId },
         new ResourceDef<Award> { Key = "awards", Module = M.People, OrderBy = nameof(Award.Date), Related = s => x => x.CreatedBy == s.UserId },
         new ResourceDef<AwardRecipient> { Key = "award-recipients", Module = M.People, DeleteNeeds = Child, Related = s => x => s.RelatedPersonIds.Contains(x.PersonId) },

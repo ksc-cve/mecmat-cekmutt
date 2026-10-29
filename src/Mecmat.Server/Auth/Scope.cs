@@ -45,6 +45,10 @@ public sealed class Scope
 
         var advisees = await db.Set<Person>().AsNoTracking()
             .Where(p => p.AdvisorPersonId == personId).Select(p => p.Id).ToListAsync(ct);
+        advisees.AddRange(await db.Set<PersonMentorship>().AsNoTracking()
+            .Where(m => m.MentorPersonId == personId && m.RecordStatus == RecordStatus.Active
+                        && (m.ToYear == null || m.ToYear >= DateTime.UtcNow.Year))
+            .Select(m => m.StudentPersonId).ToListAsync(ct));
         var leadMembers = await db.Set<ProjectMember>().AsNoTracking()
             .Where(m => lead.Contains(m.ProjectId)).Select(m => m.PersonId).ToListAsync(ct);
         var related = new HashSet<string> { personId };

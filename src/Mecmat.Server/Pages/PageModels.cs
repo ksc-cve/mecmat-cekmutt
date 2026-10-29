@@ -80,8 +80,9 @@ public sealed class PeopleModel(PublicQueryService q) : SitePageModel(q)
     }
 }
 
-public sealed class PersonModel(PublicQueryService q) : SitePageModel(q)
+public sealed class PersonModel(PublicQueryService q, TimelineService timeline) : SitePageModel(q)
 {
+    public CareerView Career { get; private set; } = null!;
     public PublicPerson Person { get; private set; } = null!;
     public List<PersonEducation> Education { get; private set; } = [];
     public List<PersonEmployment> Work { get; private set; } = [];
@@ -95,6 +96,7 @@ public sealed class PersonModel(PublicQueryService q) : SitePageModel(q)
         if (p == null) return NotFound();
         Person = p;
         (Education, Work, Awards, Pubs, Projects) = await Q.PersonDetailsAsync(p);
+        Career = await timeline.BuildAsync(p.Id, publicOnly: true, p.Shown);
         PageTitle = Pick(p.NameTh, p.NameEn);
         MetaDescription = Pick(p.ExpertiseTh, p.ExpertiseEn);
         OgImage = p.PhotoFileId == null ? null : Img(p.PhotoFileId);

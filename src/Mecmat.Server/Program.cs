@@ -48,6 +48,7 @@ builder.Services.AddScoped<IApprovalHandler, BookingApprovalHandler>();
 builder.Services.AddScoped<FinanceService>();
 builder.Services.AddScoped<FileStorage>();
 builder.Services.AddScoped<PublicQueryService>();
+builder.Services.AddScoped<TimelineService>();
 builder.Services.AddHostedService<ReminderWorker>();
 builder.Services.AddHttpClient("crossref", c =>
 {
@@ -65,6 +66,9 @@ builder.Services.AddControllers(o => o.Filters.Add<AppExceptionFilter>())
         o.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
     });
 builder.Services.AddRazorPages();
+// Emit Thai as characters rather than &#xE01; entities: pages are half the size and readable in source.
+builder.Services.Configure<Microsoft.Extensions.WebEncoders.WebEncoderOptions>(o =>
+    o.TextEncoderSettings = new System.Text.Encodings.Web.TextEncoderSettings(System.Text.Unicode.UnicodeRanges.All));
 builder.Services.Configure<ForwardedHeadersOptions>(o =>
 {
     // Caddy on the same machine is the only proxy; trust it and nothing else.

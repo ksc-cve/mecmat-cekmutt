@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mecmat.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261029141445_Initial")]
+    [Migration("20261029153519_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -3052,6 +3052,163 @@ namespace Mecmat.Data.Migrations
                     b.ToTable("PersonEmployment");
                 });
 
+            modelBuilder.Entity("Mecmat.Domain.PersonEvent", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("DateIsApproximate")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("DescriptionEn")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DescriptionTh")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateOnly?>("EndDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsPublic")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Kind")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OrganizationId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OrganizationText")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PersonId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RecordStatus")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SourceUrl")
+                        .HasColumnType("TEXT");
+
+                    b.Property<long>("SyncStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("TitleEn")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TitleTh")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrganizationId");
+
+                    b.HasIndex("RecordStatus");
+
+                    b.HasIndex("PersonId", "Date");
+
+                    b.ToTable("PersonEvent");
+                });
+
+            modelBuilder.Entity("Mecmat.Domain.PersonMentorship", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Degree")
+                        .HasMaxLength(40)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("FromYear")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsPublic")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MentorPersonId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RecordStatus")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StudentPersonId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<long>("SyncStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ThesisTitle")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("ToYear")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MentorPersonId");
+
+                    b.HasIndex("RecordStatus");
+
+                    b.HasIndex("StudentPersonId");
+
+                    b.ToTable("PersonMentorship");
+                });
+
             modelBuilder.Entity("Mecmat.Domain.PositionAssignment", b =>
                 {
                     b.Property<string>("Id")
@@ -5707,6 +5864,35 @@ namespace Mecmat.Data.Migrations
                     b.HasOne("Mecmat.Domain.Person", null)
                         .WithMany()
                         .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Mecmat.Domain.PersonEvent", b =>
+                {
+                    b.HasOne("Mecmat.Domain.Organization", null)
+                        .WithMany()
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Mecmat.Domain.Person", null)
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Mecmat.Domain.PersonMentorship", b =>
+                {
+                    b.HasOne("Mecmat.Domain.Person", null)
+                        .WithMany()
+                        .HasForeignKey("MentorPersonId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Mecmat.Domain.Person", null)
+                        .WithMany()
+                        .HasForeignKey("StudentPersonId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

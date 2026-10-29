@@ -17,7 +17,31 @@
       <h2>@Model.L("people.expertise")</h2>
       <p class="chips">@foreach (var e in Model.Pick(p.ExpertiseTh, p.ExpertiseEn).Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)) { <span>@e</span> }</p>
     }
-    @if (Model.Pubs.Count > 0)
+    @if (Model.Career.Items.Count > 0)
+    {
+      <h2>@Model.L("tl.title")</h2>
+      <ol class="tl">
+        @{ string? lastYear = null; }
+        @foreach (var i in Model.Career.Items)
+        {
+          var y = i.Date.StartsWith("0000") ? Model.L("tl.undated") : Model.Year(int.Parse(i.Date[..4]));
+          if (y != lastYear) { lastYear = y; <li class="tl-year">@y</li> }
+          var title = Model.TlLabel(Model.Pick(i.TitleTh, i.TitleEn));
+          var sub = Model.Pick(i.SubTh, i.SubEn);
+          var href = i.Link != null ? (i.SourceType == "Project" ? Model.Href("/projects/" + i.SourceId) : null) : i.Url != null && i.Url.StartsWith("/") ? Model.Href(i.Url) : i.Url;
+          <li class="tl-item k-@i.Kind">
+            <span class="tl-dot" aria-hidden="true">@(i.Kind switch { "education" => "🎓", "award" => "🏅", "publication" => "📄", "project" => "🔬", "supervision" => "👥", "news" => "📰", "visit" => "✈", "talk" => "🎤", "collaboration" => "🤝", "grant" => "💰", _ => "•" })</span>
+            <div class="tl-body">
+              <div class="tl-kind">@Model.L("tl.kind." + i.Kind)</div>
+              <div class="tl-title">@if (href != null) { <a href="@href" rel="@(href.StartsWith("http") ? "noopener" : null)">@title</a> } else { @title }</div>
+              @if (!string.IsNullOrEmpty(sub)) { <div class="tl-sub">@string.Join("\n", sub.Split('\n').Select(Model.TlLabel))</div> }
+              <div class="tl-when">@Model.TlWhen(i)</div>
+            </div>
+          </li>
+        }
+      </ol>
+    }
+    @if (Model.Pubs.Count > 0 && Model.Career.Items.All(i => i.Kind != "publication"))
     {
       <h2>@Model.L("nav.publications")</h2>
       <ol class="pubs">@foreach (var x in Model.Pubs) { <li>(@x.Year) <span class="ptitle">@x.TitleEn</span>. <em>@x.VenueName</em>. @if (x.Doi != null) { <a href="https://doi.org/@x.Doi" rel="noopener">doi:@x.Doi</a> }</li> }</ol>
@@ -48,13 +72,20 @@
         @if (p.Website != null) { <li><a href="@p.Website" rel="noopener">Website</a></li> }
       </ul></section>
     }
+    @if (Model.Career.Mentors.Count > 0) { <partial name="_Network" model='(Model as SitePageModel, Model.L("tl.mentors"), Model.Career.Mentors)' /> }
+    @if (Model.Career.Students.Count > 0) { <partial name="_Network" model='(Model as SitePageModel, Model.L("tl.students"), Model.Career.Students)' /> }
+    @if (Model.Career.CoAuthors.Count > 0) { <partial name="_Network" model='(Model as SitePageModel, Model.L("tl.coauthors"), Model.Career.CoAuthors.Take(10).ToList())' /> }
+    @if (Model.Career.Organizations.Count > 0)
+    {
+      <section class="box"><h3>@Model.L("tl.orgs")</h3><ul class="plain">@foreach (var o in Model.Career.Organizations.Take(10)) { <li>@Model.Pick(o.NameTh, o.NameEn)@(o.Country != null ? " · " + o.Country : "")</li> }</ul></section>
+    }
     @if (Model.Education.Count > 0)
     {
       <section class="box"><h3>@Model.L("people.education")</h3><ul class="plain">
         @foreach (var e in Model.Education) { <li><strong>@(Model.Pick(e.DegreeNameTh, e.DegreeNameEn)) @e.Field</strong><br>@e.Institution@(e.Country != null ? ", " + e.Country : "")@(e.GraduatedYear != null ? " (" + Model.Year(e.GraduatedYear) + ")" : "")</li> }
       </ul></section>
     }
-    @if (Model.Work.Count > 0)
+    @if (Model.Work.Count > 0 && Model.Career.Items.All(i => i.Kind != "position"))
     {
       <section class="box"><h3>@Model.L("people.work")</h3><ul class="plain">@foreach (var w in Model.Work) { <li>@w.Position<br><span class="muted">@w.OrganizationText</span></li> }</ul></section>
     }

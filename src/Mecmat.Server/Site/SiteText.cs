@@ -80,6 +80,19 @@ public static class SiteText
         ["error.404"] = ("ไม่พบหน้าที่ต้องการ", "Page not found"),
         ["error.other"] = ("เกิดข้อผิดพลาด", "Something went wrong"),
         ["footer.rights"] = ("สงวนลิขสิทธิ์", "All rights reserved"),
+        ["tl.title"] = ("เส้นทางวิชาการ", "Career timeline"),
+        ["tl.present"] = ("ปัจจุบัน", "present"),
+        ["tl.undated"] = ("ไม่ระบุปี", "Undated"),
+        ["tl.mentors"] = ("อาจารย์ที่ปรึกษา", "Advisors"),
+        ["tl.students"] = ("ลูกศิษย์", "Students supervised"),
+        ["tl.coauthors"] = ("ผู้ร่วมเขียนในกลุ่ม", "Co-authors in the group"),
+        ["tl.orgs"] = ("หน่วยงานที่ร่วมงาน", "Organisations"),
+        ["tl.sharedPubs"] = ("ผลงานร่วม {0} เรื่อง", "{0} joint papers"),
+        ["tl.kind.education"] = ("การศึกษา", "Education"), ["tl.kind.position"] = ("ตำแหน่ง", "Position"), ["tl.kind.rank"] = ("ตำแหน่งวิชาการ", "Academic rank"),
+        ["tl.kind.award"] = ("รางวัล", "Award"), ["tl.kind.publication"] = ("ผลงานตีพิมพ์", "Publication"), ["tl.kind.project"] = ("โครงการ", "Project"),
+        ["tl.kind.supervision"] = ("การเป็นที่ปรึกษา", "Supervision"), ["tl.kind.news"] = ("ข่าว", "News"), ["tl.kind.visit"] = ("เยือน/แลกเปลี่ยน", "Visit / exchange"),
+        ["tl.kind.talk"] = ("บรรยาย", "Talk"), ["tl.kind.collaboration"] = ("ความร่วมมือ", "Collaboration"), ["tl.kind.grant"] = ("ทุนวิจัย", "Grant"),
+        ["tl.kind.milestone"] = ("เหตุการณ์สำคัญ", "Milestone"), ["tl.kind.other"] = ("อื่น ๆ", "Other"),
     };
 
     public static string Get(string key, bool en) => T.TryGetValue(key, out var v) ? (en ? v.En : v.Th) : key;
@@ -117,6 +130,12 @@ public static class EnumLabels
         ["OutputType.Prototype"] = ("ต้นแบบ/เทคโนโลยี", "Prototypes / technology"), ["OutputType.IntellectualProperty"] = ("ทรัพย์สินทางปัญญา", "Intellectual property"),
         ["OutputType.Infrastructure"] = ("เครื่องมือ/โครงสร้างพื้นฐาน", "Infrastructure"), ["OutputType.DatabaseSystem"] = ("ฐานข้อมูล/มาตรฐาน", "Databases / standards"),
         ["OutputType.Network"] = ("เครือข่าย", "Networks"), ["OutputType.Investment"] = ("การลงทุน", "Investment"), ["OutputType.PolicyRecommendation"] = ("ข้อเสนอเชิงนโยบาย", "Policy recommendations"),
+        ["MentorRole.MainAdvisor"] = ("อาจารย์ที่ปรึกษาหลัก", "Main advisor"), ["MentorRole.CoAdvisor"] = ("อาจารย์ที่ปรึกษาร่วม", "Co-advisor"),
+        ["MentorRole.Supervisor"] = ("ผู้ควบคุมงาน", "Supervisor"), ["MentorRole.Mentor"] = ("พี่เลี้ยง", "Mentor"),
+        ["EducationLevel.Bachelor"] = ("ปริญญาตรี", "Bachelor's"), ["EducationLevel.Master"] = ("ปริญญาโท", "Master's"), ["EducationLevel.Doctoral"] = ("ปริญญาเอก", "Doctorate"),
+        ["EducationLevel.Exchange"] = ("แลกเปลี่ยน", "Exchange"), ["EducationLevel.Other"] = ("อื่น ๆ", "Other"),
+        ["AcademicRank.AsstProf"] = ("ผู้ช่วยศาสตราจารย์", "Assistant Professor"), ["AcademicRank.AssocProf"] = ("รองศาสตราจารย์", "Associate Professor"), ["AcademicRank.Prof"] = ("ศาสตราจารย์", "Professor"),
+        ["OrganizationKind.Department"] = ("ภาควิชา", "Department"), ["OrganizationKind.Faculty"] = ("คณะ", "Faculty"), ["OrganizationKind.Ngo"] = ("องค์กรไม่แสวงหากำไร", "Non-profit"), ["OrganizationKind.Other"] = ("อื่น ๆ", "Other"),
         ["OrganizationKind.University"] = ("มหาวิทยาลัย", "University"), ["OrganizationKind.Company"] = ("บริษัท", "Company"),
         ["OrganizationKind.Government"] = ("หน่วยงานรัฐ", "Government"), ["OrganizationKind.FundingAgency"] = ("แหล่งทุน", "Funder"),
     };

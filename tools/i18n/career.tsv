@@ -1,0 +1,54 @@
+people.tab.career	เส้นทางวิชาการ	Career
+people.selfMentor	บุคคลเป็นที่ปรึกษาของตัวเองไม่ได้	A person cannot advise themselves
+tl.intro	รวมทุกอย่างที่มีวันที่: การศึกษา ตำแหน่ง รางวัล ผลงาน โครงการ ลูกศิษย์ ข่าว และเหตุการณ์อื่น ข้อมูลที่บันทึกในแท็บอื่นจะขึ้นที่นี่เอง	Everything dated: education, positions, awards, publications, projects, students, news and other events. Items recorded in other tabs appear here by themselves.
+tl.addEvent	เพิ่มเหตุการณ์	Add event
+tl.addMentor	เพิ่มอาจารย์ที่ปรึกษา/ลูกศิษย์	Add advisor / student link
+tl.filter	กรองตามประเภท	Filter by type
+tl.empty	ยังไม่มีเหตุการณ์	Nothing on the timeline yet
+tl.present	ปัจจุบัน	present
+tl.mentors	อาจารย์ที่ปรึกษา	Advisors
+tl.students	ลูกศิษย์	Students supervised
+tl.coauthors	ผู้ร่วมเขียนในกลุ่ม	Co-authors in the group
+tl.orgs	หน่วยงานที่ร่วมงาน	Organisations
+tl.sharedPubs	ผลงานร่วม {n} เรื่อง	{n} joint papers
+tl.urlHint	ลิงก์ข่าวหรือหน้าที่เกี่ยวข้อง (แสดงบนเว็บ)	Link to the news story or page (shown on the website)
+tl.sourceHint	แหล่งที่มาของข้อมูล (ไม่แสดงบนเว็บ)	Where this fact came from (not shown on the website)
+tl.kind.education	การศึกษา	Education
+tl.kind.position	ตำแหน่ง	Position
+tl.kind.rank	ตำแหน่งวิชาการ	Academic rank
+tl.kind.award	รางวัล	Award
+tl.kind.publication	ผลงานตีพิมพ์	Publication
+tl.kind.project	โครงการ	Project
+tl.kind.supervision	การเป็นที่ปรึกษา	Supervision
+tl.kind.news	ข่าว	News
+tl.kind.visit	เยือน/แลกเปลี่ยน	Visit / exchange
+tl.kind.talk	บรรยาย	Talk
+tl.kind.collaboration	ความร่วมมือ	Collaboration
+tl.kind.grant	ทุนวิจัย	Grant
+tl.kind.milestone	เหตุการณ์สำคัญ	Milestone
+tl.kind.other	อื่น ๆ	Other
+f.studentPersonId	ศิษย์	Student
+f.mentorPersonId	อาจารย์ที่ปรึกษา/ผู้ควบคุม	Advisor / supervisor
+f.fromYear	ปีที่เริ่ม	From (year)
+f.toYear	ปีที่จบ	To (year)
+f.dateIsApproximate	รู้แค่ปี/เดือน (ไม่แสดงวันที่)	Only the year / month is known
+f.sourceUrl	แหล่งที่มา	Source
+f.degree	ระดับ	Degree
+enum.MentorRole.MainAdvisor	อาจารย์ที่ปรึกษาหลัก	Main advisor
+enum.MentorRole.CoAdvisor	อาจารย์ที่ปรึกษาร่วม	Co-advisor
+enum.MentorRole.Supervisor	ผู้ควบคุมงาน	Supervisor
+enum.MentorRole.Mentor	พี่เลี้ยง	Mentor
+enum.CareerEventKind.Position	ตำแหน่ง/แต่งตั้ง	Position / appointment
+enum.CareerEventKind.Education	การศึกษา/อบรม	Education / training
+enum.CareerEventKind.Award	รางวัล/เกียรติยศ	Award / honour
+enum.CareerEventKind.News	ข่าว	News
+enum.CareerEventKind.Visit	เยือน/แลกเปลี่ยนต่างประเทศ	Visit / exchange abroad
+enum.CareerEventKind.Talk	บรรยาย/นำเสนอ	Talk / presentation
+enum.CareerEventKind.Collaboration	ความร่วมมือ/MOU	Collaboration / MOU
+enum.CareerEventKind.Grant	ทุนวิจัย	Research grant
+enum.CareerEventKind.Milestone	เหตุการณ์สำคัญ	Milestone
+enum.CareerEventKind.Other	อื่น ๆ	Other
+pubfield.timeline	เส้นทางวิชาการ (ข่าว เหตุการณ์)	Career timeline (news, events)
+pubfield.mentorship	อาจารย์ที่ปรึกษาและลูกศิษย์	Advisors and students
+pubfield.network	ผู้ร่วมงานและหน่วยงาน	Co-authors and organisations
+tl.undated	ไม่ระบุปี	Undated

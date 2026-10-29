@@ -127,3 +127,34 @@
 .ui-steps li.done .dot { background: var(--c-green); color: #fff; }
 .ui-steps li.current .dot { background: var(--c-yellow); color: #3b2a00; }
 .ui-steps li.rejected .dot { background: var(--c-maroon); color: #fff; }
+
+/* Career timeline (LinkedIn-style) — shared by the back office and the public profile page. */
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.tl-year { font: 600 var(--fs-lg) var(--font-head); color: var(--brand-text); margin: 18px 0 8px 44px; }
+.tl-year:first-child { margin-top: 0; }
+.tl-item { position: relative; display: grid; grid-template-columns: 32px 1fr; gap: 12px; padding: 0 0 18px; }
+.tl-item::before { content: ""; position: absolute; left: 15px; top: 32px; bottom: 0; width: 2px; background: var(--border); }
+.tl-item:last-child::before { display: none; }
+.tl-dot { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--c-navy-50); color: var(--brand-text); }
+.tl-dot svg { width: 16px; height: 16px; }
+.tl-item.k-education .tl-dot { background: var(--c-yellow-50); color: var(--warning-text); }
+.tl-item.k-award .tl-dot, .tl-item.k-grant .tl-dot { background: var(--c-orange-50); color: var(--c-orange-700); }
+.tl-item.k-publication .tl-dot { background: var(--c-green-50); color: var(--c-green); }
+.tl-item.k-news .tl-dot, .tl-item.k-talk .tl-dot { background: var(--c-maroon-50); color: var(--c-maroon); }
+.tl-item.k-visit .tl-dot, .tl-item.k-collaboration .tl-dot { background: var(--surface-3); color: var(--text-2); }
+.tl-body { min-width: 0; padding-top: 4px; }
+.tl-title { font-weight: 600; line-height: 1.4; }
+.tl-title a { color: inherit; }
+.tl-sub { color: var(--text-2); font-size: var(--fs-sm); white-space: pre-line; }
+.tl-when { color: var(--text-3); font-size: var(--fs-xs); margin-top: 2px; }
+.tl-kind { font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: .04em; }
+.tl-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.tl-filters button { all: unset; cursor: pointer; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border-strong); font-size: var(--fs-xs); }
+.tl-filters button[aria-pressed="true"] { background: var(--c-navy); border-color: var(--c-navy); color: #fff; }
+.net { display: flex; flex-direction: column; gap: 8px; }
+.net a, .net div.np { display: flex; align-items: center; gap: 10px; color: var(--text); font-size: var(--fs-sm); text-decoration: none; }
+.net a:hover .nn { text-decoration: underline; }
+.net .nn { font-weight: 600; }
+.net .nd { color: var(--text-3); font-size: var(--fs-xs); }
+.career-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start; }
+@media (max-width: 900px) { .career-grid { grid-template-columns: 1fr; } }

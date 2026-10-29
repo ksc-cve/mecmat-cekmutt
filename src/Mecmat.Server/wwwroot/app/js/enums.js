@@ -83,6 +83,24 @@ export const ENUMS = {
   "Completed",
   "NoShow"
  ],
+ "MentorRole": [
+  "MainAdvisor",
+  "CoAdvisor",
+  "Supervisor",
+  "Mentor"
+ ],
+ "CareerEventKind": [
+  "Position",
+  "Education",
+  "Award",
+  "News",
+  "Visit",
+  "Talk",
+  "Collaboration",
+  "Grant",
+  "Milestone",
+  "Other"
+ ],
  "RecordStatus": [
   "Active",
   "Archived",

@@ -1,0 +1,15 @@
+@model (SitePageModel Page, string Title, List<NetworkPerson> People)
+@{ var m = Model.Page; }
+<section class="box"><h3>@Model.Title</h3>
+  <ul class="plain net">
+  @foreach (var p in Model.People)
+  {
+    var parts = (p.Detail ?? "").Split('|');
+    var detail = p.Relation == "CoAuthor"
+        ? string.Format(m.L("tl.sharedPubs"), p.Count)
+        : string.Join(" · ", new[] { EnumLabels.Get("MentorRole", p.Relation, m.En), parts.Length > 0 && parts[0] != "" ? EnumLabels.Get("EducationLevel", parts[0], m.En) : null,
+            parts.Length > 1 && parts[1] != "" ? m.Year(int.Parse(parts[1])) + (parts.Length > 2 && parts[2] != "" ? "–" + m.Year(int.Parse(parts[2])) : "") : null }.Where(x => !string.IsNullOrEmpty(x)));
+    <li>@if (p.Slug != null) { <a href="@m.Href("/people/" + p.Slug)">@m.Pick(p.NameTh, p.NameEn)</a> } else { @m.Pick(p.NameTh, p.NameEn) }<br><span class="muted small">@detail</span></li>
+  }
+  </ul>
+</section>

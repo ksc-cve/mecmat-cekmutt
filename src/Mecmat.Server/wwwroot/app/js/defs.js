@@ -72,6 +72,18 @@ export const DEFS = {
       { key: 'accountName' }, { key: 'promptPayId', show: (v) => v.kind === 'PromptPay' }, { key: 'isPrimary', type: 'bool' }],
     columns: [{ key: 'kind', type: 'enum', enum: 'PayoutKind' }, { key: 'bankName' }, { key: 'accountNo' }, { key: 'promptPayId' }, { key: 'accountName' }, { key: 'isPrimary', type: 'bool' }],
   },
+  'person-mentorships': {
+    fields: [{ key: 'studentPersonId', type: 'ref', ref: 'people', required: true, label: 'f.studentPersonId' }, { key: 'mentorPersonId', type: 'ref', ref: 'people', required: true, label: 'f.mentorPersonId' },
+      { key: 'role', type: 'enum', enum: 'MentorRole', required: true }, { key: 'degree', type: 'enum', enum: 'EducationLevel', values: ['Bachelor', 'Master', 'Doctoral', 'Other'] },
+      { key: 'fromYear', type: 'year' }, { key: 'toYear', type: 'year' }, { key: 'thesisTitle', span2: true }, { key: 'note', span2: true }, { key: 'isPublic', type: 'bool' }],
+  },
+  'person-events': {
+    fields: [{ key: 'kind', type: 'enum', enum: 'CareerEventKind', required: true }, { key: 'date', type: 'date', required: true }, { key: 'endDate', type: 'date' },
+      { key: 'dateIsApproximate', type: 'bool', label: 'f.dateIsApproximate' },
+      { key: 'titleTh', required: true, span2: true }, { key: 'titleEn', span2: true },
+      { key: 'organizationId', type: 'ref', ref: 'organizations' }, { key: 'organizationText' }, { key: 'country' }, { key: 'url', hint: 'tl.urlHint' },
+      { key: 'descriptionTh', type: 'textarea' }, { key: 'descriptionEn', type: 'textarea' }, { key: 'sourceUrl', hint: 'tl.sourceHint' }, { key: 'isPublic', type: 'bool' }],
+  },
   organizations: {
     fields: [{ key: 'nameTh', required: true }, { key: 'nameEn' }, { key: 'shortName' }, { key: 'kind', type: 'enum', enum: 'OrganizationKind', required: true },
       { key: 'parentOrganizationId', type: 'ref', ref: 'organizations' }, { key: 'country' }, { key: 'website' }, { key: 'phone' }, { key: 'address', type: 'textarea' },
