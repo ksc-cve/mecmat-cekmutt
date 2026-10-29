@@ -41,6 +41,7 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options, AuditCo
         {
             var e = mb.Entity(t);
             e.HasKey(nameof(Entity.Id));
+            e.Property(nameof(Entity.Id)).HasValueGenerator<EntityIdGenerator>().ValueGeneratedOnAdd();
             e.Property(nameof(Entity.SyncStamp)).IsConcurrencyToken();
             e.HasIndex(nameof(Entity.RecordStatus));
             foreach (var p in t.GetProperties().Where(p => p.GetCustomAttribute<SensitiveAttribute>() != null))
@@ -199,9 +200,23 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options, AuditCo
     public override int SaveChanges(bool acceptAllChangesOnSuccess) =>
         throw new InvalidOperationException("Use SaveChangesAsync so ids, stamps and audit rows are applied.");
 
+    private bool _holdsLock;
+
+    /// <summary>Runs a read-check-write sequence (balance check, overlap check) as one unit under
+    /// the process write lock. SaveChangesAsync inside it does not wait for the lock again.</summary>
+    public async Task ExclusiveAsync(Func<Task> work)
+    {
+        if (_holdsLock) { await work(); return; }
+        await WriteLock.WaitAsync();
+        _holdsLock = true;
+        try { await work(); }
+        finally { _holdsLock = false; WriteLock.Release(); }
+    }
+
     public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken ct = default)
     {
-        await WriteLock.WaitAsync(ct);
+        var locked = !_holdsLock;
+        if (locked) await WriteLock.WaitAsync(ct);
         try
         {
             var now = DateTime.UtcNow;
@@ -211,8 +226,7 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options, AuditCo
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        if (string.IsNullOrEmpty(entry.Entity.Id))
-                            entry.Entity.Id = await NextIdAsync(entry.Entity.GetType(), ct);
+                        await PersistCounterAsync(entry.Entity.Id, ct);
                         entry.Entity.CreatedAt = entry.Entity.ModifiedAt = now;
                         entry.Entity.CreatedBy = entry.Entity.ModifiedBy = audit.UserId;
                         entry.Entity.SyncStamp = 1;
@@ -236,7 +250,7 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options, AuditCo
             }
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, ct);
         }
-        finally { WriteLock.Release(); }
+        finally { if (locked) WriteLock.Release(); }
     }
 
     /// <summary>Records an event that is not a row change (sign-in, failed sign-in, approval
@@ -284,19 +298,15 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options, AuditCo
         };
     }
 
-    private async Task<string> NextIdAsync(Type type, CancellationToken ct)
+    /// <summary>Keeps IdCounter in step with ids handed out in memory, so numbering continues
+    /// after a restart instead of starting again at 0001.</summary>
+    private async Task PersistCounterAsync(string id, CancellationToken ct)
     {
-        var prefix = type.GetCustomAttribute<IdPrefixAttribute>()?.Prefix
-                     ?? throw new InvalidOperationException($"{type.Name} has no [IdPrefix].");
-        var dateKey = Clock.TodayBangkok().ToString("yyMMdd");
-        var counter = IdCounters.Local.FirstOrDefault(c => c.Prefix == prefix && c.DateKey == dateKey)
-                      ?? await IdCounters.FirstOrDefaultAsync(c => c.Prefix == prefix && c.DateKey == dateKey, ct);
-        if (counter == null)
-        {
-            counter = new IdCounter { Prefix = prefix, DateKey = dateKey };
-            IdCounters.Add(counter);
-        }
-        counter.LastValue++;
-        return $"{prefix}-{dateKey}-{counter.LastValue:0000}";
+        var parts = id.Split('-');
+        if (parts.Length != 3 || !int.TryParse(parts[2], out var n)) return;
+        var counter = IdCounters.Local.FirstOrDefault(c => c.Prefix == parts[0] && c.DateKey == parts[1])
+                      ?? await IdCounters.FirstOrDefaultAsync(c => c.Prefix == parts[0] && c.DateKey == parts[1], ct);
+        if (counter == null) IdCounters.Add(counter = new IdCounter { Prefix = parts[0], DateKey = parts[1] });
+        if (n > counter.LastValue) counter.LastValue = n;
     }
 }

@@ -2,7 +2,6 @@ namespace Mecmat.Domain;
 
 public enum AccountStatus { PendingApproval, Active, Suspended, Expired, Closed }
 public enum PermAction { None = 0, View = 1, Create = 2, Edit = 3, Manage = 4 }
-public enum PermScope { Related = 0, All = 1 }
 public enum ResetRequestStatus { Open, Done, Rejected }
 public enum ApproverKind { Position, Person, ProjectRole, AccountCustodian, RequesterAdvisor, ResourceManager }
 public enum StepRule { Any, All }
@@ -70,12 +69,14 @@ public class Role : Entity
 }
 
 [IdPrefix("RPM")]
+/// <summary>Two levels per module, because the matrix often says "edit what is yours, view
+/// everything" (docs/authorization.md): RelatedAction applies to related records, AllAction to every record.</summary>
 public class RolePermission : Entity
 {
     public string RoleId { get; set; } = "";
     public string Module { get; set; } = "";
-    public PermAction Action { get; set; }
-    public PermScope Scope { get; set; }
+    public PermAction RelatedAction { get; set; }
+    public PermAction AllAction { get; set; }
 }
 
 [IdPrefix("URL")]
@@ -90,8 +91,8 @@ public class UserPermissionOverride : Entity
 {
     public string UserId { get; set; } = "";
     public string Module { get; set; } = "";
-    public PermAction Action { get; set; }
-    public PermScope Scope { get; set; }
+    public PermAction RelatedAction { get; set; }
+    public PermAction AllAction { get; set; }
     public string? Reason { get; set; }
 }
 

@@ -17,7 +17,8 @@ public sealed class SensitiveAttribute : Attribute;
 
 public abstract class Entity
 {
-    public string Id { get; set; } = "";
+    /// <summary>Null until the entity is added; EF then assigns PFX-YYMMDD-#### (see IdGen).</summary>
+    public string Id { get; set; } = null!;
     public RecordStatus RecordStatus { get; set; } = RecordStatus.Active;
     public DateTime CreatedAt { get; set; }
     public string? CreatedBy { get; set; }

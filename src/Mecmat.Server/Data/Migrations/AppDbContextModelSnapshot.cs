@@ -20,6 +20,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.AcademicAppointment", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateOnly?>("AppointedDate")
@@ -82,6 +83,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Account", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("AllowNegative")
@@ -159,6 +161,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.AccountBudget", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AccountId")
@@ -207,6 +210,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Activity", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -279,6 +283,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Application", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ConsentRecordId")
@@ -354,6 +359,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ApprovalAction", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ActorPersonId")
@@ -416,6 +422,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ApprovalInstance", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ClosedAt")
@@ -482,6 +489,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ApprovalPolicy", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AccountScopeId")
@@ -548,6 +556,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ApprovalPolicyStep", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ApproverKind")
@@ -603,6 +612,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Asset", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateOnly?>("AcquiredDate")
@@ -724,6 +734,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.AssetLoan", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AssetId")
@@ -787,6 +798,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Attachment", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -839,6 +851,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Award", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -906,6 +919,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.AwardRecipient", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AwardId")
@@ -951,6 +965,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Booking", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ApprovalInstanceId")
@@ -1072,6 +1087,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ConsentRecord", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -1128,6 +1144,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ContactMessage", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ConsentRecordId")
@@ -1202,6 +1219,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Delegation", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -1259,6 +1277,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Document", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -1331,6 +1350,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.DocumentVersion", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ChangeNote")
@@ -1382,6 +1402,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.FileBlob", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ContentType")
@@ -1437,6 +1458,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Folder", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -1493,6 +1515,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.GroupPosition", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -1555,6 +1578,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.KeyResult", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal?>("Actual")
@@ -1613,6 +1637,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.LedgerEntry", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<long>("Amount")
@@ -1699,6 +1724,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Maintenance", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AssetId")
@@ -1761,6 +1787,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Material", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Category")
@@ -1820,6 +1847,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.MaterialMovement", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -1884,6 +1912,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Meeting", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Agenda")
@@ -1962,6 +1991,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.MeetingAttendee", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("Attended")
@@ -2017,6 +2047,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.MeetingMinutes", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Body")
@@ -2067,6 +2098,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Milestone", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -2124,6 +2156,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.MoneyRequest", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AccountId")
@@ -2225,6 +2258,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.MoneyRequestLine", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<long>("Amount")
@@ -2281,6 +2315,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.NewsLink", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -2330,6 +2365,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.NewsPost", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AuthorPersonId")
@@ -2420,6 +2456,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Notification", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Body")
@@ -2509,6 +2546,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Organization", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Address")
@@ -2583,6 +2621,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.PasswordResetRequest", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -2639,6 +2678,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.PayoutChannel", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AccountName")
@@ -2698,6 +2738,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Person", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AcademicRank")
@@ -2872,6 +2913,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.PersonEducation", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Country")
@@ -2946,6 +2988,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.PersonEmployment", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -3009,6 +3052,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.PositionAssignment", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -3060,6 +3104,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ProfessionalLicense", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Body")
@@ -3121,6 +3166,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ProgressReport", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -3191,6 +3237,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Project", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("BeneficiaryArea")
@@ -3338,6 +3385,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ProjectImpact", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -3395,6 +3443,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ProjectMember", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -3457,6 +3506,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ProjectOutcome", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -3511,6 +3561,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ProjectOutput", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateOnly?>("AchievedDate")
@@ -3577,6 +3628,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ProjectPartner", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -3636,6 +3688,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.PublicFieldVisibility", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -3683,6 +3736,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Publication", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AbstractEn")
@@ -3840,6 +3894,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.PublicationAuthor", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CertificationFileId")
@@ -3917,6 +3972,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.PublicationIndexing", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -3973,6 +4029,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.PublicationProject", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -4018,6 +4075,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.PublicationUsage", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -4077,6 +4135,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Recruitment", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateOnly?>("CloseDate")
@@ -4169,6 +4228,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ResearchArea", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CoverFileId")
@@ -4221,6 +4281,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ResearchAreaLink", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -4270,6 +4331,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Resource", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AssetId")
@@ -4355,6 +4417,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.ResourceBlackout", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -4403,6 +4466,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Role", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -4457,9 +4521,10 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.RolePermission", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Action")
+                    b.Property<string>("AllAction")
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("TEXT");
@@ -4485,13 +4550,13 @@ namespace Mecmat.Data.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Scope")
+                    b.Property<string>("RelatedAction")
                         .IsRequired()
                         .HasMaxLength(40)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<long>("SyncStamp")
@@ -4539,6 +4604,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.Session", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("AbsoluteExpiresAt")
@@ -4613,6 +4679,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.SitePage", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("BodyEn")
@@ -4666,6 +4733,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.SiteSetting", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -4709,6 +4777,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.TaskAssignee", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -4754,6 +4823,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.TaskComment", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AuthorPersonId")
@@ -4801,6 +4871,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.TaskItem", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ActivityId")
@@ -4887,6 +4958,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.TeachingRecord", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("AcademicYear")
@@ -4953,6 +5025,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.UserAccount", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -5047,9 +5120,10 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.UserPermissionOverride", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Action")
+                    b.Property<string>("AllAction")
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("TEXT");
@@ -5078,7 +5152,7 @@ namespace Mecmat.Data.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Scope")
+                    b.Property<string>("RelatedAction")
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("TEXT");
@@ -5103,6 +5177,7 @@ namespace Mecmat.Data.Migrations
             modelBuilder.Entity("Mecmat.Domain.UserRole", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")

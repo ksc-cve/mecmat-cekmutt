@@ -1,21 +1,63 @@
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Mecmat.Auth;
+using Mecmat.Bookings;
 using Mecmat.Data;
+using Mecmat.Finance;
+using Mecmat.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+var isDev = builder.Environment.IsDevelopment();
 
 var dataRoot = builder.Configuration["Mecmat:DataRoot"]
-               ?? (builder.Environment.IsDevelopment()
-                   ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "mecmat-data")
-                   : "/var/lib/mecmat-cekmutt");
+               ?? (isDev ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "mecmat-data") : "/var/lib/mecmat-cekmutt");
 Directory.CreateDirectory(dataRoot);
 FieldCipher.Initialise(dataRoot);
+var options = new AppOptions
+{
+    DataRoot = dataRoot, IsDevelopment = isDev,
+    RequireTotpForApprovers = builder.Configuration.GetValue("Mecmat:RequireTotpForApprovers", true),
+    IpSalt = Convert.ToBase64String(KeyFile.LoadOrCreate(Path.Combine(dataRoot, "ip.salt"), 16)),
+};
 
 builder.WebHost.UseUrls(builder.Configuration["Urls"] ?? "http://127.0.0.1:5180");
+builder.WebHost.ConfigureKestrel(k => k.Limits.MaxRequestBodySize = FileStorage.MaxBytes + 1_000_000);
+builder.Services.AddSingleton(options);
+builder.Services.AddSingleton<LoginThrottle>();
 builder.Services.AddScoped<AuditContext>();
+builder.Services.AddScoped<CurrentUser>();
+builder.Services.AddScoped<SessionService>();
+builder.Services.AddScoped<AccessService>();
+builder.Services.AddScoped<NotificationService>();
+builder.Services.AddScoped<ApprovalEngine>();
+builder.Services.AddScoped<IApprovalHandler, MoneyRequestApprovalHandler>();
+builder.Services.AddScoped<IApprovalHandler, BookingApprovalHandler>();
+builder.Services.AddScoped<FinanceService>();
+builder.Services.AddScoped<FileStorage>();
+builder.Services.AddScoped<PublicQueryService>();
+builder.Services.AddHostedService<ReminderWorker>();
+builder.Services.AddHttpClient("crossref", c =>
+{
+    c.BaseAddress = new Uri("https://api.crossref.org/");
+    c.Timeout = TimeSpan.FromSeconds(15);
+    // Crossref asks API clients to identify themselves; requests with a contact go to the faster pool.
+    c.DefaultRequestHeaders.UserAgent.ParseAdd("MECMAT-WebApp/1.0 (+https://ce.kmutt.ac.th; mailto:kasan.cha@kmutt.ac.th)");
+});
 builder.Services.AddDbContext<AppDbContext>(o => o
     .UseSqlite($"Data Source={Path.Combine(dataRoot, "mecmat.db")}")
     .AddInterceptors(new SqlitePragmaInterceptor()));
+builder.Services.AddControllers(o => o.Filters.Add<AppExceptionFilter>())
+    .AddJsonOptions(o =>
+    {
+        o.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+    });
+builder.Services.AddRazorPages();
+builder.Services.Configure<ForwardedHeadersOptions>(o =>
+{
+    // Caddy on the same machine is the only proxy; trust it and nothing else.
+    o.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    o.KnownProxies.Add(System.Net.IPAddress.Loopback);
+});
 
 var app = builder.Build();
 
@@ -24,13 +66,59 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     await db.Database.MigrateAsync();
     await db.Database.ExecuteSqlRawAsync("PRAGMA journal_mode=WAL;");
+    if (args.Length >= 2 && args[0] == "reset-admin")
+    {
+        var otp = await Seeder.ResetPasswordAsync(db, args[1]);
+        Console.WriteLine($"One-time password for {args[1]}: {otp}");
+        return;
+    }
+    var first = await Seeder.RunAsync(db, app.Logger);
+    if (first != null)
+    {
+        // Shown once, on the console of whoever started the first run; only its hash is stored.
+        Console.WriteLine();
+        Console.WriteLine("================================================================");
+        Console.WriteLine($"  First admin: kasan.cha   one-time password: {first}");
+        Console.WriteLine("  It must be changed at first sign-in.");
+        Console.WriteLine("================================================================");
+        Console.WriteLine();
+    }
 }
 
+app.UseForwardedHeaders();
+app.UseMiddleware<SecurityHeadersMiddleware>();
+app.UseExceptionHandler(e => e.Run(async ctx =>
+{
+    // Never echo internals: the reference lets the admin find the stack trace in the journal.
+    var refId = Tokens.NewToken(6);
+    var ex = ctx.Features.Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature>()?.Error;
+    ctx.RequestServices.GetRequiredService<ILogger<Program>>().LogError(ex, "Unhandled error {Ref}", refId);
+    ctx.Response.StatusCode = 500;
+    if (ctx.Request.Path.StartsWithSegments("/api")) await ctx.Response.WriteAsJsonAsync(new { error = "errors.server", reference = refId });
+    else await ctx.Response.WriteAsync("Server error. Reference: " + refId);
+}));
+app.UseStatusCodePagesWithReExecute("/error/{0}");
+app.UseStaticFiles(new StaticFileOptions
+{
+    OnPrepareResponse = c =>
+    {
+        // App code changes with each deploy; fonts and images do not.
+        var p = c.File.Name;
+        c.Context.Response.Headers.CacheControl = p.EndsWith(".woff2") || p.EndsWith(".png") || p.EndsWith(".svg") || p.EndsWith(".jpg")
+            ? "public, max-age=604800" : "no-cache";
+    },
+});
+app.UseMiddleware<SessionMiddleware>();
 app.MapGet("/api/health", () => Results.Ok(new { ok = true, build = BuildInfo.Version }));
+app.MapGet("/app", () => Results.File(Path.Combine(app.Environment.WebRootPath, "app", "index.html"), "text/html; charset=utf-8"));
+app.MapControllers();
+app.MapRazorPages();
 app.Run();
 
 public static class BuildInfo
 {
+    /// <summary>Set by deploy/publish.sh from the git commit, so /api/health tells which code is live.</summary>
     public static readonly string Version =
-        typeof(BuildInfo).Assembly.GetName().Version?.ToString() ?? "dev";
+        typeof(BuildInfo).Assembly.GetCustomAttributes(typeof(System.Reflection.AssemblyInformationalVersionAttribute), false)
+            .OfType<System.Reflection.AssemblyInformationalVersionAttribute>().FirstOrDefault()?.InformationalVersion ?? "dev";
 }
