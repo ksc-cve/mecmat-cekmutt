@@ -1,0 +1,10 @@
+@model (SitePageModel Page, PublicQueryService.LineageNode Node)
+@{ var m = Model.Page; var n = Model.Node; var p = n.Person; }
+<li>
+  <a class="tnode" href="@m.Href("/people/" + p.Slug)">
+    @if (p.PhotoFileId != null) { <img src="@SitePageModel.Img(p.PhotoFileId)" alt=""> } else { <span class="tav" aria-hidden="true">@((m.En ? p.NameEn : p.NameTh).Split(' ').Last().FirstOrDefault())</span> }
+    <span><strong>@m.Pick(p.NameTh, p.NameEn)</strong>
+      <small>@(n.Degree != null ? EnumLabels.Get("EducationLevel", n.Degree.ToString()!, m.En) : (p.GroupPositionTh != null ? m.Pick(p.GroupPositionTh, p.GroupPositionEn) : SiteText.Enum(p.Category, m.En)))</small></span>
+  </a>
+  @if (n.Students.Count > 0) { <ul>@foreach (var c in n.Students) { <partial name="_LineageNode" model="(m, c)" /> }</ul> }
+</li>

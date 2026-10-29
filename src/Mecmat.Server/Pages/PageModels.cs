@@ -72,10 +72,12 @@ public sealed class ResearchModel(PublicQueryService q) : SitePageModel(q)
 public sealed class PeopleModel(PublicQueryService q) : SitePageModel(q)
 {
     public List<PublicPerson> People { get; private set; } = [];
+    public List<PublicQueryService.LineageNode> Lineage { get; private set; } = [];
 
     public async Task OnGetAsync()
     {
         People = await Q.PeopleAsync();
+        Lineage = await Q.LineageAsync(People);
         PageTitle = L("nav.people");
     }
 }

@@ -109,7 +109,7 @@ public sealed class TimelineService(AppDbContext db)
 
         var names = await db.Set<Person>().AsNoTracking().Where(p => peopleIds.Contains(p.Id)).ToDictionaryAsync(p => p.Id);
         if (Show("mentorship"))
-            foreach (var m in mentorships.Where(m => m.MentorPersonId == personId && m.FromYear != null))
+            foreach (var m in mentorships.Where(m => m.MentorPersonId == personId && (m.ToYear ?? m.FromYear) != null))
                 if (names.TryGetValue(m.StudentPersonId, out var st))
                     items.Add(new TimelineItem("supervision", $"{(m.ToYear ?? m.FromYear):0000}-12-30", null, true,
                         PublicQueryService.DisplayName(st, true), PublicQueryService.DisplayName(st, false),

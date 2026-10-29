@@ -30,8 +30,9 @@ public static class GroupSeed
         public string? Slug { get; set; } public int Order { get; set; } = 100; public DateOnly? Joined { get; set; } public DateOnly? Left { get; set; }
         public List<EduJ> Education { get; set; } = []; public List<JobJ> Employment { get; set; } = []; public List<RankJ> Appointments { get; set; } = [];
         public List<AwardJ> Awards { get; set; } = []; public List<EventJ> Events { get; set; } = []; public List<PosJ> Positions { get; set; } = [];
-        public List<string> Public { get; set; } = [];
+        public List<string> Public { get; set; } = []; public List<LicJ> Licenses { get; set; } = [];
     }
+    public sealed class LicJ { public string Body { get; set; } = ""; public string? Level { get; set; } public string? Branch { get; set; } public DateOnly? Issued { get; set; } }
     public sealed class EduJ { public EducationLevel Level { get; set; } public string? DegreeTh { get; set; } public string? DegreeEn { get; set; } public string? Field { get; set; } public string? Institution { get; set; } public string? Country { get; set; } public int? StartYear { get; set; } public int? Year { get; set; } public string? Thesis { get; set; } public string? Honors { get; set; } }
     public sealed class JobJ { public string Position { get; set; } = ""; public string? Org { get; set; } public string? OrgText { get; set; } public DateOnly? From { get; set; } public DateOnly? To { get; set; } public string? Description { get; set; } }
     public sealed class RankJ { public AcademicRank Rank { get; set; } public DateOnly? Date { get; set; } public string? Field { get; set; } }
@@ -97,6 +98,8 @@ public static class GroupSeed
             foreach (var pos in p.Positions)
                 if (positionsByName.TryGetValue(pos.Position, out var posId))
                     db.Add(new PositionAssignment { PositionId = posId, PersonId = row.Id, FromDate = pos.From, ToDate = pos.To });
+            foreach (var l in p.Licenses)
+                db.Add(new ProfessionalLicense { PersonId = row.Id, Body = l.Body, Level = l.Level, Branch = l.Branch, IssuedDate = l.Issued, IsPublic = true });
             foreach (var key in p.Public.Distinct())
                 db.Add(new PublicFieldVisibility { PersonId = row.Id, FieldKey = key, IsPublic = true });
         }

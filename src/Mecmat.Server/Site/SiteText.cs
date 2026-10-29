@@ -81,6 +81,8 @@ public static class SiteText
         ["error.other"] = ("เกิดข้อผิดพลาด", "Something went wrong"),
         ["footer.rights"] = ("สงวนลิขสิทธิ์", "All rights reserved"),
         ["tl.title"] = ("เส้นทางวิชาการ", "Career timeline"),
+        ["tl.lineage"] = ("สายวิชาการของกลุ่ม", "Academic lineage"),
+        ["tl.lineageIntro"] = ("อาจารย์และศิษย์ในกลุ่มวิจัย จากผู้ก่อตั้งถึงรุ่นปัจจุบัน", "Advisors and students in the group, from the founder to today"),
         ["tl.present"] = ("ปัจจุบัน", "present"),
         ["tl.undated"] = ("ไม่ระบุปี", "Undated"),
         ["tl.mentors"] = ("อาจารย์ที่ปรึกษา", "Advisors"),

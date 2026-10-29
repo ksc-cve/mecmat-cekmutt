@@ -85,7 +85,7 @@ def main():
     a = sign_in_admin()
     people = a.call("GET", "/api/r/people")
     check(people["total"] >= 1, "admin lists people")
-    kasan = people["rows"][0]
+    kasan = next(r for r in people["rows"] if r["firstNameEn"] == "Kasan")
     check(kasan["firstNameTh"] == "กสาน", "seeded admin profile present")
 
     print("· sign-up and approval")

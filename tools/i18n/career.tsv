@@ -52,3 +52,5 @@ pubfield.timeline	เส้นทางวิชาการ (ข่าว เ�
 pubfield.mentorship	อาจารย์ที่ปรึกษาและลูกศิษย์	Advisors and students
 pubfield.network	ผู้ร่วมงานและหน่วยงาน	Co-authors and organisations
 tl.undated	ไม่ระบุปี	Undated
+tl.lineage	สายวิชาการ	Academic lineage
+tl.lineageHint	แผนผังอาจารย์ที่ปรึกษาและศิษย์ในกลุ่ม แก้ไขได้ในแท็บ "เส้นทางวิชาการ" ของแต่ละคน	Advisors and students in the group. Edit them from each person's Career tab.

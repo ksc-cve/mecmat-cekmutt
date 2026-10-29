@@ -3,6 +3,14 @@
 <div class="pagehead"><div class="wrap"><h1>@Model.L("nav.people")</h1></div></div>
 <div class="wrap">
   @if (Model.People.Count == 0) { <p class="muted">@Model.L("common.none")</p> }
+  @if (Model.Lineage.Count > 0)
+  {
+    <section class="lineage">
+      <h2>@Model.L("tl.lineage")</h2>
+      <p class="muted">@Model.L("tl.lineageIntro")</p>
+      <ul class="tree">@foreach (var n in Model.Lineage) { <partial name="_LineageNode" model="(Model as SitePageModel, n)" /> }</ul>
+    </section>
+  }
   @foreach (var g in Model.People.GroupBy(p => p.Category).OrderBy(g => (int)g.Key))
   {
     <h2>@SiteText.Enum(g.Key, Model.En)</h2>

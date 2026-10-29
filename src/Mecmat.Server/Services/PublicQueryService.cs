@@ -158,6 +158,25 @@ public sealed class PublicQueryService(AppDbContext db)
         return (p, team, partners, pubs, outputs);
     }
 
+    public sealed record LineageNode(PublicPerson Person, MentorRole? Role, EducationLevel? Degree, List<LineageNode> Students);
+
+    /// <summary>The group's academic family tree: roots are members with no advisor inside the group;
+    /// a student with two advisors appears under the main one (co-advisors are noted on the profile).</summary>
+    public async Task<List<LineageNode>> LineageAsync(List<PublicPerson> people)
+    {
+        var shown = people.Where(p => p.Shown.Contains("mentorship")).ToDictionary(p => p.Id);
+        var links = await db.Set<PersonMentorship>().AsNoTracking()
+            .Where(m => m.RecordStatus == Active && m.IsPublic && m.Role != MentorRole.CoAdvisor).ToListAsync();
+        links = links.Where(m => shown.ContainsKey(m.StudentPersonId) && shown.ContainsKey(m.MentorPersonId)).ToList();
+        var hasMentor = links.Select(l => l.StudentPersonId).ToHashSet();
+        var mentors = links.Select(l => l.MentorPersonId).ToHashSet();
+        LineageNode Build(string id, PersonMentorship? via, HashSet<string> path) => new(shown[id], via?.Role, via?.Degree,
+            links.Where(l => l.MentorPersonId == id && !path.Contains(l.StudentPersonId))
+                .Select(l => Build(l.StudentPersonId, l, [.. path, l.StudentPersonId])).OrderBy(n => n.Person.Order).ToList());
+        return shown.Keys.Where(id => !hasMentor.Contains(id) && mentors.Contains(id))
+            .Select(id => Build(id, null, [id])).OrderBy(n => n.Person.Order).ToList();
+    }
+
     public Task<List<NewsPost>> NewsAsync(int take = 50, NewsKind? kind = null) =>
         db.Set<NewsPost>().AsNoTracking().Where(n => n.Status == PublishStatus.Published && n.RecordStatus == Active && (kind == null || n.Kind == kind))
             .OrderByDescending(n => n.Pinned).ThenByDescending(n => n.PublishedAt).Take(take).ToListAsync();

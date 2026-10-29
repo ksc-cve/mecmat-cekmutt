@@ -123,3 +123,9 @@
 .money.neg { color: var(--danger); }
 .lines-table input { min-width: 80px; }
 .print-hide { }
+.lineage-tree, .lineage-tree ul { list-style: none; margin: 0; padding: 0; }
+.lineage-tree ul { margin-left: 18px; padding-left: 16px; border-left: 2px solid var(--border); }
+.lineage-tree li { padding: 4px 0; position: relative; }
+.lineage-tree ul > li::before { content: ""; position: absolute; left: -16px; top: 18px; width: 12px; border-top: 2px solid var(--border); }
+.tl-node { display: inline-block; padding: 4px 12px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); font-size: var(--fs-sm); }
+.tl-node:hover { border-color: var(--c-orange); text-decoration: none; }

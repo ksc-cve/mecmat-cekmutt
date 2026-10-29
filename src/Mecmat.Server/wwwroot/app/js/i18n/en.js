@@ -1322,6 +1322,8 @@ export default {
 "tl.kind.supervision": "Supervision",
 "tl.kind.talk": "Talk",
 "tl.kind.visit": "Visit / exchange",
+"tl.lineage": "Academic lineage",
+"tl.lineageHint": "Advisors and students in the group. Edit them from each person's Career tab.",
 "tl.mentors": "Advisors",
 "tl.orgs": "Organisations",
 "tl.present": "present",

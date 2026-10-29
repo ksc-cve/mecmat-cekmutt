@@ -21,8 +21,9 @@ export function peoplePage(_, query) {
   if (!canAny('people', 'View')) { el.append(empty(t('common.notAllowed'), 'shield')); return; }
   const kind = query.kind || 'Internal';
   const head = pageHead(t('nav.people'));
-  const filters = h('div', { class: 'ui-tabs' }, ['Internal', 'External'].map((k) =>
-    h('button', { type: 'button', 'aria-selected': String(k === kind), onclick: () => (location.hash = `#/people?kind=${k}`) }, enumLabel('PersonKind', k))));
+  const filters = h('div', { class: 'ui-tabs' }, ['Internal', 'External', 'Lineage'].map((k) =>
+    h('button', { type: 'button', 'aria-selected': String(k === kind), onclick: () => (location.hash = `#/people?kind=${k}`) }, k === 'Lineage' ? t('tl.lineage') : enumLabel('PersonKind', k))));
+  if (kind === 'Lineage') { el.append(head, filters, lineageView()); return; }
   const grid = dataGrid({
     key: 'people', params: { kind },
     columns: [
@@ -37,6 +38,26 @@ export function peoplePage(_, query) {
     allowDelete: false,
   });
   el.append(head, filters, grid.el);
+}
+
+/** Academic family tree from PersonMentorship: roots are people nobody in the system advised. */
+function lineageView() {
+  const box = h('div', null, h('p', { class: 'muted' }, t('common.loading')));
+  (async () => {
+    const links = (await r('person-mentorships').list({ take: 2000 })).rows;
+    const students = new Set(links.map((l) => l.studentPersonId));
+    const roots = [...new Set(links.map((l) => l.mentorPersonId))].filter((id) => !students.has(id));
+    const node = (id, via, path) => {
+      const kids = links.filter((l) => l.mentorPersonId === id && !path.includes(l.studentPersonId));
+      return h('li', null,
+        h('a', { class: 'tl-node', href: `#/people/${id}` }, nameOf('people', id),
+          via ? h('span', { class: 'muted small' }, ` · ${enumLabel('MentorRole', via.role)}${via.degree ? ' · ' + enumLabel('EducationLevel', via.degree) : ''}`) : null),
+        kids.length ? h('ul', null, kids.map((l) => node(l.studentPersonId, l, [...path, l.studentPersonId]))) : null);
+    };
+    clear(box).append(h('p', { class: 'small muted' }, t('tl.lineageHint')),
+      roots.length ? h('ul', { class: 'lineage-tree' }, roots.map((id) => node(id, null, [id]))) : empty(t('tl.empty')));
+  })().catch(toastError);
+  return box;
 }
 
 const TABS = [
