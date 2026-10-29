@@ -1,0 +1,17 @@
+@page "/facilities"
+@model FacilitiesModel
+<div class="pagehead"><div class="wrap"><h1>@Model.L("nav.facilities")</h1><p class="sub">@Model.L("facilities.intro")</p></div></div>
+<div class="wrap">
+  @if (Model.Assets.Count == 0) { <p class="muted">@Model.L("common.none")</p> }
+  <div class="cards">
+  @foreach (var a in Model.Assets)
+  {
+    <article class="card">
+      @if (a.PhotoFileId != null) { <img src="@SitePageModel.Img(a.PhotoFileId)" alt="" loading="lazy"> }
+      <h3>@Model.Pick(a.NameTh, a.NameEn)</h3>
+      <p class="muted small">@string.Join(" · ", new[] { a.Brand, a.Model, a.Location }.Where(x => !string.IsNullOrEmpty(x)))</p>
+      @if (!string.IsNullOrEmpty(a.Specifications)) { <p class="pre small">@a.Specifications</p> }
+    </article>
+  }
+  </div>
+</div>

@@ -29,6 +29,8 @@
   --text-2: #4B4F54;
   --text-3: #6E737B;
   --link: var(--c-navy);
+  /* Navy reads as text on light surfaces only; dark mode swaps in a light blue. */
+  --brand-text: var(--c-navy);
   --focus: #2F6BFF;
 
   --primary: var(--c-orange-700);
@@ -61,7 +63,7 @@
   --bg: #15171A; --surface: #1D2024; --surface-2: #24282D; --surface-3: #2E3338;
   --border: #353A40; --border-strong: #4A5058;
   --text: #ECEDEF; --text-2: #C3C6CB; --text-3: #959AA2;
-  --link: #8FA6FF; --c-navy-50: #1B2340; --c-orange-50: #3A2019; --c-yellow-50: #3A3018; --c-maroon-50: #3A1D20; --c-green-50: #16301F;
+  --link: #8FA6FF; --brand-text: #AFC0FF; --c-navy-50: #1B2340; --c-orange-50: #3A2019; --c-yellow-50: #3A3018; --c-maroon-50: #3A1D20; --c-green-50: #16301F;
   --warning-text: #FFD985;
   --sidebar-bg: #111315;
   color-scheme: dark;
@@ -71,7 +73,7 @@
     --bg: #15171A; --surface: #1D2024; --surface-2: #24282D; --surface-3: #2E3338;
     --border: #353A40; --border-strong: #4A5058;
     --text: #ECEDEF; --text-2: #C3C6CB; --text-3: #959AA2;
-    --link: #8FA6FF; --c-navy-50: #1B2340; --c-orange-50: #3A2019; --c-yellow-50: #3A3018; --c-maroon-50: #3A1D20; --c-green-50: #16301F;
+    --link: #8FA6FF; --brand-text: #AFC0FF; --c-navy-50: #1B2340; --c-orange-50: #3A2019; --c-yellow-50: #3A3018; --c-maroon-50: #3A1D20; --c-green-50: #16301F;
     --warning-text: #FFD985;
     --sidebar-bg: #111315;
     color-scheme: dark;

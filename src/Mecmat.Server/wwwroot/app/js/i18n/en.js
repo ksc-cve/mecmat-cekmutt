@@ -1129,6 +1129,8 @@ export default {
 "notify.empty": "No notifications",
 "notify.finance.settled": "Your money request was settled",
 "notify.finance.toSettle": "Approved requests are waiting to be settled",
+"notify.inbox.application": "New application: {name} ({position})",
+"notify.inbox.message": "New website message: {name} — {subject}",
 "notify.markAll": "Mark all read",
 "notify.reminder.accountExpiring": "Your account will expire soon",
 "notify.reminder.accountExpiringAdmin": "Account {username} will expire soon",

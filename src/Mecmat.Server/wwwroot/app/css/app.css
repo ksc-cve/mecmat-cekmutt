@@ -63,11 +63,10 @@
 .cal-month .day.other { background: var(--surface-2); color: var(--text-3); }
 .cal-month .day.today .n { background: var(--c-orange); color: #fff; border-radius: 999px; padding: 0 6px; }
 .cal-month .n { font-weight: 600; display: inline-block; margin-bottom: 2px; }
-.ev { display: block; margin: 2px 0; padding: 1px 6px; border-radius: 4px; background: var(--c-navy-50); color: var(--c-navy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 11px; border-left: 3px solid var(--c-navy); cursor: pointer; }
+.ev { display: block; margin: 2px 0; padding: 1px 6px; border-radius: 4px; background: var(--c-navy-50); color: var(--brand-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 11px; border-left: 3px solid var(--c-navy); cursor: pointer; }
 .ev.pending { background: var(--c-yellow-50); color: var(--warning-text); border-left-color: var(--c-yellow); }
 .ev.other { background: var(--surface-3); color: var(--text-2); border-left-color: var(--c-grey); }
 .ev.task, .ev.milestone, .ev.report, .ev.advance, .ev.recruitment { background: var(--c-orange-50); color: var(--c-orange-700); border-left-color: var(--c-orange); }
-:root[data-theme="dark"] .ev { color: #C9D3FF; }
 .cal-week { display: grid; grid-template-columns: 56px repeat(var(--days, 7), minmax(0, 1fr)); position: relative; overflow-x: auto; }
 .cal-week .colhead { padding: 6px; font-size: var(--fs-xs); font-weight: 600; text-align: center; border-bottom: 1px solid var(--border); background: var(--surface-2); position: sticky; top: 0; }
 .cal-week .colhead.today { color: var(--c-orange-700); }

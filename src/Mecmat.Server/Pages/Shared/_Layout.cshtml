@@ -1,0 +1,81 @@
+@{
+    var m = (SitePageModel)ViewData.Model!;
+    var title = string.IsNullOrEmpty(m.PageTitle) ? m.Pick(m.S("site.nameTh"), m.S("site.nameEn")) : m.PageTitle + " · MECMAT";
+    var path = Context.Request.Path.Value ?? "/";
+    string Active(string p) => (p == "/" ? path == "/" : path.StartsWith(p, StringComparison.Ordinal)) ? "active" : "";
+    var nav = new[] { ("/", "nav.home"), ("/about", "nav.about"), ("/research", "nav.research"), ("/people", "nav.people"), ("/projects", "nav.projects"),
+                      ("/publications", "nav.publications"), ("/news", "nav.news"), ("/join", "nav.join"), ("/contact", "nav.contact") };
+    var canonical = $"{Context.Request.Scheme}://{Context.Request.Host}{m.Href(path)}";
+}
+<!doctype html>
+<html lang="@(m.En ? "en" : "th")">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@title</title>
+<meta name="description" content="@(m.MetaDescription ?? m.Pick(m.S("site.nameTh"), m.S("site.nameEn")) + " — " + m.Pick(m.S("site.departmentTh"), m.S("site.departmentEn")))">
+<meta property="og:title" content="@title">
+<meta property="og:type" content="website">
+<meta property="og:url" content="@canonical">
+@if (!string.IsNullOrEmpty(m.OgImage)) { <meta property="og:image" content="@($"{Context.Request.Scheme}://{Context.Request.Host}{m.OgImage}")"> }
+<link rel="canonical" href="@canonical">
+<link rel="alternate" hreflang="th" href="@($"{Context.Request.Scheme}://{Context.Request.Host}{(m.En ? path : path)}")">
+<link rel="alternate" hreflang="en" href="@($"{Context.Request.Scheme}://{Context.Request.Host}/en{(path == "/" ? "" : path)}")">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">@(m.En ? "Skip to content" : "ข้ามไปเนื้อหา")</a>
+@* KMUTT CI chapter 9, layout 1: splash bar → logo area (#4B4F54) → menu bar (#2F3235). *@
+<div class="splashbar"><div class="wrap"><a href="https://www.kmutt.ac.th" rel="noopener">@SiteText.Get("kmutt", false) · @SiteText.Get("kmutt", true)</a></div></div>
+<header class="site-header">
+  <div class="wrap brandbar">
+    <a class="lockup" href="@m.Href("/")">
+      <span class="mark" aria-hidden="true">M</span>
+      <span class="divider" aria-hidden="true"></span>
+      <span class="names"><strong>MECMAT</strong><span>@m.Pick(m.S("site.nameTh"), m.S("site.nameEn"))</span><span class="dept">@m.Pick(m.S("site.departmentTh"), m.S("site.departmentEn"))</span></span>
+    </a>
+    <div class="tools">
+      <a class="langlink" href="@m.OtherLangHref()" hreflang="@(m.En ? "th" : "en")">@m.L("lang.other")</a>
+      <a class="memberlink" href="/app" rel="nofollow">@m.L("nav.signin")</a>
+      <button class="menutoggle" type="button" aria-expanded="false" aria-controls="sitenav">@m.L("nav.menu")</button>
+    </div>
+  </div>
+  <nav class="menubar" id="sitenav" aria-label="@m.L("nav.menu")">
+    <div class="wrap"><ul>
+      @foreach (var (p, k) in nav) { <li><a class="@Active(p)" href="@m.Href(p)" aria-current="@(Active(p) == "active" ? "page" : null)">@m.L(k)</a></li> }
+    </ul></div>
+  </nav>
+</header>
+<main id="main">
+@RenderBody()
+</main>
+<footer class="site-footer">
+  <div class="wrap cols">
+    <div>
+      <strong>@m.Pick(m.S("site.nameTh"), m.S("site.nameEn"))</strong>
+      <p>@m.Pick(m.S("site.departmentTh"), m.S("site.departmentEn"))</p>
+      <p>@m.Pick(m.S("site.addressTh"), m.S("site.addressEn"))</p>
+    </div>
+    <div>
+      <ul class="links">
+        <li><a href="@m.Href("/facilities")">@m.L("nav.facilities")</a></li>
+        <li><a href="@m.Href("/partners")">@m.L("nav.partners")</a></li>
+        <li><a href="@m.Href("/privacy")">@m.L("nav.privacy")</a></li>
+        <li><a href="https://ce.kmutt.ac.th" rel="noopener">ce.kmutt.ac.th</a></li>
+      </ul>
+    </div>
+    <div>
+      @if (!string.IsNullOrEmpty(m.S("site.phone"))) { <p>☎ @m.S("site.phone")</p> }
+      @if (!string.IsNullOrEmpty(m.S("site.email"))) { <p>✉ <a href="mailto:@m.S("site.email")">@m.S("site.email")</a></p> }
+    </div>
+  </div>
+  <div class="copyright"><div class="wrap">© @DateTime.UtcNow.Year MECMAT · @SiteText.Get("kmutt", m.En) · @m.L("footer.rights")</div></div>
+</footer>
+</body>
+</html>

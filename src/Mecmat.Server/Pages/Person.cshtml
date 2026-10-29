@@ -1,0 +1,66 @@
+@page "/people/{slug}"
+@model PersonModel
+@{ var p = Model.Person; }
+<div class="pagehead"><div class="wrap profile-head">
+  @if (p.PhotoFileId != null) { <img class="photo" src="@SitePageModel.Img(p.PhotoFileId)" alt=""> }
+  <div>
+    <p class="eyebrow"><a href="@Model.Href("/people")">← @Model.L("nav.people")</a></p>
+    <h1>@Model.Pick(p.NameTh, p.NameEn)</h1>
+    <p class="sub">@(p.GroupPositionTh != null ? Model.Pick(p.GroupPositionTh, p.GroupPositionEn) + " · " : "")@(p.Position ?? SiteText.Enum(p.Category, Model.En))</p>
+  </div>
+</div></div>
+<div class="wrap two profile">
+  <div>
+    @if (!string.IsNullOrEmpty(Model.Pick(p.BioTh, p.BioEn))) { <div class="prose">@Html.Raw(HtmlSanitizer.Clean(Model.Pick(p.BioTh, p.BioEn)))</div> }
+    @if (!string.IsNullOrEmpty(Model.Pick(p.ExpertiseTh, p.ExpertiseEn)))
+    {
+      <h2>@Model.L("people.expertise")</h2>
+      <p class="chips">@foreach (var e in Model.Pick(p.ExpertiseTh, p.ExpertiseEn).Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)) { <span>@e</span> }</p>
+    }
+    @if (Model.Pubs.Count > 0)
+    {
+      <h2>@Model.L("nav.publications")</h2>
+      <ol class="pubs">@foreach (var x in Model.Pubs) { <li>(@x.Year) <span class="ptitle">@x.TitleEn</span>. <em>@x.VenueName</em>. @if (x.Doi != null) { <a href="https://doi.org/@x.Doi" rel="noopener">doi:@x.Doi</a> }</li> }</ol>
+    }
+    @if (Model.Projects.Count > 0)
+    {
+      <h2>@Model.L("nav.projects")</h2>
+      <ul>@foreach (var x in Model.Projects) { <li><a href="@Model.Href("/projects/" + x.Id)">@Model.Pick(x.TitleTh, x.TitleEn)</a></li> }</ul>
+    }
+  </div>
+  <aside>
+    @if (p.Email != null || p.Phone != null || p.Office != null || p.LineId != null)
+    {
+      <section class="box"><h3>@Model.L("people.contact")</h3>
+        @if (p.Email != null) { <p>✉ <a href="mailto:@p.Email">@p.Email</a></p> }
+        @if (p.Phone != null) { <p>☎ @p.Phone</p> }
+        @if (p.Office != null) { <p>⌂ @p.Office</p> }
+        @if (p.LineId != null) { <p>LINE: @p.LineId</p> }
+      </section>
+    }
+    @if (p.Orcid != null || p.Scopus != null || p.Scholar != null || p.ResearchGate != null || p.Website != null)
+    {
+      <section class="box"><h3>@Model.L("people.profiles")</h3><ul class="links">
+        @if (p.Orcid != null) { <li><a href="https://orcid.org/@p.Orcid" rel="noopener">ORCID</a></li> }
+        @if (p.Scopus != null) { <li><a href="https://www.scopus.com/authid/detail.uri?authorId=@p.Scopus" rel="noopener">Scopus</a></li> }
+        @if (p.Scholar != null) { <li><a href="https://scholar.google.com/citations?user=@p.Scholar" rel="noopener">Google Scholar</a></li> }
+        @if (p.ResearchGate != null) { <li><a href="@p.ResearchGate" rel="noopener">ResearchGate</a></li> }
+        @if (p.Website != null) { <li><a href="@p.Website" rel="noopener">Website</a></li> }
+      </ul></section>
+    }
+    @if (Model.Education.Count > 0)
+    {
+      <section class="box"><h3>@Model.L("people.education")</h3><ul class="plain">
+        @foreach (var e in Model.Education) { <li><strong>@(Model.Pick(e.DegreeNameTh, e.DegreeNameEn)) @e.Field</strong><br>@e.Institution@(e.Country != null ? ", " + e.Country : "")@(e.GraduatedYear != null ? " (" + Model.Year(e.GraduatedYear) + ")" : "")</li> }
+      </ul></section>
+    }
+    @if (Model.Work.Count > 0)
+    {
+      <section class="box"><h3>@Model.L("people.work")</h3><ul class="plain">@foreach (var w in Model.Work) { <li>@w.Position<br><span class="muted">@w.OrganizationText</span></li> }</ul></section>
+    }
+    @if (Model.Awards.Count > 0)
+    {
+      <section class="box"><h3>@Model.L("people.awards")</h3><ul class="plain">@foreach (var a in Model.Awards) { <li>@Model.Pick(a.TitleTh, a.TitleEn) <span class="muted">@Model.Year(a.Date?.Year)</span></li> }</ul></section>
+    }
+  </aside>
+</div>

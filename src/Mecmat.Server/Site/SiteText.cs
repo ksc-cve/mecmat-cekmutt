@@ -1,0 +1,126 @@
+namespace Mecmat.Site;
+
+/// <summary>Fixed wording of the public site in both languages. Content people edit (pages, news,
+/// profiles) comes from the database; only the frame lives here.</summary>
+public static class SiteText
+{
+    private static readonly Dictionary<string, (string Th, string En)> T = new()
+    {
+        ["kmutt"] = ("มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี", "King Mongkut's University of Technology Thonburi"),
+        ["nav.home"] = ("หน้าแรก", "Home"),
+        ["nav.about"] = ("เกี่ยวกับเรา", "About"),
+        ["nav.research"] = ("งานวิจัย", "Research"),
+        ["nav.people"] = ("บุคลากร", "People"),
+        ["nav.projects"] = ("โครงการ", "Projects"),
+        ["nav.publications"] = ("ผลงานตีพิมพ์", "Publications"),
+        ["nav.news"] = ("ข่าวและกิจกรรม", "News & events"),
+        ["nav.join"] = ("ร่วมงานกับเรา", "Join us"),
+        ["nav.facilities"] = ("เครื่องมือ", "Facilities"),
+        ["nav.partners"] = ("พันธมิตร", "Partners"),
+        ["nav.contact"] = ("ติดต่อเรา", "Contact"),
+        ["nav.privacy"] = ("นโยบายความเป็นส่วนตัว", "Privacy policy"),
+        ["nav.signin"] = ("สำหรับสมาชิก", "Members"),
+        ["nav.menu"] = ("เมนู", "Menu"),
+        ["lang.other"] = ("English", "ภาษาไทย"),
+        ["home.cta.research"] = ("สาขาวิจัยของเรา", "Our research"),
+        ["home.cta.join"] = ("ร่วมงานกับเรา", "Join the group"),
+        ["home.stats.people"] = ("นักวิจัยและนักศึกษา", "Researchers & students"),
+        ["home.stats.pubs"] = ("ผลงานตีพิมพ์", "Publications"),
+        ["home.stats.projects"] = ("โครงการที่ดำเนินอยู่", "Active projects"),
+        ["home.stats.partners"] = ("หน่วยงานพันธมิตร", "Partner organisations"),
+        ["home.areas"] = ("สาขาวิจัย", "Research areas"),
+        ["home.news"] = ("ข่าวล่าสุด", "Latest news"),
+        ["home.positions"] = ("ตำแหน่งที่เปิดรับ", "Open positions"),
+        ["home.recentPubs"] = ("ผลงานตีพิมพ์ล่าสุด", "Recent publications"),
+        ["common.more"] = ("ดูทั้งหมด", "See all"),
+        ["common.readMore"] = ("อ่านต่อ", "Read more"),
+        ["common.back"] = ("กลับ", "Back"),
+        ["common.none"] = ("ยังไม่มีข้อมูล", "Nothing to show yet"),
+        ["common.all"] = ("ทั้งหมด", "All"),
+        ["people.team"] = ("ทีมงาน", "Our team"),
+        ["people.expertise"] = ("ความเชี่ยวชาญ", "Expertise"),
+        ["people.contact"] = ("ติดต่อ", "Contact"),
+        ["people.education"] = ("การศึกษา", "Education"),
+        ["people.work"] = ("ประวัติการทำงาน", "Experience"),
+        ["people.awards"] = ("รางวัล", "Awards"),
+        ["people.profiles"] = ("โปรไฟล์นักวิจัย", "Researcher profiles"),
+        ["projects.active"] = ("กำลังดำเนินการ", "Ongoing"),
+        ["projects.past"] = ("โครงการที่ผ่านมา", "Past projects"),
+        ["projects.team"] = ("ทีมวิจัย", "Research team"),
+        ["projects.partners"] = ("แหล่งทุนและพันธมิตร", "Funders & partners"),
+        ["projects.outputs"] = ("ผลผลิตที่คาดหวัง", "Expected outputs"),
+        ["projects.period"] = ("ระยะเวลา", "Period"),
+        ["pubs.year"] = ("ปี", "Year"),
+        ["pubs.type"] = ("ประเภท", "Type"),
+        ["join.intro"] = ("เรามองหาผู้ช่วยวิจัย นักศึกษาปริญญาโท–เอก และนักวิจัยที่สนใจกลศาสตร์โครงสร้างและวัสดุ", "We look for research assistants, master's and PhD students and researchers interested in structural mechanics and materials."),
+        ["join.none"] = ("ขณะนี้ยังไม่มีตำแหน่งที่เปิดรับ ติดต่อเราได้เสมอหากสนใจร่วมงาน", "No positions are open right now — get in touch any time if you are interested."),
+        ["join.apply"] = ("สมัครตำแหน่งนี้", "Apply"),
+        ["join.closes"] = ("ปิดรับ", "Closes"),
+        ["join.seats"] = ("จำนวนที่รับ", "Openings"),
+        ["join.qualifications"] = ("คุณสมบัติ", "Qualifications"),
+        ["join.compensation"] = ("ค่าตอบแทน", "Compensation"),
+        ["join.cv"] = ("ไฟล์ประวัติ (PDF หรือ DOCX ไม่เกิน 10 MB)", "CV (PDF or DOCX, up to 10 MB)"),
+        ["join.sent"] = ("ส่งใบสมัครแล้ว ขอบคุณที่สนใจร่วมงานกับเรา เราจะติดต่อกลับทางอีเมล", "Application sent — thank you. We will reply by e-mail."),
+        ["form.name"] = ("ชื่อ-นามสกุล", "Full name"),
+        ["form.email"] = ("อีเมล", "E-mail"),
+        ["form.phone"] = ("โทรศัพท์", "Phone"),
+        ["form.subject"] = ("เรื่อง", "Subject"),
+        ["form.message"] = ("ข้อความ", "Message"),
+        ["form.consent"] = ("ข้าพเจ้ายินยอมให้กลุ่มวิจัยเก็บข้อมูลที่กรอกเพื่อการติดต่อกลับ ตามนโยบายความเป็นส่วนตัว", "I agree that the group may keep what I entered in order to reply, as set out in the privacy policy."),
+        ["form.send"] = ("ส่ง", "Send"),
+        ["form.required"] = ("กรุณากรอกช่องที่มีเครื่องหมาย *", "Please fill in the fields marked *"),
+        ["form.consentRequired"] = ("กรุณายืนยันความยินยอม", "Please give your consent"),
+        ["form.badFile"] = ("ไฟล์ต้องเป็น PDF หรือ DOCX ขนาดไม่เกิน 10 MB", "The file must be PDF or DOCX, up to 10 MB"),
+        ["form.tooMany"] = ("ส่งบ่อยเกินไป กรุณาลองใหม่ภายหลัง", "Too many submissions — please try again later"),
+        ["contact.sent"] = ("ส่งข้อความแล้ว ขอบคุณที่ติดต่อเรา", "Message sent — thank you for getting in touch."),
+        ["contact.address"] = ("ที่อยู่", "Address"),
+        ["contact.write"] = ("ส่งข้อความถึงเรา", "Write to us"),
+        ["facilities.intro"] = ("เครื่องมือและห้องปฏิบัติการที่ใช้ในงานวิจัยของกลุ่ม", "Equipment and laboratories used in the group's research"),
+        ["partners.intro"] = ("มหาวิทยาลัย ภาคอุตสาหกรรม และแหล่งทุนที่ร่วมงานกับเรา", "Universities, industry and funders we work with"),
+        ["error.404"] = ("ไม่พบหน้าที่ต้องการ", "Page not found"),
+        ["error.other"] = ("เกิดข้อผิดพลาด", "Something went wrong"),
+        ["footer.rights"] = ("สงวนลิขสิทธิ์", "All rights reserved"),
+    };
+
+    public static string Get(string key, bool en) => T.TryGetValue(key, out var v) ? (en ? v.En : v.Th) : key;
+
+    public static string Enum<TE>(TE value, bool en) where TE : struct, System.Enum => EnumLabels.Get(typeof(TE).Name, value.ToString(), en);
+}
+
+/// <summary>Labels for the few enums the public site shows, matching the back office wording.</summary>
+public static class EnumLabels
+{
+    private static readonly Dictionary<string, (string Th, string En)> L = new()
+    {
+        ["PersonCategory.Faculty"] = ("อาจารย์", "Faculty"), ["PersonCategory.Researcher"] = ("นักวิจัย", "Researchers"),
+        ["PersonCategory.Postdoc"] = ("นักวิจัยหลังปริญญาเอก", "Postdoctoral researchers"), ["PersonCategory.ResearchAssistant"] = ("ผู้ช่วยวิจัย", "Research assistants"),
+        ["PersonCategory.PhdStudent"] = ("นักศึกษาปริญญาเอก", "PhD students"), ["PersonCategory.MasterStudent"] = ("นักศึกษาปริญญาโท", "Master's students"),
+        ["PersonCategory.BachelorStudent"] = ("นักศึกษาปริญญาตรี", "Undergraduate students"), ["PersonCategory.Intern"] = ("นักศึกษาฝึกงาน", "Interns"),
+        ["PersonCategory.Staff"] = ("เจ้าหน้าที่", "Staff"), ["PersonCategory.Visiting"] = ("นักวิจัยรับเชิญ", "Visiting researchers"),
+        ["ProjectStatus.Active"] = ("กำลังดำเนินการ", "Ongoing"), ["ProjectStatus.Extended"] = ("ขยายเวลา", "Extended"), ["ProjectStatus.Funded"] = ("ได้รับทุน", "Funded"),
+        ["ProjectStatus.Completed"] = ("เสร็จสิ้น", "Completed"), ["ProjectStatus.Closed"] = ("ปิดโครงการ", "Closed"),
+        ["ProjectRole.PI"] = ("หัวหน้าโครงการ", "Principal investigator"), ["ProjectRole.CoPI"] = ("ผู้ร่วมหัวหน้าโครงการ", "Co-PI"),
+        ["ProjectRole.Researcher"] = ("นักวิจัย", "Researcher"), ["ProjectRole.ResearchAssistant"] = ("ผู้ช่วยวิจัย", "Research assistant"),
+        ["ProjectRole.Student"] = ("นักศึกษา", "Student"), ["ProjectRole.Consultant"] = ("ที่ปรึกษา", "Consultant"), ["ProjectRole.IndustryPartner"] = ("ภาคอุตสาหกรรม", "Industry partner"),
+        ["ProjectRole.Coordinator"] = ("ผู้ประสานงาน", "Coordinator"), ["ProjectRole.FinanceContact"] = ("การเงินโครงการ", "Finance"),
+        ["PublicationType.JournalArticle"] = ("บทความวารสาร", "Journal articles"), ["PublicationType.ConferencePaper"] = ("บทความการประชุมวิชาการ", "Conference papers"),
+        ["PublicationType.BookChapter"] = ("บทในหนังสือ", "Book chapters"), ["PublicationType.Book"] = ("หนังสือ", "Books"), ["PublicationType.Textbook"] = ("ตำรา", "Textbooks"),
+        ["PublicationType.AcademicArticle"] = ("บทความวิชาการ", "Academic articles"), ["PublicationType.Patent"] = ("สิทธิบัตร", "Patents"),
+        ["PublicationType.PettyPatent"] = ("อนุสิทธิบัตร", "Petty patents"), ["PublicationType.Software"] = ("ซอฟต์แวร์", "Software"),
+        ["PublicationType.ResearchReport"] = ("รายงานการวิจัย", "Research reports"), ["PublicationType.Thesis"] = ("วิทยานิพนธ์", "Theses"),
+        ["NewsKind.News"] = ("ข่าว", "News"), ["NewsKind.Event"] = ("กิจกรรม", "Event"), ["NewsKind.Announcement"] = ("ประกาศ", "Announcement"),
+        ["NewsKind.Award"] = ("รางวัล", "Award"), ["NewsKind.Seminar"] = ("สัมมนา", "Seminar"),
+        ["RecruitPositionType.ResearchAssistant"] = ("ผู้ช่วยวิจัย", "Research assistant"), ["RecruitPositionType.MasterStudent"] = ("นักศึกษาปริญญาโท", "Master's student"),
+        ["RecruitPositionType.PhdStudent"] = ("นักศึกษาปริญญาเอก", "PhD student"), ["RecruitPositionType.Postdoc"] = ("นักวิจัยหลังปริญญาเอก", "Postdoc"),
+        ["RecruitPositionType.Intern"] = ("นักศึกษาฝึกงาน", "Intern"), ["RecruitPositionType.Engineer"] = ("วิศวกร", "Engineer"),
+        ["OutputType.Manpower"] = ("กำลังคน", "People developed"), ["OutputType.Manuscript"] = ("บทความวิจัย", "Research papers"), ["OutputType.Book"] = ("หนังสือ", "Books"),
+        ["OutputType.Prototype"] = ("ต้นแบบ/เทคโนโลยี", "Prototypes / technology"), ["OutputType.IntellectualProperty"] = ("ทรัพย์สินทางปัญญา", "Intellectual property"),
+        ["OutputType.Infrastructure"] = ("เครื่องมือ/โครงสร้างพื้นฐาน", "Infrastructure"), ["OutputType.DatabaseSystem"] = ("ฐานข้อมูล/มาตรฐาน", "Databases / standards"),
+        ["OutputType.Network"] = ("เครือข่าย", "Networks"), ["OutputType.Investment"] = ("การลงทุน", "Investment"), ["OutputType.PolicyRecommendation"] = ("ข้อเสนอเชิงนโยบาย", "Policy recommendations"),
+        ["OrganizationKind.University"] = ("มหาวิทยาลัย", "University"), ["OrganizationKind.Company"] = ("บริษัท", "Company"),
+        ["OrganizationKind.Government"] = ("หน่วยงานรัฐ", "Government"), ["OrganizationKind.FundingAgency"] = ("แหล่งทุน", "Funder"),
+    };
+
+    public static string Get(string type, string value, bool en) =>
+        L.TryGetValue(type + "." + value, out var v) ? (en ? v.En : v.Th) : value;
+}

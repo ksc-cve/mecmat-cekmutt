@@ -1,0 +1,36 @@
+@page "/join"
+@model JoinModel
+<div class="pagehead"><div class="wrap"><h1>@Model.L("nav.join")</h1><p class="sub">@Model.L("join.intro")</p></div></div>
+<div class="wrap prose-wrap">
+  @if (Model.PageContent?.BodyTh != null) { <div class="prose">@Html.Raw(HtmlSanitizer.Clean(Model.Pick(Model.PageContent.BodyTh, Model.PageContent.BodyEn)))</div> }
+  @if (Model.Sent) { <p class="notice ok" role="status">@Model.L("join.sent")</p> }
+  @if (Model.Positions.Count == 0) { <p class="muted">@Model.L("join.none")</p> <p><a class="ui-btn" href="@Model.Href("/contact")">@Model.L("nav.contact")</a></p> }
+  @foreach (var r in Model.Positions)
+  {
+    <article class="position" id="@r.Id">
+      <span class="tag">@SiteText.Enum(r.PositionType, Model.En)</span>
+      <h2>@Model.Pick(r.TitleTh, r.TitleEn)</h2>
+      <p class="muted small">@(r.CloseDate != null ? Model.L("join.closes") + " " + Model.Date(r.CloseDate) : "")@(r.Seats != null ? " · " + Model.L("join.seats") + " " + r.Seats : "")</p>
+      <div class="prose">@Html.Raw(HtmlSanitizer.Clean(Model.Pick(r.DescriptionTh, r.DescriptionEn)))</div>
+      @if (!string.IsNullOrEmpty(r.Qualifications)) { <h3>@Model.L("join.qualifications")</h3><p class="pre">@r.Qualifications</p> }
+      @if (!string.IsNullOrEmpty(r.CompensationText)) { <p><strong>@Model.L("join.compensation"):</strong> @r.CompensationText</p> }
+    </article>
+  }
+  @if (Model.Positions.Count > 0 && !Model.Sent)
+  {
+    <h2 id="apply">@Model.L("join.apply")</h2>
+    @if (Model.Error != null) { <p class="notice err" role="alert">@Model.Error</p> }
+    <form method="post" asp-antiforgery="true" enctype="multipart/form-data" class="ui-form siteform" action="@Model.Href("/join")#apply">
+      <div class="ui-field span2"><label for="RecruitmentId">@Model.L("nav.join") *</label>
+        <select class="ui-select" id="RecruitmentId" name="RecruitmentId" required>@foreach (var r in Model.Positions) { <option value="@r.Id" selected="@(Model.RecruitmentId == r.Id)">@Model.Pick(r.TitleTh, r.TitleEn)</option> }</select></div>
+      <div class="ui-field"><label for="FullName">@Model.L("form.name") *</label><input class="ui-input" id="FullName" name="FullName" value="@Model.FullName" required maxlength="200" autocomplete="name"></div>
+      <div class="ui-field"><label for="Email">@Model.L("form.email") *</label><input class="ui-input" id="Email" name="Email" type="email" value="@Model.Email" required maxlength="200" autocomplete="email"></div>
+      <div class="ui-field"><label for="Phone">@Model.L("form.phone")</label><input class="ui-input" id="Phone" name="Phone" type="tel" value="@Model.Phone" maxlength="40" autocomplete="tel"></div>
+      <div class="ui-field"><label for="Cv">@Model.L("join.cv")</label><input class="ui-input" id="Cv" name="Cv" type="file" accept=".pdf,.docx"></div>
+      <div class="ui-field span2"><label for="Message">@Model.L("form.message")</label><textarea class="ui-textarea" id="Message" name="Message" rows="5" maxlength="5000">@Model.Message</textarea></div>
+      <div class="hp" aria-hidden="true"><label for="Website">Website</label><input id="Website" name="Website" tabindex="-1" autocomplete="off"></div>
+      <label class="ui-check span2"><input type="checkbox" name="Consent" value="true" required> <span>@Model.L("form.consent") (<a href="@Model.Href("/privacy")">@Model.L("nav.privacy")</a>)</span></label>
+      <div class="span2"><button class="ui-btn primary" type="submit">@Model.L("form.send")</button></div>
+    </form>
+  }
+</div>

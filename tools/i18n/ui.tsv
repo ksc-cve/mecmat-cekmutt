@@ -251,3 +251,5 @@ notify.reminder.accountExpiringAdmin	บัญชี {username} จะหมด�
 notify.empty	ไม่มีการแจ้งเตือน	No notifications
 notify.markAll	อ่านทั้งหมดแล้ว	Mark all read
 notify.andMore	และอีก {n} รายการ	and {n} more
+notify.inbox.message	ข้อความใหม่จากเว็บไซต์: {name} — {subject}	New website message: {name} — {subject}
+notify.inbox.application	ใบสมัครใหม่: {name} ({position})	New application: {name} ({position})

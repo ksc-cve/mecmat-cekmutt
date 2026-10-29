@@ -1,0 +1,4 @@
+@page "/privacy"
+@model SimplePageModel
+<div class="pagehead"><div class="wrap"><h1>@Model.PageTitle</h1></div></div>
+<div class="wrap prose-wrap"><div class="prose">@Html.Raw(HtmlSanitizer.Clean(Model.PageContent == null ? "" : Model.Pick(Model.PageContent.BodyTh, Model.PageContent.BodyEn)))</div></div>

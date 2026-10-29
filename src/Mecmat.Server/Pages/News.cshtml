@@ -1,0 +1,18 @@
+@page "/news"
+@model NewsModel
+<div class="pagehead"><div class="wrap"><h1>@Model.L("nav.news")</h1></div></div>
+<div class="wrap">
+  @if (Model.Posts.Count == 0) { <p class="muted">@Model.L("common.none")</p> }
+  <div class="cards">
+  @foreach (var n in Model.Posts)
+  {
+    <article class="card">
+      @if (n.CoverFileId != null) { <img src="@SitePageModel.Img(n.CoverFileId)" alt="" loading="lazy"> }
+      <span class="tag">@SiteText.Enum(n.Kind, Model.En)</span>
+      <h3><a href="@Model.Href("/news/" + n.Slug)">@Model.Pick(n.TitleTh, n.TitleEn)</a></h3>
+      <p class="muted small">@Model.Date(n.PublishedAt)</p>
+      <p>@Model.Pick(n.SummaryTh, n.SummaryEn)</p>
+    </article>
+  }
+  </div>
+</div>

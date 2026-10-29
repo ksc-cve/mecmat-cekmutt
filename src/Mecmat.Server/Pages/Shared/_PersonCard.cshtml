@@ -1,0 +1,9 @@
+@model (SitePageModel Page, PublicPerson Person)
+@{ var m = Model.Page; var p = Model.Person; }
+<a class="person" href="@m.Href("/people/" + p.Slug)">
+  @if (p.PhotoFileId != null) { <img src="@SitePageModel.Img(p.PhotoFileId)" alt="" loading="lazy"> }
+  else { <span class="avatar" aria-hidden="true">@((m.En ? p.NameEn : p.NameTh).Split(' ').LastOrDefault()?.FirstOrDefault())</span> }
+  <span class="pname">@m.Pick(p.NameTh, p.NameEn)</span>
+  @if (p.GroupPositionTh != null) { <span class="ppos">@m.Pick(p.GroupPositionTh, p.GroupPositionEn)</span> }
+  else if (p.Position != null) { <span class="ppos">@p.Position</span> }
+</a>

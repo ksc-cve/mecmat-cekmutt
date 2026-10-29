@@ -1,0 +1,30 @@
+@page "/publications"
+@model PublicationsModel
+<div class="pagehead"><div class="wrap"><h1>@Model.L("nav.publications")</h1></div></div>
+<div class="wrap">
+  <form class="filters" method="get">
+    <label>@Model.L("pubs.year")
+      <select name="YearFilter" class="ui-select"><option value="">@Model.L("common.all")</option>
+        @foreach (var y in Model.Years) { <option value="@y" selected="@(Model.YearFilter == y)">@Model.Year(y)</option> }
+      </select></label>
+    <label>@Model.L("pubs.type")
+      <select name="TypeFilter" class="ui-select"><option value="">@Model.L("common.all")</option>
+        @foreach (var t in new[] { PublicationType.JournalArticle, PublicationType.ConferencePaper, PublicationType.BookChapter, PublicationType.Book, PublicationType.Textbook, PublicationType.Patent, PublicationType.PettyPatent, PublicationType.Software })
+        { <option value="@t" selected="@(Model.TypeFilter == t)">@SiteText.Enum(t, Model.En)</option> }
+      </select></label>
+    <button class="ui-btn" type="submit">✓</button>
+  </form>
+  @if (Model.Pubs.Count == 0) { <p class="muted">@Model.L("common.none")</p> }
+  @foreach (var g in Model.Pubs.GroupBy(x => x.Pub.Year))
+  {
+    <h2>@Model.Year(g.Key)</h2>
+    <ol class="pubs">
+      @foreach (var (p, authors) in g)
+      {
+        <li><span class="authors">@string.Join(", ", authors)</span> (@p.Year). <span class="ptitle">@p.TitleEn</span>. <em>@p.VenueName</em>@(p.Volume != null ? ", " + p.Volume : "")@(p.Pages != null ? ", " + p.Pages : "").
+          @if (p.Doi != null) { <a href="https://doi.org/@p.Doi" rel="noopener">https://doi.org/@p.Doi</a> }
+          <span class="tag">@SiteText.Enum(p.Type, Model.En)</span></li>
+      }
+    </ol>
+  }
+</div>

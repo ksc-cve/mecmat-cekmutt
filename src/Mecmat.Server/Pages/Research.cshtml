@@ -1,0 +1,17 @@
+@page "/research"
+@model ResearchModel
+<div class="pagehead"><div class="wrap"><h1>@Model.L("nav.research")</h1></div></div>
+<div class="wrap">
+  @foreach (var a in Model.Areas)
+  {
+    <section class="area-row">
+      @if (a.CoverFileId != null) { <img src="@SitePageModel.Img(a.CoverFileId)" alt="" loading="lazy"> }
+      <div><h2>@Model.Pick(a.NameTh, a.NameEn)</h2><p>@Model.Pick(a.SummaryTh, a.SummaryEn)</p></div>
+    </section>
+  }
+  @if (Model.Projects.Count > 0)
+  {
+    <div class="block-head"><h2>@Model.L("nav.projects")</h2><a href="@Model.Href("/projects")">@Model.L("common.more") →</a></div>
+    <div class="cards">@foreach (var p in Model.Projects) { <partial name="_ProjectCard" model="(Model as SitePageModel, p)" /> }</div>
+  }
+</div>

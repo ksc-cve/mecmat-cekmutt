@@ -1,0 +1,9 @@
+@model (SitePageModel Page, Project Project)
+@{ var m = Model.Page; var p = Model.Project; }
+<article class="card">
+  @if (p.CoverFileId != null) { <img src="@SitePageModel.Img(p.CoverFileId)" alt="" loading="lazy"> }
+  <span class="tag">@SiteText.Enum(p.Status, m.En)</span>
+  <h3><a href="@m.Href("/projects/" + p.Id)">@m.Pick(p.TitleTh, p.TitleEn)</a></h3>
+  <p>@m.Pick(p.PublicSummaryTh, p.PublicSummaryEn)</p>
+  @if (p.StartDate != null) { <p class="muted small">@m.Year(p.StartDate?.Year)–@m.Year((p.ExtendedEndDate ?? p.EndDate)?.Year)</p> }
+</article>

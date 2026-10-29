@@ -1,0 +1,12 @@
+@page "/news/{slug}"
+@model NewsPostModel
+@{ var n = Model.Post; }
+<div class="pagehead"><div class="wrap">
+  <p class="eyebrow"><a href="@Model.Href("/news")">← @Model.L("nav.news")</a> · @SiteText.Enum(n.Kind, Model.En) · @Model.Date(n.PublishedAt)</p>
+  <h1>@Model.Pick(n.TitleTh, n.TitleEn)</h1>
+  @if (n.EventStartAt != null) { <p class="sub">🗓 @Model.Date(n.EventStartAt) @Model.Time(n.EventStartAt)@(n.EventEndAt != null ? "–" + Model.Time(n.EventEndAt) : "")@(n.EventLocation != null ? " · " + n.EventLocation : "")</p> }
+</div></div>
+<div class="wrap prose-wrap">
+  @if (n.CoverFileId != null) { <img class="cover" src="@SitePageModel.Img(n.CoverFileId)" alt=""> }
+  <div class="prose">@Html.Raw(HtmlSanitizer.Clean(Model.Pick(n.BodyTh, n.BodyEn)))</div>
+</div>

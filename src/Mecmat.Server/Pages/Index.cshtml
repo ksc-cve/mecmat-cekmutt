@@ -1,0 +1,61 @@
+@page "/"
+@model IndexModel
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">@Model.Pick(Model.S("site.departmentTh"), Model.S("site.departmentEn"))</p>
+    <h1>@Model.Pick(Model.S("site.nameTh"), Model.S("site.nameEn"))</h1>
+    @if (Model.About != null) { <div class="lead">@Html.Raw(HtmlSanitizer.Clean(Model.Pick(Model.About.BodyTh, Model.About.BodyEn)))</div> }
+    <p class="actions"><a class="ui-btn primary" href="@Model.Href("/research")">@Model.L("home.cta.research")</a> <a class="ui-btn ghost-light" href="@Model.Href("/join")">@Model.L("home.cta.join")</a></p>
+  </div>
+</section>
+<section class="stats"><div class="wrap grid4">
+  <div><strong>@Model.Stats.People</strong><span>@Model.L("home.stats.people")</span></div>
+  <div><strong>@Model.Stats.Publications</strong><span>@Model.L("home.stats.pubs")</span></div>
+  <div><strong>@Model.Stats.ActiveProjects</strong><span>@Model.L("home.stats.projects")</span></div>
+  <div><strong>@Model.Stats.Partners</strong><span>@Model.L("home.stats.partners")</span></div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="block-head"><h2>@Model.L("home.areas")</h2><a href="@Model.Href("/research")">@Model.L("common.more") →</a></div>
+  <div class="cards">
+    @foreach (var a in Model.Areas)
+    {
+      <article class="card area">
+        @if (a.CoverFileId != null) { <img src="@SitePageModel.Img(a.CoverFileId)" alt="" loading="lazy"> } else { <div class="ph" aria-hidden="true"></div> }
+        <h3>@Model.Pick(a.NameTh, a.NameEn)</h3>
+        @if (!string.IsNullOrEmpty(Model.Pick(a.SummaryTh, a.SummaryEn))) { <p>@Model.Pick(a.SummaryTh, a.SummaryEn)</p> }
+      </article>
+    }
+  </div>
+</div></section>
+<div class="wrap two">
+  <section class="block">
+    <div class="block-head"><h2>@Model.L("home.news")</h2><a href="@Model.Href("/news")">@Model.L("common.more") →</a></div>
+    @if (Model.News.Count == 0) { <p class="muted">@Model.L("common.none")</p> }
+    @foreach (var n in Model.News)
+    {
+      <article class="newsitem">
+        <time>@Model.Date(n.PublishedAt) · @SiteText.Enum(n.Kind, Model.En)</time>
+        <h3><a href="@Model.Href("/news/" + n.Slug)">@Model.Pick(n.TitleTh, n.TitleEn)</a></h3>
+        <p>@Model.Pick(n.SummaryTh, n.SummaryEn)</p>
+      </article>
+    }
+  </section>
+  <section class="block">
+    <div class="block-head"><h2>@Model.L("home.positions")</h2><a href="@Model.Href("/join")">@Model.L("common.more") →</a></div>
+    @if (Model.Positions.Count == 0) { <p class="muted">@Model.L("join.none")</p> }
+    @foreach (var r in Model.Positions)
+    {
+      <article class="newsitem">
+        <time>@SiteText.Enum(r.PositionType, Model.En)@(r.CloseDate != null ? " · " + Model.L("join.closes") + " " + Model.Date(r.CloseDate) : "")</time>
+        <h3><a href="@Model.Href("/join")#@r.Id">@Model.Pick(r.TitleTh, r.TitleEn)</a></h3>
+      </article>
+    }
+    <div class="block-head"><h2>@Model.L("home.recentPubs")</h2><a href="@Model.Href("/publications")">@Model.L("common.more") →</a></div>
+    <ol class="pubs compact">
+      @foreach (var (p, authors) in Model.Pubs)
+      {
+        <li><span class="authors">@string.Join(", ", authors)</span> (@p.Year). <span class="ptitle">@p.TitleEn</span>. <em>@p.VenueName</em>@(p.Doi != null ? "." : "") @if (p.Doi != null) { <a href="https://doi.org/@p.Doi" rel="noopener">doi</a> }</li>
+      }
+    </ol>
+  </section>
+</div>

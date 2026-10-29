@@ -1,0 +1,41 @@
+@page "/projects/{id}"
+@model ProjectModel
+@{ var p = Model.Project; }
+<div class="pagehead"><div class="wrap">
+  <p class="eyebrow"><a href="@Model.Href("/projects")">← @Model.L("nav.projects")</a> · @SiteText.Enum(p.Status, Model.En)</p>
+  <h1>@Model.Pick(p.TitleTh, p.TitleEn)</h1>
+  @if (p.TitleEn != null && !Model.En) { <p class="sub">@p.TitleEn</p> }
+</div></div>
+<div class="wrap two">
+  <div>
+    @if (p.CoverFileId != null) { <img class="cover" src="@SitePageModel.Img(p.CoverFileId)" alt=""> }
+    <p class="lead-dark">@Model.Pick(p.PublicSummaryTh, p.PublicSummaryEn)</p>
+    @if (Model.Outputs.Count > 0)
+    {
+      <h2>@Model.L("projects.outputs")</h2>
+      <ul>@foreach (var o in Model.Outputs) { <li>@SiteText.Enum(o.OutputType, Model.En): @o.Description @(o.TargetQty != null ? $"({o.TargetQty:0.##} {o.Unit})" : "")</li> }</ul>
+    }
+    @if (Model.Pubs.Count > 0)
+    {
+      <h2>@Model.L("nav.publications")</h2>
+      <ol class="pubs">@foreach (var x in Model.Pubs) { <li>(@x.Year) <span class="ptitle">@x.TitleEn</span>. <em>@x.VenueName</em>. @if (x.Doi != null) { <a href="https://doi.org/@x.Doi" rel="noopener">doi:@x.Doi</a> }</li> }</ol>
+    }
+  </div>
+  <aside>
+    @if (p.StartDate != null) { <section class="box"><h3>@Model.L("projects.period")</h3><p>@Model.Date(p.StartDate) – @Model.Date(p.ExtendedEndDate ?? p.EndDate)</p></section> }
+    @if (Model.Team.Count > 0)
+    {
+      <section class="box"><h3>@Model.L("projects.team")</h3><ul class="plain">
+        @foreach (var (name, role, slug) in Model.Team)
+        {
+          var n = name.Split('|');
+          <li>@if (slug != null) { <a href="@Model.Href("/people/" + slug)">@(Model.En ? n[1] : n[0])</a> } else { @(Model.En ? n[1] : n[0]) }<br><span class="muted small">@SiteText.Enum(role, Model.En)</span></li>
+        }
+      </ul></section>
+    }
+    @if (Model.Partners.Count > 0)
+    {
+      <section class="box"><h3>@Model.L("projects.partners")</h3><ul class="plain">@foreach (var o in Model.Partners) { <li>@Model.Pick(o.NameTh, o.NameEn)</li> }</ul></section>
+    }
+  </aside>
+</div>

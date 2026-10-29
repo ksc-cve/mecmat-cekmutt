@@ -1,0 +1,4 @@
+@page "/error/{code:int}"
+@model ErrorModel
+<div class="pagehead"><div class="wrap"><h1>@Model.Code</h1><p class="sub">@Model.PageTitle</p></div></div>
+<div class="wrap prose-wrap"><p><a class="ui-btn primary" href="@Model.Href("/")">@Model.L("nav.home")</a></p></div>

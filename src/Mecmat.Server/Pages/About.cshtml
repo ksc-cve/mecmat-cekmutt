@@ -1,0 +1,15 @@
+@page "/about"
+@model AboutModel
+<div class="pagehead"><div class="wrap"><h1>@Model.L("nav.about")</h1></div></div>
+<div class="wrap prose-wrap">
+  <div class="prose">@Html.Raw(HtmlSanitizer.Clean(Model.PageContent == null ? "" : Model.Pick(Model.PageContent.BodyTh, Model.PageContent.BodyEn)))</div>
+  @if (Model.Leaders.Count > 0)
+  {
+    <h2>@Model.L("people.team")</h2>
+    <div class="people">
+      @foreach (var p in Model.Leaders) { <partial name="_PersonCard" model="(Model as SitePageModel, p)" /> }
+    </div>
+  }
+  <h2>@Model.L("home.areas")</h2>
+  <ul>@foreach (var a in Model.Areas) { <li>@Model.Pick(a.NameTh, a.NameEn)</li> }</ul>
+</div>

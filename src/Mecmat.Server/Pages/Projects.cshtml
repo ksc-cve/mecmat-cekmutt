@@ -1,0 +1,9 @@
+@page "/projects"
+@model ProjectsModel
+@{ var active = Model.Projects.Where(p => p.Status is ProjectStatus.Active or ProjectStatus.Extended or ProjectStatus.Funded).ToList(); var past = Model.Projects.Except(active).ToList(); }
+<div class="pagehead"><div class="wrap"><h1>@Model.L("nav.projects")</h1></div></div>
+<div class="wrap">
+  @if (Model.Projects.Count == 0) { <p class="muted">@Model.L("common.none")</p> }
+  @if (active.Count > 0) { <h2>@Model.L("projects.active")</h2><div class="cards">@foreach (var p in active) { <partial name="_ProjectCard" model="(Model as SitePageModel, p)" /> }</div> }
+  @if (past.Count > 0) { <h2>@Model.L("projects.past")</h2><div class="cards">@foreach (var p in past) { <partial name="_ProjectCard" model="(Model as SitePageModel, p)" /> }</div> }
+</div>

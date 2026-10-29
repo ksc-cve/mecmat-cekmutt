@@ -114,11 +114,31 @@ app.UseStaticFiles(new StaticFileOptions
             ? "public, max-age=604800" : "no-cache";
     },
 });
+// The /en prefix is stripped before routing, so routing must run after it (WebApplication would
+// otherwise insert UseRouting at the very start and match "/en/…" against nothing).
+app.UseMiddleware<Mecmat.Site.LanguageMiddleware>();
+app.UseRouting();
 app.UseMiddleware<SessionMiddleware>();
 app.MapGet("/api/health", () => Results.Ok(new { ok = true, build = BuildInfo.Version }));
 app.MapGet("/app", () => Results.File(Path.Combine(app.Environment.WebRootPath, "app", "index.html"), "text/html; charset=utf-8"));
 app.MapControllers();
 app.MapRazorPages();
+app.MapGet("/robots.txt", (HttpContext ctx) =>
+    Results.Text($"User-agent: *\nDisallow: /app\nDisallow: /api/\nSitemap: {ctx.Request.Scheme}://{ctx.Request.Host}/sitemap.xml\n", "text/plain"));
+app.MapGet("/sitemap.xml", async (HttpContext ctx, PublicQueryService q) =>
+{
+    var root = $"{ctx.Request.Scheme}://{ctx.Request.Host}";
+    var paths = new List<string> { "/", "/about", "/research", "/people", "/projects", "/publications", "/news", "/join", "/facilities", "/partners", "/contact", "/privacy" };
+    paths.AddRange((await q.PeopleAsync()).Select(p => "/people/" + p.Slug));
+    paths.AddRange((await q.ProjectsAsync()).Select(p => "/projects/" + p.Id));
+    paths.AddRange((await q.NewsAsync(500)).Select(n => "/news/" + Uri.EscapeDataString(n.Slug)));
+    var sb = new System.Text.StringBuilder("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n");
+    foreach (var p in paths)
+        foreach (var prefix in new[] { "", "/en" })
+            sb.Append("<url><loc>").Append(System.Security.SecurityElement.Escape(root + prefix + (prefix.Length > 0 && p == "/" ? "" : p))).Append("</loc></url>\n");
+    sb.Append("</urlset>\n");
+    return Results.Text(sb.ToString(), "application/xml");
+});
 app.Run();
 
 public static class BuildInfo

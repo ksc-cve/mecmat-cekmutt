@@ -1129,6 +1129,8 @@ export default {
 "notify.empty": "ไม่มีการแจ้งเตือน",
 "notify.finance.settled": "คำขอเงินของคุณลงบัญชีแล้ว",
 "notify.finance.toSettle": "มีคำขอที่อนุมัติแล้วรอลงบัญชี",
+"notify.inbox.application": "ใบสมัครใหม่: {name} ({position})",
+"notify.inbox.message": "ข้อความใหม่จากเว็บไซต์: {name} — {subject}",
 "notify.markAll": "อ่านทั้งหมดแล้ว",
 "notify.reminder.accountExpiring": "บัญชีของคุณจะหมดอายุ",
 "notify.reminder.accountExpiringAdmin": "บัญชี {username} จะหมดอายุ",
