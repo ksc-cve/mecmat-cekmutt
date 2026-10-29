@@ -1,0 +1,16 @@
+# MECMAT block for /etc/caddy/Caddyfile — ADD this block only; never edit the ERP's block.
+# Until a domain exists the site answers on the bare IP (ADR 0006). Caddy 2.10+ can get a
+# short-lived Let's Encrypt certificate for an IP; on older Caddy replace the `tls` line with
+# `tls internal` (browsers will warn, the connection is still encrypted).
+# Always: caddy validate --config /etc/caddy/Caddyfile  →  systemctl reload caddy
+187.52.127.97 {
+	encode zstd gzip
+	request_body {
+		max_size 105MB
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		-Server
+	}
+	reverse_proxy 127.0.0.1:5180
+}

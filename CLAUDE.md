@@ -18,6 +18,17 @@
 - [docs/adr/](docs/adr/)
 - [docs/OUTSTANDING.md](docs/OUTSTANDING.md)
 
+## คำสั่งที่ใช้บ่อย
+| งาน | คำสั่ง |
+|---|---|
+| build | `tools/dn build src/Mecmat.Server` (เรียก .NET 10 ที่ `~/dev/dotnet10` ไม่แตะ dotnet@8 ของ ERP) |
+| รันบน Mac | `cd src/Mecmat.Server && ../../tools/dn run` → http://127.0.0.1:5180 (ข้อมูลอยู่ที่ `~/mecmat-data` รหัส admin ครั้งแรกพิมพ์ออกทาง console) |
+| migration | `cd src/Mecmat.Server && ../../tools/dn ef migrations add <Name> -o Data/Migrations` |
+| ทดสอบ API | รันเซิร์ฟเวอร์ด้วยข้อมูลทิ้งได้แล้ว `python3 -I tools/apicheck/smoke.py http://127.0.0.1:<port> <otp>` |
+| แปลภาษา | แก้ `tools/i18n/*.tsv` → `python3 -I tools/gen-i18n.py` และ `python3 -I tools/i18n-check.py` (ต้องได้ 0 missing) |
+| enum | แก้ `Domain/*.cs` → `python3 -I tools/gen-enums.py` |
+| ส่งขึ้นเซิร์ฟเวอร์ | [docs/deployment.md](docs/deployment.md) · `deploy/ship.sh --dry-run` |
+
 ## สิ่งที่เจ้าของสั่งไว้ (ห้ามทำเกิน)
 - **ทำทั้งระบบพร้อมกัน** เพราะข้อมูลทุกส่วนเชื่อมโยงกัน ให้ออกแบบสคีมาทั้งหมดก่อน แล้วเปิดใช้งานพร้อมกัน
 - **ไม่ใช้อีเมล** แจ้งเตือนในแอปเท่านั้น และ Admin เป็นผู้รีเซ็ตรหัสผ่าน

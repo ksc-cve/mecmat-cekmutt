@@ -1,0 +1,4 @@
+# /etc/cron.d/mecmat-cekmutt-backup — MECMAT's own schedule, separate from the ERP's (Tue/Fri 22:00).
+# Daily at 02:40 Bangkok, a quiet hour for both sites.
+CRON_TZ=Asia/Bangkok
+40 2 * * * root /opt/mecmat-cekmutt/backup.sh >> /var/log/mecmat-cekmutt-backup.log 2>&1

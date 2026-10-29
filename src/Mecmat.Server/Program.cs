@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Mecmat.Auth;
@@ -29,6 +30,12 @@ var options = new AppOptions
 builder.WebHost.UseUrls(builder.Configuration["Urls"] ?? "http://127.0.0.1:5180");
 builder.WebHost.ConfigureKestrel(k => k.Limits.MaxRequestBodySize = FileStorage.MaxBytes + 1_000_000);
 builder.Services.AddSingleton(options);
+// Antiforgery and other ASP.NET protections need stable keys; the service user has no home
+// directory, so keep them with the data (and therefore in the backups).
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(dataRoot, "dp-keys")))
+    .SetApplicationName("mecmat-cekmutt");
+if (!isDev) builder.Logging.SetMinimumLevel(LogLevel.Warning);
 builder.Services.AddSingleton<LoginThrottle>();
 builder.Services.AddScoped<AuditContext>();
 builder.Services.AddScoped<CurrentUser>();
@@ -72,14 +79,21 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     await db.Database.MigrateAsync();
     await db.Database.ExecuteSqlRawAsync("PRAGMA journal_mode=WAL;");
+    // `Mecmat.Server reset-admin <username>` (run by hand on the server) seeds a fresh database if
+    // needed and prints a one-time password to that terminal only.
     if (args.Length >= 2 && args[0] == "reset-admin")
     {
+        await Seeder.RunAsync(db, app.Logger);
         var otp = await Seeder.ResetPasswordAsync(db, args[1]);
         Console.WriteLine($"One-time password for {args[1]}: {otp}");
         return;
     }
     var first = await Seeder.RunAsync(db, app.Logger);
-    if (first != null)
+    // In production the service's console is the systemd journal, which is kept on disk: never
+    // print a password there. The installer runs reset-admin in the admin's own terminal instead.
+    if (first != null && !isDev)
+        app.Logger.LogWarning("Database seeded. Run `Mecmat.Server reset-admin kasan.cha` as the mecmat user to get the first password.");
+    if (first != null && isDev)
     {
         // Shown once, on the console of whoever started the first run; only its hash is stored.
         Console.WriteLine();
